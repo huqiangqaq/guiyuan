@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">guiyuan</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_his_vertical">HisVerticalActivity</string>
+    <string name="title_activity_qianyang">QianyangActivity</string>
+    <string name="title_activity_zhi_ku">ZhiKuActivity</string>
+    <string name="title_activity_select_store">SelectStoreActivity</string>
+    <string name="title_activity_chuku">ChukuActivity</string>
+    <string name="title_activity_men_wei">MenWeiActivity</string>
+
+</resources>

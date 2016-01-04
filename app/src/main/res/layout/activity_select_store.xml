@@ -1,0 +1,33 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<RelativeLayout
+    android:id="@+id/rl"
+    android:background="@color/royalblue"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    >
+    <ImageView 
+        android:id="@+id/iv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:src="@drawable/back"
+        android:scaleType="fitXY" 
+         />
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="选择仓号"
+        android:textColor="#fff"
+        android:layout_centerInParent="true"
+        />
+</RelativeLayout>
+<ListView 
+    android:id="@+id/lvlist"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@id/rl"
+    />
+</RelativeLayout>
