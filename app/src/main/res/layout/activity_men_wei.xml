@@ -68,7 +68,6 @@
                 android:id="@+id/iv_message"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:background="@drawable/back"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="20dp"
                 />
@@ -116,8 +115,22 @@
                 android:id="@+id/tv_sex"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="3"
+                android:layout_weight="1"
                 android:text="男"
+                android:textColor="@color/royalblue"/>
+            <TextView
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="16sp"
+                android:text="民族"/>
+            <TextView
+                android:id="@+id/tv_minzu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="汉"
                 android:textColor="@color/royalblue"/>
         </LinearLayout>
 
@@ -356,24 +369,18 @@
                     android:id="@+id/tv_date"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
+                    android:layout_weight="3"
                     android:text="2015-12-29"
                     android:textColor="@color/royalblue"
                     android:textSize="14sp" />
-                <TextView
-                    android:id="@+id/tv_time"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2.5"
-                    android:text="17:29:30"
-                    android:textColor="@color/royalblue"
-                    android:textSize="14sp" />
+
             </LinearLayout>
 
         </LinearLayout>
 
     </LinearLayout>
     <Button
+        android:visibility="gone"
         android:id="@+id/btn_recycle"
         android:layout_width="150dp"
         android:layout_height="60dp"

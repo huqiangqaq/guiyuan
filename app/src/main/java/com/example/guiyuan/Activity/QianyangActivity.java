@@ -104,7 +104,9 @@ public class QianyangActivity extends Activity {
 					String waters = water.getText().toString();
 					String rl = rongliang.getText().toString();
 					String zz = zazhi.getText().toString();
-					String path = Constant.BASE_ADDRESS + "CreateAssay/"
+					Intent intent = getIntent();
+					String UserName = intent.getStringExtra("UserName");
+					String path = Constant.BASE_ADDRESS + "CreateAssay/"+UserName
 							+ carnum + "/" + waters + "/" + rl + "/" + zz
 							+ "/" + storenum + "/" + foodname + "/"
 							+ foodtype + "/" + code + "";

@@ -49,14 +49,18 @@ public class HistoryAdapter extends BaseAdapter{
 		}else{
 			viewholder=(ViewHolder)convertView.getTag();
 		}
-		ViewUtils.inject(viewholder,convertView);
+		ViewUtils.inject(viewholder, convertView);
 		HistoryVertical hi=list.get(position);
 		viewholder.tv_vernum.setText(hi.getCarnum());
 		viewholder.tv_storeNum.setText(hi.getStorenum());
-		viewholder.tv_level.setText(hi.getLevel()+"");
+		viewholder.tv_date.setText(hi.getTime());
 		viewholder.tv_foodname.setText(hi.getFoodvari());
+		viewholder.tv_foodtype.setText(hi.getFoodtype());
+		viewholder.tv_level.setText(hi.getLevel()+"");
+
 		viewholder.tv_waterper.setText(hi.getWaterper()+"%");
 		viewholder.tv_rongzhong.setText(hi.getRongweight()+"KG");
+		viewholder.tv_zazhi.setText(hi.getZazhi()+"%");
 		viewholder.tv_maozhong.setText(hi.getMaozhong()+"KG");
 		viewholder.tv_storeman.setText(hi.getStoreman());
 		viewholder.tv_qianyang.setText(hi.getQianyangman());
@@ -65,11 +69,13 @@ public class HistoryAdapter extends BaseAdapter{
 	static class ViewHolder{
 		@ViewInject(R.id.tv_verNum)TextView tv_vernum;
 		@ViewInject(R.id.tv_storeNum)TextView tv_storeNum;
-		@ViewInject(R.id.tv_level)TextView tv_level;
+		@ViewInject(id.tv_time) TextView tv_date;
 		@ViewInject(R.id.tv_foodname)TextView tv_foodname;
 		@ViewInject(R.id.tv_foodtype)TextView tv_foodtype;
+		@ViewInject(R.id.tv_level)TextView tv_level;
 		@ViewInject(R.id.tv_waterper)TextView tv_waterper;
 		@ViewInject(R.id.tv_rongzhong)TextView tv_rongzhong;
+		@ViewInject(id.tv_zazhi)TextView tv_zazhi;
 		@ViewInject(R.id.tv_maozhong)TextView tv_maozhong;
 		@ViewInject(R.id.tv_storeman)TextView tv_storeman;
 		@ViewInject(R.id.tv_qianyang)TextView tv_qianyang;

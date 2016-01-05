@@ -13,4 +13,5 @@ public interface Constant {
 	public static final String CONTACT_ADDRESS=URL+"PDA/getSaleInfomation";
 	public static final String TERMINATE_ADDRESS=URL+"PDA/terminateTrade";
 	public static final String MENWEI_ADDRESS=URL+"PDA/getCarStatusByCardId";
+	public static final String RECYCLE_CARD = URL+"PDA/recycleCard";
 }

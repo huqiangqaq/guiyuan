@@ -64,7 +64,7 @@ private HistoryAdapter adapter;
 					for(int i=1;i<arr.length;i++){
 						String s=arr[i].substring(1);
 						String[] ary=s.split(",");
-						list.add(new HistoryVertical(ary[0], ary[1], ary[2],Integer.valueOf(ary[3]), ary[4], ary[5],
+						list.add(new HistoryVertical(ary[0], ary[1], ary[2],ary[3], ary[4], ary[5],
 								Float.valueOf(ary[6]),Float.valueOf(ary[7]),Float.valueOf(ary[8]),Float.valueOf(ary[9]), ary[10], ary[11]));
 					}
 					adapter=new HistoryAdapter(HisVerticalActivity.this, list);

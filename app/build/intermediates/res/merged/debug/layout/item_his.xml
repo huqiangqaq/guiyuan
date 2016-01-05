@@ -27,20 +27,60 @@
         android:layout_weight="3"
         android:orientation="vertical"
         >
-        <TextView 
-        android:id="@+id/tv_storeNum"
-        android:layout_width="wrap_content"
-        android:text="3号仓"
-        android:textColor="@color/royalblue"
-        android:layout_marginLeft="10dp"
-        android:layout_height="wrap_content"
-        />
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_storeNum"
+                android:layout_width="wrap_content"
+                android:text="3号仓"
+                android:textColor="@color/royalblue"
+                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textColor="@color/royalblue"
+                android:text="asf"
+                android:layout_marginLeft="10dp"
+                android:ellipsize="end"
+                />
+
+        </LinearLayout>
+
         <LinearLayout 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             >
-              <TextView 
+
+            <TextView
+                android:id="@+id/tv_foodname"
+                android:textColor="@color/royalblue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="asf"
+                android:layout_marginLeft="10dp"
+                android:ellipsize="end"
+                />
+            <TextView
+                android:id="@+id/tv_foodtype"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textColor="@color/royalblue"
+                android:text="asf"
+                android:layout_marginLeft="10dp"
+                android:ellipsize="end"
+                />
+            <TextView
         android:id="@+id/tv_level"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,26 +90,9 @@
          android:layout_marginLeft="10dp"
                  android:ellipsize="end"
         />
-              <TextView 
-        android:id="@+id/tv_foodname"
-        android:textColor="@color/royalblue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-           android:singleLine="true"
-           android:text="asf"
-           android:layout_marginLeft="10dp"
-        android:ellipsize="end"
-        />   
-           <TextView 
-        android:id="@+id/tv_foodtype"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:singleLine="true"
-        android:textColor="@color/royalblue"
-        android:text="asf"
-        android:layout_marginLeft="10dp"
-        android:ellipsize="end"
-        />
+
+
+
         </LinearLayout>
     </LinearLayout>
 	</LinearLayout>
@@ -121,8 +144,7 @@
         android:text="容重/出糙"
         android:ellipsize="end"
         />
-	               <TextView 
-	                   android:id="@+id/tv_rongzhong"
+                <TextView android:id="@+id/tv_rongzhong"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:singleLine="true"
@@ -133,36 +155,69 @@
 	               </LinearLayout>
 	</LinearLayout>
 	<!-- 第三行 -->
-	<LinearLayout 
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:layout_marginTop="10dp"
-	    android:orientation="horizontal"
-	    >
-	     <TextView 
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:singleLine="true"
-        android:text="毛重"
-         android:textColor="@color/gray"
-        android:layout_marginLeft="15dp"
-        android:ellipsize="end"
-        />
-	         <TextView 
-        android:id="@+id/tv_maozhong"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:singleLine="true"
-        android:layout_marginLeft="10dp"
-        android:text="100KG"
-        android:ellipsize="end"
-        />
-	</LinearLayout>
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        >
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="2"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="杂质"
+                android:textColor="@color/gray"
+                android:layout_marginLeft="15dp"
+                android:ellipsize="end"
+                />
+            <TextView
+                android:id="@+id/tv_zazhi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:layout_weight="2"
+                android:text="20%"
+                android:layout_marginLeft="15dp"
+                android:ellipsize="end"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="3"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:singleLine="true"
+                android:textColor="@color/gray"
+                android:text="毛重"
+                android:ellipsize="end"
+                />
+            <TextView android:id="@+id/tv_maozhong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:layout_marginLeft="10dp"
+                android:text="100kg"
+                android:ellipsize="end"
+                />
+        </LinearLayout>
+    </LinearLayout>
 	<!-- 第四行 -->
 	<LinearLayout 
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
-	    android:layout_marginTop="20dp"
+	    android:layout_marginTop="10dp"
 	    android:orientation="horizontal"
 	    >
     	<LinearLayout 

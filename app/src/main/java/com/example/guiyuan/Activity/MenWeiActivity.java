@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.guiyuan.R;
 import com.example.guiyuan.Utils.Constant;
+import com.example.guiyuan.Utils.MyCallBack;
 import com.example.guiyuan.Utils.NetUtil;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.exception.HttpException;
@@ -51,12 +52,12 @@ public class MenWeiActivity extends Activity {
 	TextView tv_pizhong;
 	@ViewInject(R.id.tv_date)
 	TextView tv_date;
-	@ViewInject(R.id.tv_time)
-	TextView tv_time;
 	@ViewInject(R.id.btn_recycle)
 	Button btn_recycle;
 	@ViewInject(R.id.shuaka)
 	TextView shuaka;
+	@ViewInject(R.id.tv_minzu)
+	TextView tv_minzu;
 	private static String mCode="";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -64,18 +65,18 @@ public class MenWeiActivity extends Activity {
 		setContentView(R.layout.activity_men_wei);
 		ViewUtils.inject(this);
 		shuaka.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View arg0) {
 				Toast.makeText(getApplicationContext(), "12323", 0).show();
 				// TODO Auto-generated method stub
 //				String code = Nfcreceive.readSigOneBlock(Constants.PASSWORD,
 //				Constants.ADD);
-				String code="1";
+				String code = "1";
 				mCode = code;
-				if (code!=null&&!code.equals("")) {
-					NetUtil.sendNetReqByGet(Constant.MENWEI_ADDRESS+"/"+code, new RequestCallBack<String>() {
-						
+				if (code != null && !code.equals("")) {
+					NetUtil.sendNetReqByGet(Constant.MENWEI_ADDRESS + "/" + code, new RequestCallBack<String>() {
+
 						@Override
 						public void onSuccess(ResponseInfo<String> arg0) {
 							// TODO Auto-generated method stub
@@ -90,30 +91,91 @@ public class MenWeiActivity extends Activity {
 								String[] arr = data.split("\\},");
 								String s = arr[1].substring(1);
 								String[] ary = s.split(",");
-								tv_name.setText(arr[0]);
-								tv_sex.setText(arr[1]);
-								tv_idenfi.setText(arr[3]);
-								tv_chepai.setText(arr[4]);
-								tv_pinzhong.setText(arr[5]);
-								tv_level.setText(arr[6]);
-								tv_shuifen.setText(arr[7]);
-								tv_maozhong.setText(arr[8]);
-								tv_pizhong.setText(arr[9]);
-								tv_date.setText(arr[10]);
-								String type = arr[11];
-								String status = arr[12];
+								tv_name.setText(ary[0]);
+								tv_sex.setText(ary[1]);
+								tv_minzu.setText(ary[2]);
+								tv_idenfi.setText(ary[3]);
+								tv_chepai.setText(ary[4]);
+								tv_pinzhong.setText(ary[5]);
+								tv_level.setText(ary[6]);
+								tv_shuifen.setText(ary[7]);
+								tv_maozhong.setText(ary[8]);
+								tv_pizhong.setText(ary[9]);
+								tv_date.setText(ary[10]);
+								double pizhong = Double.parseDouble(ary[9]);
+								double maozhong = Double.parseDouble(ary[8]);
+								String type = ary[11];
+								String status = ary[12];
+								double chengji = pizhong * maozhong;
+								//入库判断
+								if ("入库".equals(type)) {
+									if ("5".equals(status)) {
+										iv_logomsg.setBackgroundResource(R.drawable.status5);
+										btn_recycle.setVisibility(View.VISIBLE);
+										tv_message.setText("交粮完成！可以出库！");
+									} else if ("1".equals(status) || "2".equals(status) || "4".equals(status)) {
+										iv_logomsg.setBackgroundResource(R.drawable.status6);
+										tv_message.setText("交粮未完成！请去去皮！");
+										tv_message.setTextColor(getResources().getColor(R.color.tomato));
+										tv_pizhong.setText("请称重！");
+										tv_pizhong.setTextColor(getResources().getColor(R.color.tomato));
+									} else if ("3".equals(status) && chengji == 0) {
+										iv_logomsg.setBackgroundResource(R.drawable.status2);
+										tv_message.setText("退粮未完成！请去去皮！");
+										tv_message.setTextColor(getResources().getColor(R.color.tomato));
+										tv_pizhong.setText("请称重！");
+										tv_pizhong.setTextColor(getResources().getColor(R.color.tomato));
+									} else if ("3".equals(status) && chengji != 0) {
+										iv_logomsg.setBackgroundResource(R.drawable.status4);
+										btn_recycle.setVisibility(View.VISIBLE);
+										tv_message.setText("退粮完成！可以出库");
+									}
+								}
+								//出库判断
+								if ("出库".equals(type)) {
+									if ("5".equals(status)) {
+										iv_logomsg.setBackgroundResource(R.drawable.status5);
+										btn_recycle.setVisibility(View.VISIBLE);
+										tv_message.setText("交粮完成！可以出库！");
+									} else if ("1".equals(status) || "2".equals(status) || "4".equals(status)) {
+										iv_logomsg.setBackgroundResource(R.drawable.status6);
+										tv_message.setText("拉粮终止！请去称毛重！");
+										tv_message.setTextColor(getResources().getColor(R.color.tomato));
+										tv_pizhong.setText("请称重！");
+										tv_pizhong.setTextColor(getResources().getColor(R.color.tomato));
+									} else if ("3".equals(status) && chengji == 0) {
+										iv_logomsg.setBackgroundResource(R.drawable.status2);
+										tv_message.setText("拉粮终止！请去称毛重！");
+										tv_message.setTextColor(getResources().getColor(R.color.tomato));
+										tv_pizhong.setText("请称重！");
+										tv_pizhong.setTextColor(getResources().getColor(R.color.tomato));
+									} else if ("3".equals(status) && chengji != 0) {
+										iv_logomsg.setBackgroundResource(R.drawable.status3);
+										btn_recycle.setVisibility(View.VISIBLE);
+										tv_message.setText("拉粮完成！可以出库");
+									}
+								}
+
 							} catch (JSONException e) {
 								// TODO: handle exception
 							}
 						}
-						
+
 						@Override
 						public void onFailure(HttpException arg0, String arg1) {
 							// TODO Auto-generated method stub
-							
+
 						}
 					});
 				}
+			}
+		});
+
+		btn_recycle.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				NetUtil.sendNetReqByGet(Constant.RECYCLE_CARD+"/"+mCode, new MyCallBack(MenWeiActivity.this, 4, null));
+				Toast.makeText(getApplicationContext(), "卡片已回收", Toast.LENGTH_SHORT).show();
 			}
 		});
 	}

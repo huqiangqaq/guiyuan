@@ -71,6 +71,7 @@ public class LoginActivity extends Activity {
                     startActivity(intent);
                 }else if ("3".equals(LoginResult)){
                     Intent intent = new Intent(LoginActivity.this, QianyangActivity.class);
+                    intent.putExtra("UserName",UserName);
                     startActivity(intent);
                 }else if ("4".equals(LoginResult)){
                     Toast.makeText(getApplicationContext(),"你是门卫",Toast.LENGTH_SHORT).show();
