@@ -92,9 +92,9 @@ public class QianyangActivity extends Activity {
 		shuaka.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-//				String code = Nfcreceive.readSigOneBlock(Constants.PASSWORD,
-//						Constants.ADD);
-				String code = "1";
+				String code = Nfcreceive.readSigOneBlock(Constants.PASSWORD,
+						Constants.ADD);
+//				String code = "1";
 				if (code!=null&&!code.equals("")) {
 					tv_wait.setText(code);
 					String carnum = sp_chepai.getSelectedItem().toString()+sp_chepaiNum.getSelectedItem().toString()+carno.getText().toString();

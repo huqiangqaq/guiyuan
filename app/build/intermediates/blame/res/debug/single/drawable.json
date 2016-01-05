@@ -84,6 +84,10 @@
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\drawable\\carnum.xml"
     },
     {
+        "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\zhlk_icon.png",
+        "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\drawable\\zhlk_icon.png"
+    },
+    {
         "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\status6.png",
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\drawable\\status6.png"
     },

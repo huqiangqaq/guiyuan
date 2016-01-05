@@ -983,6 +983,7 @@ containing a value of this type.
         public static final int status5=0x7f020067;
         public static final int status6=0x7f020068;
         public static final int u285=0x7f020069;
+        public static final int zhlk_icon=0x7f02006a;
     }
     public static final class id {
         public static final int LinearLayout1=0x7f0c0051;

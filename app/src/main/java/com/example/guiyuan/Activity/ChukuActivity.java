@@ -21,11 +21,14 @@ import com.example.guiyuan.R.menu;
 import com.example.guiyuan.Utils.Constant;
 import com.example.guiyuan.Utils.MyCallBack;
 import com.example.guiyuan.Utils.NetUtil;
+import com.ichoice.nfcHandler.Constants;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.view.annotation.ViewInject;
+
+import cilico.tools.Nfcreceive;
 
 public class ChukuActivity extends Activity {
 	@ViewInject(R.id.tv_name)
@@ -77,9 +80,9 @@ public class ChukuActivity extends Activity {
 		shuaka.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-//				String code = Nfcreceive.readSigOneBlock(Constants.PASSWORD,
-//						Constants.ADD);
-				String code="1";
+				String code = Nfcreceive.readSigOneBlock(Constants.PASSWORD,
+						Constants.ADD);
+//				String code="1";
 				mCode = code;
 				if (code != null && !code.equals("")) {
 					NetUtil.sendNetReqByGet(Constant.CONTACT_ADDRESS+"/"+code,

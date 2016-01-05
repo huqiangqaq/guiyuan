@@ -19,11 +19,14 @@ import com.example.guiyuan.R;
 import com.example.guiyuan.Utils.Constant;
 import com.example.guiyuan.Utils.MyCallBack;
 import com.example.guiyuan.Utils.NetUtil;
+import com.ichoice.nfcHandler.Constants;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.view.annotation.ViewInject;
+
+import cilico.tools.Nfcreceive;
 
 public class MenWeiActivity extends Activity {
 	@ViewInject(R.id.iv_logomsg)
@@ -68,11 +71,11 @@ public class MenWeiActivity extends Activity {
 
 			@Override
 			public void onClick(View arg0) {
-				Toast.makeText(getApplicationContext(), "12323", 0).show();
+				//Toast.makeText(getApplicationContext(), "12323", 0).show();
 				// TODO Auto-generated method stub
-//				String code = Nfcreceive.readSigOneBlock(Constants.PASSWORD,
-//				Constants.ADD);
-				String code = "1";
+				String code = Nfcreceive.readSigOneBlock(Constants.PASSWORD,
+						Constants.ADD);
+//				String code = "1";
 				mCode = code;
 				if (code != null && !code.equals("")) {
 					NetUtil.sendNetReqByGet(Constant.MENWEI_ADDRESS + "/" + code, new RequestCallBack<String>() {

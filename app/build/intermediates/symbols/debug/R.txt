@@ -404,6 +404,7 @@ int drawable status4 0x7f020066
 int drawable status5 0x7f020067
 int drawable status6 0x7f020068
 int drawable u285 0x7f020069
+int drawable zhlk_icon 0x7f02006a
 int id LinearLayout1 0x7f0c0051
 int id action_bar 0x7f0c001c
 int id action_bar_activity_content 0x7f0c0000

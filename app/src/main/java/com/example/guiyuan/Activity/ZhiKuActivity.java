@@ -93,9 +93,9 @@ public class ZhiKuActivity extends Activity {
 		tv_shuaka.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				/*final String code = Nfcreceive.readSigOneBlock(
-						Constants.PASSWORD, Constants.ADD);*/
-				final String code ="1";
+				final String code = Nfcreceive.readSigOneBlock(
+						Constants.PASSWORD, Constants.ADD);
+//				final String code ="1";
 				mCode = code;
 				if (!"".equals(code)&&code!=null) {
 					NetUtil.sendNetReqByGet(

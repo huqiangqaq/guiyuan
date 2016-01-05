@@ -57,6 +57,7 @@ public class LoginActivity extends Activity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                dialog.show();
                UserName = etUserName.getText().toString();
                 PassWord= etPassWord.getText().toString();
                 //判断是否勾选记住密码选项
@@ -66,20 +67,7 @@ public class LoginActivity extends Activity {
 
                 //判断账户身份及判断登录状态
                 new MyThread().execute(url);
-                if ("1".equals(LoginResult)||"2".equals(LoginResult)){
-                    Intent intent = new Intent(LoginActivity.this,ZhiKuActivity.class);
-                    startActivity(intent);
-                }else if ("3".equals(LoginResult)){
-                    Intent intent = new Intent(LoginActivity.this, QianyangActivity.class);
-                    intent.putExtra("UserName",UserName);
-                    startActivity(intent);
-                }else if ("4".equals(LoginResult)){
-                    Toast.makeText(getApplicationContext(),"你是门卫",Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(LoginActivity.this, MenWeiActivity.class);
-                    startActivity(intent);
-                }else {
-					Toast.makeText(LoginActivity.this, "登录失败", Toast.LENGTH_SHORT).show();
-				}
+
 
 
 //                HttpUtil.GetJsonFromNet(getApplicationContext(), LOGINIP, params, new HttpUtil.GetJsonCallBack() {
@@ -115,12 +103,11 @@ public class LoginActivity extends Activity {
        @Override
        protected void onPreExecute() {
            super.onPreExecute();
-           dialog.show();
+
        }
 
        @Override
        protected String doInBackground(String... params) {
-
            //新建http对象
            HttpGetAndPost  myhttAndPost=new HttpGetAndPost(params[0]/*+File.separatorChar +"jj"*/,"PDA/Login/"+UserName+"/"+PassWord);
 
@@ -135,6 +122,23 @@ public class LoginActivity extends Activity {
            super.onPostExecute(s);
            LoginResult = JsonUtil.parseLoginResult(s);
            dialog.dismiss();
+           if ("1".equals(LoginResult)||"2".equals(LoginResult)){
+               Intent intent = new Intent(LoginActivity.this,ZhiKuActivity.class);
+               startActivity(intent);
+               LoginActivity.this.finish();
+           }else if ("3".equals(LoginResult)){
+               Intent intent = new Intent(LoginActivity.this, QianyangActivity.class);
+               intent.putExtra("UserName", UserName);
+               startActivity(intent);
+               LoginActivity.this.finish();
+           }else if ("4".equals(LoginResult)){
+               //Toast.makeText(getApplicationContext(),"你是门卫",Toast.LENGTH_SHORT).show();
+               Intent intent = new Intent(LoginActivity.this, MenWeiActivity.class);
+               startActivity(intent);
+               LoginActivity.this.finish();
+           }else {
+               Toast.makeText(LoginActivity.this, "登录失败", Toast.LENGTH_SHORT).show();
+           }
            Log.i("123+++++++++++",LoginResult.toString());
        }
    }
