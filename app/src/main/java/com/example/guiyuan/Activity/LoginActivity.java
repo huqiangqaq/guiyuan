@@ -138,7 +138,7 @@ public class LoginActivity extends Activity {
                startActivity(intent);
                LoginActivity.this.finish();
            }else {
-               Toast.makeText(LoginActivity.this, "登录失败", Toast.LENGTH_SHORT).show();
+               Toast.makeText(LoginActivity.this, "登录失败,请检查账号和密码是否正确", Toast.LENGTH_SHORT).show();
            }
            Log.i("123+++++++++++",LoginResult.toString());
        }
