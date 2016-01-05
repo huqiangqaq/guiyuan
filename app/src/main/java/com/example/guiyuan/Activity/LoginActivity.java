@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.example.guiyuan.R;
+import com.example.guiyuan.Utils.Constant;
 import com.example.guiyuan.Utils.HttpGetAndPost;
 import com.example.guiyuan.Utils.JsonUtil;
 import com.example.guiyuan.Utils.PreferenceService;
@@ -66,7 +67,7 @@ public class LoginActivity extends Activity {
                 }
 
                 //判断账户身份及判断登录状态
-                new MyThread().execute(url);
+                new MyThread().execute(Constant.URL);
 
 
 
