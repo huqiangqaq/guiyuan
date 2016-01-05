@@ -35,7 +35,7 @@ public class LoginActivity extends Activity {
     private boolean isAutoLogin =false;
     private static String LOGINIP ="";
     ProgressDialog dialog = null;
-    String url ="http://192.168.1.138:7000";
+    String url ="http://192.168.1.251:7000";
     private static String UserName ="";
     private static String PassWord="";
     private static String LoginResult = "";
@@ -67,7 +67,7 @@ public class LoginActivity extends Activity {
                 }
 
                 //判断账户身份及判断登录状态
-                new MyThread().execute(Constant.URL);
+                new MyThread().execute(url);
 
 
 
