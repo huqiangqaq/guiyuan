@@ -7,6 +7,7 @@ import com.example.guiyuan.R;
 import com.example.guiyuan.Utils.Constant;
 import com.example.guiyuan.Utils.HttpGetAndPost;
 import com.example.guiyuan.Utils.JsonUtil;
+import com.example.guiyuan.Utils.NetCheckUtil;
 import com.example.guiyuan.Utils.PreferenceService;
 
 
@@ -46,6 +47,11 @@ public class LoginActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_login);
         init();
+        if (!NetCheckUtil.isConnected(this)){
+            btnLogin.setEnabled(false);
+            Toast.makeText(this,"当前无网络连接，请检查网络设置",Toast.LENGTH_SHORT).show();
+        }
+
         preferenceService = new PreferenceService(getApplicationContext());
         map = new HashMap<String,String>();
         map = preferenceService.getPrefrences();
@@ -59,16 +65,15 @@ public class LoginActivity extends Activity {
             @Override
             public void onClick(View v) {
                 dialog.show();
-               UserName = etUserName.getText().toString();
-                PassWord= etPassWord.getText().toString();
+                UserName = etUserName.getText().toString();
+                PassWord = etPassWord.getText().toString();
                 //判断是否勾选记住密码选项
-                if (isAutoLogin){
+                if (isAutoLogin) {
                     preferenceService.save(etUserName.getText().toString(), etPassWord.getText().toString());
                 }
 
                 //判断账户身份及判断登录状态
                 new MyThread().execute(url);
-
 
 
 //                HttpUtil.GetJsonFromNet(getApplicationContext(), LOGINIP, params, new HttpUtil.GetJsonCallBack() {

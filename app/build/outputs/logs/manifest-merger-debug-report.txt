@@ -36,6 +36,10 @@ uses-permission#android.permission.NFC
 ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:12:5-62
 	android:name
 		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:12:22-59
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:13:5-78
+	android:name
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:13:22-76
 application
 ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:14:5-85:19
 MERGED from [com.android.support:support-v4:20.0.0] D:\Android\Android Projects\guiyuan\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\AndroidManifest.xml:17:5-19

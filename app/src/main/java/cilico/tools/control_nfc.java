@@ -29,8 +29,16 @@ public class control_nfc {
 	 * ****/
 	static public String readSingOneBlock(Intent intent, String password,
 			int address) {
+		
+
+		//if (intent != null) {
+		if(null == intent || null == intent.getAction()) {
+			Log.i("ichoiceTest","Intent is : NULL");
+			return "";
+		}
+		Log.i("ichoiceTest","Intent is : "+intent.toString());
 		Tag m_tagFromIntent = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
-		if (intent != null) {
+		
 			byte[] passw = stringToBytes(password);
 			if (address<0) {
 				return "";
@@ -55,7 +63,6 @@ public class control_nfc {
 									byte[] data = mfc.readBlock(address);
 									if (data != null) 
 									{
-										
 										String strid = bytesToHexString(data);
 										Log.i("ichoiceTest", "addr is : "+address);
 										Log.i("ichoiceTest", "original data is : "+data);
@@ -84,8 +91,7 @@ public class control_nfc {
 				}
 			}
 			return "";
-		}
-		return "";
+
 	}
 	/**
 	 * 写标签
