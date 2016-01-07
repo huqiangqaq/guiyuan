@@ -5,7 +5,9 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
@@ -20,6 +22,8 @@ import com.example.guiyuan.R.id;
 import com.example.guiyuan.R.layout;
 import com.example.guiyuan.R.menu;
 import com.example.guiyuan.Utils.Constant;
+import com.example.guiyuan.Utils.HttpGetAndPost;
+import com.example.guiyuan.Utils.JsonUtil;
 import com.example.guiyuan.Utils.MyCallBack;
 import com.example.guiyuan.Utils.NetUtil;
 import com.ichoice.nfcHandler.Constants;
@@ -80,6 +84,8 @@ public class ChukuActivity extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_chuku);
 		ViewUtils.inject(this);
+		tv_confirm.setVisibility(View.GONE);
+		tv_cancel.setVisibility(View.GONE);
 		shuaka.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -92,6 +98,8 @@ public class ChukuActivity extends Activity {
 							new RequestCallBack<String>() {
 								@Override
 								public void onSuccess(ResponseInfo<String> req) {
+									tv_confirm.setVisibility(View.VISIBLE);
+									tv_cancel.setVisibility(View.VISIBLE);
 									String str = req.result;
 									JSONObject json;
 									try {
@@ -138,12 +146,13 @@ public class ChukuActivity extends Activity {
 					UserName = intent.getStringExtra("UserName");
 					System.out.println(mStroeNum);
 					System.out.println(mCode);
-					NetUtil.sendNetReqByGet(
-							Constant.UPDATE_ADDRESS + "/"+UserName+"/" + mCode
-									+ "/"
-									+ mStroeNum,
-							new MyCallBack(ChukuActivity.this, 4,
-									null));
+//					NetUtil.sendNetReqByGet(
+//							Constant.UPDATE_ADDRESS + "/"+UserName+"/" + mCode
+//									+ "/"
+//									+ mStroeNum,
+//							new MyCallBack(ChukuActivity.this, 4,
+//									null));
+					new MyThread().execute(Constant.UPDATE_ADDRESS);
 					Toast.makeText(getApplicationContext(), "提交成功", Toast.LENGTH_SHORT).show();
 				}
 			}
@@ -155,7 +164,8 @@ public class ChukuActivity extends Activity {
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				System.out.println(mCode);
-				NetUtil.sendNetReqByGet(Constant.TERMINATE_ADDRESS+"/"+UserName+"/"+mCode, new MyCallBack(ChukuActivity.this, 4, null));
+				new MyThread().execute(Constant.TERMINATE_ADDRESS);
+				//NetUtil.sendNetReqByGet(Constant.TERMINATE_ADDRESS + "/" + UserName + "/" + mCode, new MyCallBack(ChukuActivity.this, 4, null));
 				Toast.makeText(getApplicationContext(), "退粮成功", Toast.LENGTH_SHORT).show();
 			}
 		});
@@ -189,6 +199,31 @@ public class ChukuActivity extends Activity {
 			red_foodname.setText("品种:"+name);
 			red_level.setText("等级:"+level+"等");
 			red_water.setText("水分:"+water+"%");
+		}
+	}
+
+	class MyThread extends AsyncTask<String,Void,String> {
+		@Override
+		protected void onPreExecute() {
+			super.onPreExecute();
+
+		}
+
+		@Override
+		protected String doInBackground(String... params) {
+			//新建http对象
+			HttpGetAndPost myhttAndPost=new HttpGetAndPost(params[0]/*+File.separatorChar +"jj"*/,UserName+"/"+mCode+"/"+mStroeNum);
+
+			myhttAndPost.getHttpClient();
+			String  jsonStr=myhttAndPost.doPost();
+			Log.i("CT_PDA_POST_DEMO", "RESP:" + jsonStr.toString());
+			return jsonStr;
+		}
+
+		@Override
+		protected void onPostExecute(String s) {
+			super.onPostExecute(s);
+			String result = JsonUtil.parseLoginResult(s);
 		}
 	}
 }

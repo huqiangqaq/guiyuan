@@ -8,8 +8,10 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -26,11 +28,14 @@ import com.example.guiyuan.R.id;
 import com.example.guiyuan.R.layout;
 import com.example.guiyuan.R.menu;
 import com.example.guiyuan.Utils.Constant;
+import com.example.guiyuan.Utils.HttpGetAndPost;
+import com.example.guiyuan.Utils.JsonUtil;
 import com.example.guiyuan.Utils.NetUtil;
 import com.ichoice.nfcHandler.Constants;
 import com.ichoice.nfcHandler.MainNfcHandler;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.exception.HttpException;
+import com.lidroid.xutils.http.RequestParams;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.view.annotation.ViewInject;
@@ -66,6 +71,7 @@ public class QianyangActivity extends Activity {
 	private Handler mnfcHandler = new MainNfcHandler();
 	private String[] shengfen = {"辽","吉","京","蒙","黑","津","冀","浙","沪","粤","鲁","晋","豫","军"};
 	private String[] num = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N"};
+	private static String carnum,foodname,foodtype,storenum,waters,rl,zz,UserName,code;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -96,23 +102,26 @@ public class QianyangActivity extends Activity {
 			public void onClick(View v) {
 				String code = Nfcreceive.readSigOneBlock(Constants.PASSWORD,
 						Constants.ADD);
-//				String code = "1";
+//				code = "1";
 				if (code!=null&&!code.equals("")) {
 					tv_wait.setText(code);
-					String carnum = sp_chepai.getSelectedItem().toString()+sp_chepaiNum.getSelectedItem().toString()+carno.getText().toString();
-					String foodname = (String) sp_foodname.getSelectedItem();
-					String foodtype = (String) sp_foodtype.getSelectedItem();
-					String storenum = (String) sp_store.getSelectedItem();
-					String waters = water.getText().toString();
-					String rl = rongliang.getText().toString();
-					String zz = zazhi.getText().toString();
+					carnum = sp_chepai.getSelectedItem().toString()+sp_chepaiNum.getSelectedItem().toString()+carno.getText().toString();
+					foodname = (String) sp_foodname.getSelectedItem();
+					foodtype = (String) sp_foodtype.getSelectedItem();
+					storenum = (String) sp_store.getSelectedItem();
+					waters = water.getText().toString();
+					rl = rongliang.getText().toString();
+					zz = zazhi.getText().toString();
 					Intent intent = getIntent();
-					String UserName = intent.getStringExtra("UserName");
+					UserName = intent.getStringExtra("UserName");
 					String path = Constant.BASE_ADDRESS + "CreateAssay/"+UserName
 							+ carnum + "/" + waters + "/" + rl + "/" + zz
 							+ "/" + storenum + "/" + foodname + "/"
-							+ foodtype + "/" + code + "";
-					NetUtil.sendNetReqByGet(path, new MyCallBack(4));
+							+ foodtype + "/" + code/* + ""*/;
+//					RequestParams params = new RequestParams();
+//					params.addBodyParameter("username", UserName);
+//					NetUtil.sendNetReqByPost(path,params, new MyCallBack(4));
+					new MyThread().execute(Constant.URL);
 					Toast.makeText(getApplicationContext(), "成功", Toast.LENGTH_SHORT).show();
 					carno.setText("");
 					water.setText("");
@@ -138,12 +147,14 @@ public class QianyangActivity extends Activity {
 
 		@Override
 		public void onFailure(HttpException e, String arg1) {
+			System.out.println("huqiang");
 			e.printStackTrace();
 		}
 
 		@Override
 		public void onSuccess(ResponseInfo<String> req) {
 			String data = req.result;
+			System.out.println(data);
 			List<String> list = new ArrayList<String>();
 			try {
 				JSONObject json = new JSONObject(data);
@@ -194,4 +205,30 @@ public class QianyangActivity extends Activity {
 		return true;
 	}
 
+	class MyThread extends AsyncTask<String,Void,String> {
+		@Override
+		protected void onPreExecute() {
+			super.onPreExecute();
+
+		}
+
+		@Override
+		protected String doInBackground(String... params) {
+			//新建http对象
+			HttpGetAndPost myhttAndPost=new HttpGetAndPost(params[0]/*+File.separatorChar +"jj"*/,"CreateAssay/"+UserName+"/"+ carnum + "/" + waters + "/" + rl + "/" + zz
+					+ "/" + storenum + "/" + foodname + "/"
+					+ foodtype + "/" + code/* + ""*/);
+
+			myhttAndPost.getHttpClient();
+			String  jsonStr=myhttAndPost.doPost();
+			Log.i("CT_PDA_POST_DEMO","RESP:"+jsonStr.toString());
+			return jsonStr;
+		}
+
+		@Override
+		protected void onPostExecute(String s) {
+			super.onPostExecute(s);
+			String result = JsonUtil.parseLoginResult(s);
+		}
+	}
 }

@@ -5,8 +5,10 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -22,6 +24,8 @@ import com.example.guiyuan.R.id;
 import com.example.guiyuan.R.layout;
 import com.example.guiyuan.R.menu;
 import com.example.guiyuan.Utils.Constant;
+import com.example.guiyuan.Utils.HttpGetAndPost;
+import com.example.guiyuan.Utils.JsonUtil;
 import com.example.guiyuan.Utils.MyCallBack;
 import com.example.guiyuan.Utils.NetUtil;
 import com.ichoice.nfcHandler.Constants;
@@ -65,14 +69,19 @@ public class ZhiKuActivity extends Activity {
 	TextView tv_cancel;
 	private Handler myhandler = new Handler();
 	private Handler mnfcHandler = new MainNfcHandler();
-	private static String mCode="";
+	private static String mCode;
 	private static String UserName;
+	private static String storenum;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_zhi_ku);
 		ViewUtils.inject(this);
+		tv_confirm.setVisibility(View.GONE);
+		tv_cancel.setVisibility(View.GONE);
+		Intent intent = getIntent();
+		UserName = intent.getStringExtra("UserName");
 		Nfcreceive.m_handler = mnfcHandler;
 		tv_change.setOnClickListener(new OnClickListener() {
 			
@@ -105,19 +114,22 @@ public class ZhiKuActivity extends Activity {
 					NetUtil.sendNetReqByGet(
 							Constant.ZHIKU_ADDRESS + "/" + code,
 							new CustomQueryRequestCallback());
+					tv_confirm.setVisibility(View.VISIBLE);
+					tv_cancel.setVisibility(View.VISIBLE);
 					tv_confirm.setOnClickListener(new OnClickListener() {
 						@Override
 						public void onClick(View v) {
 							int count = sp_storenum.getAdapter().getCount();
-							Intent intent = getIntent();
-							UserName = intent.getStringExtra("UserName");
+
 							if (count != 0)
-								NetUtil.sendNetReqByGet(
-										Constant.UPDATE_ADDRESS + "/" +UserName+"/"+ code
-												+ "/"
-												+ sp_storenum.getSelectedItem(),
-										new MyCallBack(ZhiKuActivity.this, 4,
-												null));
+//								NetUtil.sendNetReqByGet(
+//										Constant.UPDATE_ADDRESS + "/" +UserName+"/"+ mcode
+//												+ "/"
+//												+ sp_storenum.getSelectedItem(),
+//										new MyCallBack(ZhiKuActivity.this, 4,
+//												null));
+							storenum = (String) sp_storenum.getSelectedItem();
+							new MyThread().execute(Constant.UPDATE_ADDRESS);
 						}
 					});
 				}
@@ -129,7 +141,8 @@ public class ZhiKuActivity extends Activity {
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				System.out.println(mCode);
-				NetUtil.sendNetReqByGet(Constant.TERMINATE_ADDRESS+"/"+UserName+"/"+mCode, new MyCallBack(ZhiKuActivity.this, 4, null));
+				new MyThread().execute(Constant.TERMINATE_ADDRESS);
+				//NetUtil.sendNetReqByGet(Constant.TERMINATE_ADDRESS + "/" + UserName + "/" + mCode, new MyCallBack(ZhiKuActivity.this, 4, null));
 				Toast.makeText(getApplicationContext(), "退粮成功", Toast.LENGTH_SHORT).show();
 			}
 		});
@@ -172,6 +185,31 @@ public class ZhiKuActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.zhi_ku, menu);
 		return true;
+	}
+
+	class MyThread extends AsyncTask<String,Void,String> {
+		@Override
+		protected void onPreExecute() {
+			super.onPreExecute();
+
+		}
+
+		@Override
+		protected String doInBackground(String... params) {
+			//新建http对象
+			HttpGetAndPost myhttAndPost=new HttpGetAndPost(params[0]/*+File.separatorChar +"jj"*/,UserName+"/"+mCode+"/"+storenum);
+
+			myhttAndPost.getHttpClient();
+			String  jsonStr=myhttAndPost.doPost();
+			Log.i("CT_PDA_POST_DEMO", "RESP:" + jsonStr.toString());
+			return jsonStr;
+		}
+
+		@Override
+		protected void onPostExecute(String s) {
+			super.onPostExecute(s);
+			String result = JsonUtil.parseLoginResult(s);
+		}
 	}
 
 }

@@ -36,7 +36,7 @@ public class LoginActivity extends Activity {
     private boolean isAutoLogin =false;
     private static String LOGINIP ="";
     ProgressDialog dialog = null;
-    String url ="http://192.168.1.241:7000";
+    String url ="http://192.168.1.105:7000";
     private static String UserName ="";
     private static String PassWord="";
     private static String LoginResult = "";
@@ -73,7 +73,7 @@ public class LoginActivity extends Activity {
                 }
 
                 //判断账户身份及判断登录状态
-                new MyThread().execute(url);
+                new MyThread().execute(Constant.URL);
 
 
 //                HttpUtil.GetJsonFromNet(getApplicationContext(), LOGINIP, params, new HttpUtil.GetJsonCallBack() {
@@ -147,7 +147,7 @@ public class LoginActivity extends Activity {
            }else {
                Toast.makeText(LoginActivity.this, "登录失败,请检查账号和密码是否正确", Toast.LENGTH_SHORT).show();
            }
-           Log.i("123+++++++++++",LoginResult.toString());
+           Log.i("123+++++++++++", LoginResult.toString());
        }
    }
 }

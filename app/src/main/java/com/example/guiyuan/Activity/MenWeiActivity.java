@@ -6,7 +6,9 @@ import org.json.JSONObject;
 import android.R.string;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,6 +21,8 @@ import android.widget.Toast;
 
 import com.example.guiyuan.R;
 import com.example.guiyuan.Utils.Constant;
+import com.example.guiyuan.Utils.HttpGetAndPost;
+import com.example.guiyuan.Utils.JsonUtil;
 import com.example.guiyuan.Utils.MyCallBack;
 import com.example.guiyuan.Utils.NetUtil;
 import com.ichoice.nfcHandler.Constants;
@@ -77,9 +81,9 @@ public class MenWeiActivity extends Activity {
 			public void onClick(View arg0) {
 				//Toast.makeText(getApplicationContext(), "12323", 0).show();
 				// TODO Auto-generated method stub
-				String code = Nfcreceive.readSigOneBlock(Constants.PASSWORD,
-						Constants.ADD);
-//				String code = "1";
+//				String code = Nfcreceive.readSigOneBlock(Constants.PASSWORD,
+//						Constants.ADD);
+				String code = "3";
 				mCode = code;
 				Intent intent = getIntent();
 				UserName = intent.getStringExtra("UserName");
@@ -183,7 +187,8 @@ public class MenWeiActivity extends Activity {
 		btn_recycle.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				NetUtil.sendNetReqByGet(Constant.RECYCLE_CARD+"/"+UserName+"/"+mCode, new MyCallBack(MenWeiActivity.this, 4, null));
+				//NetUtil.sendNetReqByGet(Constant.RECYCLE_CARD+"/"+UserName+"/"+mCode, new MyCallBack(MenWeiActivity.this, 4, null));
+				new MyThread().execute(Constant.RECYCLE_CARD);
 				Toast.makeText(getApplicationContext(), "卡片已回收", Toast.LENGTH_SHORT).show();
 			}
 		});
@@ -206,5 +211,29 @@ public class MenWeiActivity extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	class MyThread extends AsyncTask<String,Void,String> {
+		@Override
+		protected void onPreExecute() {
+			super.onPreExecute();
+
+		}
+
+		@Override
+		protected String doInBackground(String... params) {
+			//新建http对象
+			HttpGetAndPost myhttAndPost=new HttpGetAndPost(params[0]/*+File.separatorChar +"jj"*/,UserName+"/"+mCode);
+
+			myhttAndPost.getHttpClient();
+			String  jsonStr=myhttAndPost.doPost();
+			Log.i("CT_PDA_POST_DEMO", "RESP:" + jsonStr.toString());
+			return jsonStr;
+		}
+
+		@Override
+		protected void onPostExecute(String s) {
+			super.onPostExecute(s);
+			String result = JsonUtil.parseLoginResult(s);
+		}
 	}
 }
