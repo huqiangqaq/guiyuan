@@ -36,7 +36,7 @@ public class LoginActivity extends Activity {
     private boolean isAutoLogin =false;
     private static String LOGINIP ="";
     ProgressDialog dialog = null;
-    String url ="http://192.168.1.105:7000";
+    String url ="http://192.168.1.241:7000";
     private static String UserName ="";
     private static String PassWord="";
     private static String LoginResult = "";
@@ -128,17 +128,17 @@ public class LoginActivity extends Activity {
            super.onPostExecute(s);
            LoginResult = JsonUtil.parseLoginResult(s);
            dialog.dismiss();
-           if ("1".equals(LoginResult)||"2".equals(LoginResult)){
+           if (/*"1".equals(LoginResult)||*/"2".equals(LoginResult)){
                Intent intent = new Intent(LoginActivity.this,ZhiKuActivity.class);
                intent.putExtra("UserName", UserName);
                startActivity(intent);
                LoginActivity.this.finish();
-           }else if ("3".equals(LoginResult)){
+           }else if ("1".equals(LoginResult)){
                Intent intent = new Intent(LoginActivity.this, QianyangActivity.class);
                intent.putExtra("UserName", UserName);
                startActivity(intent);
                LoginActivity.this.finish();
-           }else if ("4".equals(LoginResult)){
+           }else if ("3".equals(LoginResult)){
                //Toast.makeText(getApplicationContext(),"你是门卫",Toast.LENGTH_SHORT).show();
                Intent intent = new Intent(LoginActivity.this, MenWeiActivity.class);
                intent.putExtra("UserName", UserName);
