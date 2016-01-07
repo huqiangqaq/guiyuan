@@ -5,6 +5,7 @@ import org.json.JSONObject;
 
 import android.R.string;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -63,6 +64,7 @@ public class MenWeiActivity extends Activity {
 	@ViewInject(R.id.tv_minzu)
 	TextView tv_minzu;
 	private static String mCode="";
+	private static String UserName;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -79,6 +81,8 @@ public class MenWeiActivity extends Activity {
 						Constants.ADD);
 //				String code = "1";
 				mCode = code;
+				Intent intent = getIntent();
+				UserName = intent.getStringExtra("UserName");
 				if (code != null && !code.equals("")) {
 					NetUtil.sendNetReqByGet(Constant.MENWEI_ADDRESS + "/" + code, new RequestCallBack<String>() {
 
@@ -179,7 +183,7 @@ public class MenWeiActivity extends Activity {
 		btn_recycle.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				NetUtil.sendNetReqByGet(Constant.RECYCLE_CARD+"/"+mCode, new MyCallBack(MenWeiActivity.this, 4, null));
+				NetUtil.sendNetReqByGet(Constant.RECYCLE_CARD+"/"+UserName+"/"+mCode, new MyCallBack(MenWeiActivity.this, 4, null));
 				Toast.makeText(getApplicationContext(), "卡片已回收", Toast.LENGTH_SHORT).show();
 			}
 		});

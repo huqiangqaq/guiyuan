@@ -61,7 +61,7 @@ private HistoryAdapter adapter;
 				try {
 					json = new JSONObject(str);
 					String data=json.getString("getCarRecordListResult");
-					data=data.substring(1,data.length()-1);
+					data=data.substring(1,data.length()-2);
 					String[] arr=data.split("\\},");
 					for(int i=1;i<arr.length;i++){
 						String s=arr[i].substring(1);

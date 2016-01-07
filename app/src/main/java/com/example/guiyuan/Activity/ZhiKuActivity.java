@@ -66,6 +66,7 @@ public class ZhiKuActivity extends Activity {
 	private Handler myhandler = new Handler();
 	private Handler mnfcHandler = new MainNfcHandler();
 	private static String mCode="";
+	private static String UserName;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -79,6 +80,7 @@ public class ZhiKuActivity extends Activity {
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(ZhiKuActivity.this,ChukuActivity.class);
+				intent.putExtra("UserName", UserName);
 				ZhiKuActivity.this.finish();
 				startActivity(intent);
 			}
@@ -107,9 +109,11 @@ public class ZhiKuActivity extends Activity {
 						@Override
 						public void onClick(View v) {
 							int count = sp_storenum.getAdapter().getCount();
+							Intent intent = getIntent();
+							UserName = intent.getStringExtra("UserName");
 							if (count != 0)
 								NetUtil.sendNetReqByGet(
-										Constant.UPDATE_ADDRESS + "/" + code
+										Constant.UPDATE_ADDRESS + "/" +UserName+"/"+ code
 												+ "/"
 												+ sp_storenum.getSelectedItem(),
 										new MyCallBack(ZhiKuActivity.this, 4,
@@ -125,7 +129,7 @@ public class ZhiKuActivity extends Activity {
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				System.out.println(mCode);
-				NetUtil.sendNetReqByGet(Constant.TERMINATE_ADDRESS+"/"+mCode, new MyCallBack(ZhiKuActivity.this, 4, null));
+				NetUtil.sendNetReqByGet(Constant.TERMINATE_ADDRESS+"/"+UserName+"/"+mCode, new MyCallBack(ZhiKuActivity.this, 4, null));
 				Toast.makeText(getApplicationContext(), "退粮成功", Toast.LENGTH_SHORT).show();
 			}
 		});

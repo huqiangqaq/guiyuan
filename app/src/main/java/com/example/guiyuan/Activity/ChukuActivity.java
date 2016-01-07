@@ -73,6 +73,7 @@ public class ChukuActivity extends Activity {
 	private static final int REQUEST_CODE=1;
 	private static String mCode="";
 	private static String mStroeNum="";
+	private static String UserName;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -134,10 +135,11 @@ public class ChukuActivity extends Activity {
 				else{
 					//确认提交
 					Intent intent = getIntent();
+					UserName = intent.getStringExtra("UserName");
 					System.out.println(mStroeNum);
 					System.out.println(mCode);
 					NetUtil.sendNetReqByGet(
-							Constant.UPDATE_ADDRESS + "/" + mCode
+							Constant.UPDATE_ADDRESS + "/"+UserName+"/" + mCode
 									+ "/"
 									+ mStroeNum,
 							new MyCallBack(ChukuActivity.this, 4,
@@ -153,7 +155,7 @@ public class ChukuActivity extends Activity {
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				System.out.println(mCode);
-				NetUtil.sendNetReqByGet(Constant.TERMINATE_ADDRESS+"/"+mCode, new MyCallBack(ChukuActivity.this, 4, null));
+				NetUtil.sendNetReqByGet(Constant.TERMINATE_ADDRESS+"/"+UserName+"/"+mCode, new MyCallBack(ChukuActivity.this, 4, null));
 				Toast.makeText(getApplicationContext(), "退粮成功", Toast.LENGTH_SHORT).show();
 			}
 		});

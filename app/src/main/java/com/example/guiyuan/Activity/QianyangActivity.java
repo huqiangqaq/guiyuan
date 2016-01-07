@@ -151,6 +151,7 @@ public class QianyangActivity extends Activity {
 						.getString(type == 1 ? "getGrainVarietiesListResult"
 								: (type == 2 ? "getGrainPropertyListResult"
 										: "getCargoNoListResult"));
+				str=str.substring(1,str.length()-2);
 				String[] arr = str.split("\\},");
 				for (int i = 1; i < arr.length; i++) {
 					String s = arr[i].substring(1);
