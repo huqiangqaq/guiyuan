@@ -53,6 +53,7 @@ public class MyCallBack extends RequestCallBack<String> {
 			}
 			sp.setAdapter(new ArrayAdapter<String>(context,
 					android.R.layout.simple_spinner_dropdown_item, list));
+			sp.setSelection(0);
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}

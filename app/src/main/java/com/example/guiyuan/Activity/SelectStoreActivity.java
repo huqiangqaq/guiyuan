@@ -17,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.guiyuan.R;
@@ -37,7 +38,7 @@ public class SelectStoreActivity extends Activity {
 	private List<Cangku> list;
 	private CangweiAdapter adapter;
 	@ViewInject(R.id.lvlist)ListView lvlist;
-	@ViewInject(R.id.iv_back)ImageView iv_back;
+	@ViewInject(R.id.iv_back)TextView iv_back;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -64,7 +65,7 @@ public class SelectStoreActivity extends Activity {
 					for(int i=1;i<arr.length;i++){
 						String s=arr[i].substring(1);
 						String[] ary=s.split(",");
-						list.add(new Cangku(ary[0], ary[1],Integer.valueOf(ary[2]), ary[3], ary[4]));
+						list.add(new Cangku(ary[0], ary[1],ary[2], ary[3], ary[4]));
 					}
 					adapter=new CangweiAdapter(SelectStoreActivity.this, list);
 					lvlist.setAdapter(adapter);

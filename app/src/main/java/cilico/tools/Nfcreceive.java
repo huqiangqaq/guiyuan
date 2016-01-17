@@ -3,7 +3,6 @@ package cilico.tools;
 
 import com.example.guiyuan.R;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.nfc.NfcAdapter;
@@ -14,7 +13,7 @@ import android.util.Log;
 
 public class Nfcreceive extends Activity {
 	static public Handler m_handler = null;
-	public static Intent m_intent;
+	public static Intent m_intent ;
 	String strUI = "";
 
 	@Override
@@ -22,6 +21,7 @@ public class Nfcreceive extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.nfcreceive);
+
 	}
 
 	@Override
@@ -110,6 +110,7 @@ public class Nfcreceive extends Activity {
 	 ***/
 	public static String readSigOneBlock(String password, int address) {
 		Log.i("ichoiceTest", "Addr in readSigOneBlock is : "+address);
+		Log.i("sfsdfs",m_intent.toString());
 		return control_nfc.readSingOneBlock(m_intent, password, address);
 	}
 

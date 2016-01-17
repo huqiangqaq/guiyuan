@@ -55,9 +55,9 @@ public class ZhiKuActivity extends Activity {
 	TextView tv_zazhi;
 	@ViewInject(R.id.sp_storenum)
 	Spinner sp_storenum;
-	@ViewInject(R.id.et_kouliang)
-	EditText et_kouliang;
-	@ViewInject(R.id.et_zeng)
+//	@ViewInject(R.id.et_kouliang)
+//	EditText et_kouliang;
+//	@ViewInject(R.id.et_zeng)
 	EditText et_zeng;
 	@ViewInject(R.id.tv_confirm)
 	TextView tv_confirm;
@@ -72,6 +72,7 @@ public class ZhiKuActivity extends Activity {
 	private static String mCode;
 	private static String UserName;
 	private static String storenum;
+	private static  boolean flag=false;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -82,7 +83,7 @@ public class ZhiKuActivity extends Activity {
 		tv_cancel.setVisibility(View.GONE);
 		Intent intent = getIntent();
 		UserName = intent.getStringExtra("UserName");
-		Nfcreceive.m_handler = mnfcHandler;
+		if(!Constant.DEBUG_WITH_NO_NFC_DEVICE) {Nfcreceive.m_handler = mnfcHandler;}
 		tv_change.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -106,19 +107,27 @@ public class ZhiKuActivity extends Activity {
 		tv_shuaka.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				final String code = Nfcreceive.readSigOneBlock(
-						Constants.PASSWORD, Constants.ADD);
-//				final String code ="1";
+				String code =Nfcreceive.readSigOneBlock(Constants.PASSWORD,Constants.ADD);
+
+//				if(!Constant.DEBUG_WITH_NO_NFC_DEVICE) {
+//					code = Nfcreceive.readSigOneBlock(
+//						Constants.PASSWORD, Constants.ADD);}
+//				else {
+//					 code="55222222";
+//				}
+//				final String code ="5";
 				mCode = code;
-				if (!"".equals(code)&&code!=null) {
+				Log.i("hjkkkj",mCode);
+				if (!"".equals(mCode)) {
 					NetUtil.sendNetReqByGet(
-							Constant.ZHIKU_ADDRESS + "/" + code,
+							Constant.ZHIKU_ADDRESS + "/" + mCode,
 							new CustomQueryRequestCallback());
 					tv_confirm.setVisibility(View.VISIBLE);
 					tv_cancel.setVisibility(View.VISIBLE);
 					tv_confirm.setOnClickListener(new OnClickListener() {
 						@Override
 						public void onClick(View v) {
+							flag = false;
 							int count = sp_storenum.getAdapter().getCount();
 
 							if (count != 0)
@@ -141,9 +150,9 @@ public class ZhiKuActivity extends Activity {
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				System.out.println(mCode);
+				flag = true;
 				new MyThread().execute(Constant.TERMINATE_ADDRESS);
 				//NetUtil.sendNetReqByGet(Constant.TERMINATE_ADDRESS + "/" + UserName + "/" + mCode, new MyCallBack(ZhiKuActivity.this, 4, null));
-				Toast.makeText(getApplicationContext(), "退粮成功", Toast.LENGTH_SHORT).show();
 			}
 		});
 	}
@@ -161,19 +170,53 @@ public class ZhiKuActivity extends Activity {
 			try {
 				json = new JSONObject(str);
 				String data = json.getString("getCarInfomationByCardIdResult");
-				data = data.substring(1, data.length() - 1);
-				String[] arr = data.split("\\},");
-				String s = arr[1].substring(1);
-				String[] ary = s.split(",");
-				tv_che4.setText(ary[0]);
-				tv_foodname.setText(ary[1]);
-				tv_level.setText(ary[2]);
-				tv_foodtype.setText(ary[3]);
-				tv_water.setText(ary[4]);
-				tv_rl.setText(ary[5]);
-				tv_zazhi.setText(ary[6]);
-				NetUtil.sendNetReqByGet(Constant.STORE_ADDRESS, new MyCallBack(
-						ZhiKuActivity.this, 3, sp_storenum));
+				if ((data.length())<55){
+					Toast.makeText(ZhiKuActivity.this,"当前卡号无效，请换卡",Toast.LENGTH_SHORT).show();
+				}else {
+					data = data.substring(1, data.length() - 2);
+					String[] arr = data.split("\\},");
+					String s = arr[1].substring(1);
+					String[] ary = s.split(",");
+					if (!"".equals(ary[0])){
+						tv_che4.setText(ary[0]);
+					}else {
+						tv_che4.setText("");
+					}
+					if (!"".equals(ary[1])){
+						tv_foodname.setText(ary[1]);
+					}else {
+						tv_foodname.setText("");
+					}
+					if (!"".equals(ary[4])){
+						tv_level.setText(ary[4]);
+					}else {
+						tv_level.setText("");
+					}
+					if (!"".equals(ary[3])){
+						tv_foodtype.setText(ary[3]);
+					}else {
+						tv_foodtype.setText("");
+					}
+					if (!"".equals(ary[5])){
+						tv_water.setText(ary[5]);
+					}else {
+						tv_water.setText("");
+					}
+					if (!"".equals(ary[6])){
+						tv_rl.setText(ary[6]);
+					}else {
+						tv_rl.setText("");
+					}
+					if (!"".equals(ary[7])){
+						tv_zazhi.setText(ary[7]);
+					}else {
+						tv_zazhi.setText("");
+					}
+
+					NetUtil.sendNetReqByGet(Constant.STORE_ADDRESS, new MyCallBack(
+							ZhiKuActivity.this, 3, sp_storenum));
+				}
+
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
@@ -197,7 +240,13 @@ public class ZhiKuActivity extends Activity {
 		@Override
 		protected String doInBackground(String... params) {
 			//新建http对象
-			HttpGetAndPost myhttAndPost=new HttpGetAndPost(params[0]/*+File.separatorChar +"jj"*/,UserName+"/"+mCode+"/"+storenum);
+			HttpGetAndPost myhttAndPost;
+			if (flag){
+				myhttAndPost=new HttpGetAndPost(params[0]/*+File.separatorChar +"jj"*/,UserName+"/"+mCode);
+			}else {
+				myhttAndPost=new HttpGetAndPost(params[0]/*+File.separatorChar +"jj"*/,UserName+"/"+mCode+"/"+storenum);
+			}
+
 
 			myhttAndPost.getHttpClient();
 			String  jsonStr=myhttAndPost.doPost();
@@ -208,7 +257,29 @@ public class ZhiKuActivity extends Activity {
 		@Override
 		protected void onPostExecute(String s) {
 			super.onPostExecute(s);
-			String result = JsonUtil.parseLoginResult(s);
+			String result = null;
+			if (flag){
+				result = JsonUtil.parseLoginResult("terminateTrade",s);
+			}else {
+				result = JsonUtil.parseLoginResult("updateCargoNoAndStatus",s);
+			}
+
+			//String result = JsonUtil.parseLoginResult(s);
+			if ("true".equals(result)){
+				Toast.makeText(getApplicationContext(),"操作成功",Toast.LENGTH_SHORT).show();
+				tv_che4.setText("");
+				tv_foodname.setText("");
+				tv_level.setText("");
+				tv_foodtype.setText("");
+				tv_water.setText("");
+				tv_rl.setText("");
+				tv_zazhi.setText("");
+				tv_confirm.setVisibility(View.GONE);
+				tv_cancel.setVisibility(View.GONE);
+
+			}else {
+				Toast.makeText(getApplicationContext(),"操作失败",Toast.LENGTH_SHORT).show();
+			}
 		}
 	}
 

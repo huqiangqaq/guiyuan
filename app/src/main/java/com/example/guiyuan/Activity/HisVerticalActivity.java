@@ -16,6 +16,7 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.guiyuan.R;
@@ -33,7 +34,7 @@ import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
 public class HisVerticalActivity extends Activity {
-@ViewInject(R.id.iv_back)ImageView iv_back;
+@ViewInject(R.id.iv_back)TextView iv_back;
 @ViewInject(R.id.lvlist)ListView lvlist;
 private List<HistoryVertical> list;
 private HistoryAdapter adapter;
@@ -61,13 +62,16 @@ private HistoryAdapter adapter;
 				try {
 					json = new JSONObject(str);
 					String data=json.getString("getCarRecordListResult");
+					if (data.length()<2){
+						Toast.makeText(HisVerticalActivity.this,"当前卡号无效，请换卡",Toast.LENGTH_SHORT).show();
+					}
 					data=data.substring(1,data.length()-2);
 					String[] arr=data.split("\\},");
 					for(int i=1;i<arr.length;i++){
 						String s=arr[i].substring(1);
 						String[] ary=s.split(",");
 						list.add(new HistoryVertical(ary[0], ary[1], ary[2],ary[3], ary[4], ary[5],
-								Float.valueOf(ary[6]),Float.valueOf(ary[7]),Float.valueOf(ary[8]),Float.valueOf(ary[9]), ary[10], ary[11]));
+								ary[6],ary[7],ary[8],ary[9], ary[10], ary[11]));
 					}
 					adapter=new HistoryAdapter(HisVerticalActivity.this, list);
 					lvlist.setAdapter(adapter);

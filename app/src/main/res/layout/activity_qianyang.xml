@@ -38,7 +38,7 @@
 	    >
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
         android:paddingLeft="15dp"
@@ -46,11 +46,11 @@
         android:paddingTop="10dp" >
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="25dp"
             android:layout_height="wrap_content"
             android:gravity="right"
             android:layout_weight="2"
-            android:text="车牌后四位" />
+            android:text="车牌号" />
 		
         <Spinner 
             android:id="@+id/sp_chepai"
@@ -58,26 +58,28 @@
             android:layout_height="30dp"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
+            android:padding="5dp"
             android:spinnerMode="dropdown"
             android:background="@drawable/edit"
             />
-        <Spinner 
-            android:id="@+id/sp_chepaiNum"
-            android:layout_width="0dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="5dp"
-            android:layout_weight="1"
-            android:spinnerMode="dropdown"
-            android:background="@drawable/edit"
-            />
+        <!--<Spinner -->
+            <!--android:id="@+id/sp_chepaiNum"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:layout_marginLeft="5dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:spinnerMode="dropdown"-->
+            <!--android:background="@drawable/edit"-->
+            <!--/>-->
         <EditText
             android:id="@+id/carno"
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_marginLeft="5dp"
+            android:layout_marginTop="4dp"
             android:layout_weight="4"
             android:background="@drawable/edit"
-            android:inputType="number"
+            android:digits="QWERTYUIOPASDFGHJKLZXCVBNM1234567890qwertyuiopasdfghjklzxcvbnm"
             android:padding="5dp" />
     </LinearLayout>
 
@@ -176,7 +178,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="right"
-            android:text="容量/出糙" />
+            android:text="容重/出糙" />
 
         <EditText
             android:id="@+id/rongliang"
@@ -232,7 +234,7 @@
             android:gravity="right"
             android:text="仓库" />
 
-           <Spinner 
+           <Spinner
             android:layout_width="0dp"
             android:id="@+id/sp_store"
             android:layout_height="30dp"
@@ -242,20 +244,25 @@
             android:spinnerMode="dropdown"
             />
     </LinearLayout>
-        <TextView 
-        android:layout_width="80dp"
-        android:layout_height="30dp"
-        android:background="@drawable/edit"
-        android:text="已刷卡"
-        android:gravity="center"
-        android:id="@+id/shuaka"
+        <TextView
+            android:layout_marginTop="45dp"
+            android:layout_width="120dp"
+            android:layout_height="45dp"
+            android:text="读取卡信息"
+            android:background="@drawable/shixin"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:id="@+id/shuaka"
         />
     </LinearLayout>
-<RelativeLayout 
+<RelativeLayout
+    android:id="@+id/rlMessage"
     android:layout_width="match_parent"
     android:layout_height="50dp"
-    android:layout_alignParentBottom="true"
-    android:background="@color/royalblue">
+    android:layout_alignParentBottom="true">
+    <!--android:background="@color/royalblue"-->
+
     <TextView 
         android:id="@+id/tv_wait"
         android:layout_width="wrap_content"
@@ -263,6 +270,6 @@
         android:textSize="16sp"
         android:text="等待刷卡....."
         android:layout_centerInParent="true"
-        />
+        android:visibility="gone"/>
 </RelativeLayout>
 </RelativeLayout>

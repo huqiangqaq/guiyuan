@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:2:1-87:12
+ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:2:1-103:12
 	package
 		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:3:5-34
 		INJECTED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml
@@ -17,9 +17,6 @@ ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:
 		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:2:11-69
 uses-sdk
 ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:support-v4:20.0.0] D:\Android\Android Projects\guiyuan\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\AndroidManifest.xml:16:5-42
-MERGED from [com.android.support:appcompat-v7:20.0.0] D:\Android\Android Projects\guiyuan\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\20.0.0\AndroidManifest.xml:16:5-42
-MERGED from [com.android.support:support-v4:20.0.0] D:\Android\Android Projects\guiyuan\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\AndroidManifest.xml:16:5-42
 	android:targetSdkVersion
 		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:9:9-38
 		INJECTED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml
@@ -37,117 +34,158 @@ ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:
 	android:name
 		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:12:22-59
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:13:5-78
+ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:13:5-79
 	android:name
 		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:13:22-76
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:15:5-81
+	android:name
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:15:22-78
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:16:5-75
+	android:name
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:16:22-72
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:17:5-80
+	android:name
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:17:22-77
 application
-ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:14:5-85:19
-MERGED from [com.android.support:support-v4:20.0.0] D:\Android\Android Projects\guiyuan\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\AndroidManifest.xml:17:5-19
-MERGED from [com.android.support:appcompat-v7:20.0.0] D:\Android\Android Projects\guiyuan\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\20.0.0\AndroidManifest.xml:17:5-19
-MERGED from [com.android.support:support-v4:20.0.0] D:\Android\Android Projects\guiyuan\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\AndroidManifest.xml:17:5-19
+ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:19:5-101:19
 	android:label
-		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:17:9-41
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:22:9-41
 	android:allowBackup
-		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:15:9-35
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:20:9-35
 	android:icon
-		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:16:9-43
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:21:9-38
 	android:theme
-		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:18:9-40
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:23:9-40
 activity#com.example.guiyuan.Activity.LoginActivity
-ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:19:9-27:20
+ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:24:9-34:20
+	android:screenOrientation
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:27:13-49
 	android:label
-		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:21:13-45
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:26:13-45
 	android:name
-		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:20:13-51
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:25:13-51
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:22:13-26:29
+ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:28:13-32:29
 action#android.intent.action.MAIN
-ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:23:17-69
+ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:29:17-69
 	android:name
-		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:23:25-66
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:29:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:25:17-77
+ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:31:17-77
 	android:name
-		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:25:27-74
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:31:27-74
 activity#com.example.guiyuan.Activity.HisVerticalActivity
-ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:28:9-31:20
+ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:35:9-38:51
+	android:screenOrientation
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:38:13-49
 	android:label
-		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:30:13-64
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:37:13-64
 	android:name
-		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:29:13-57
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:36:13-57
 activity#com.example.guiyuan.Activity.QianyangActivity
-ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:32:9-36:20
+ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:39:9-44:20
+	android:screenOrientation
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:42:13-49
 	android:label
-		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:34:13-60
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:41:13-60
 	android:name
-		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:33:13-54
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:40:13-54
 activity#com.example.guiyuan.Activity.ZhiKuActivity
-ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:37:9-41:20
+ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:46:9-51:24
+	android:screenOrientation
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:49:13-49
 	android:label
-		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:39:13-58
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:48:13-58
 	android:name
-		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:38:13-51
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:47:13-51
 activity#com.example.guiyuan.Activity.SelectStoreActivity
-ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:42:9-46:20
+ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:52:9-55:51
+	android:screenOrientation
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:55:13-49
 	android:label
-		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:44:13-64
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:54:13-64
 	android:name
-		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:43:13-57
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:53:13-57
 activity#com.example.guiyuan.Activity.ChukuActivity
-ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:47:9-50:20
+ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:56:9-59:51
+	android:screenOrientation
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:59:13-49
 	android:label
-		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:49:13-57
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:58:13-57
 	android:name
-		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:48:13-51
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:57:13-51
 activity#cilico.tools.Nfcreceive
-ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:53:9-79:20
+ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:62:9-86:20
 	android:configChanges
-		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:55:13-63
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:64:13-63
 	android:theme
-		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:56:13-50
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:65:13-50
 	android:name
-		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:54:13-51
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:63:13-51
 intent-filter#com.lql.service.ServiceDemo
-ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:57:13-59:29
+ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:66:13-68:29
 action#com.lql.service.ServiceDemo
-ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:58:17-70
+ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:67:17-70
 	android:name
-		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:58:25-67
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:67:25-67
 intent-filter#android.nfc.action.NDEF_DISCOVERED
-ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:60:13-64:29
+ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:69:13-73:29
 action#android.nfc.action.NDEF_DISCOVERED
-ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:61:17-77
+ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:70:17-77
 	android:name
-		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:61:25-74
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:70:25-74
 data
-ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:63:17-55
+ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:72:17-55
 	android:mimeType
-		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:63:23-52
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:72:23-52
 intent-filter#android.intent.category.DEFAULT+android.nfc.action.TAG_DISCOVERED
-ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:65:13-71:29
+ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:74:13-78:29
 action#android.nfc.action.TAG_DISCOVERED
-ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:66:17-67:26
+ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:75:17-76
 	android:name
-		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:66:25-73
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:75:25-73
 category#android.intent.category.DEFAULT
-ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:69:17-70:28
+ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:77:17-76
 	android:name
-		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:69:27-73
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:77:27-73
 intent-filter#android.nfc.action.TECH_DISCOVERED
-ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:72:13-74:29
+ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:79:13-81:29
 action#android.nfc.action.TECH_DISCOVERED
-ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:73:17-77
+ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:80:17-77
 	android:name
-		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:73:25-74
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:80:25-74
 meta-data#android.nfc.action.TECH_DISCOVERED
-ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:76:13-78:59
+ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:83:13-85:59
 	android:resource
-		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:78:17-56
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:85:17-56
 	android:name
-		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:77:17-66
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:84:17-66
 activity#com.example.guiyuan.Activity.MenWeiActivity
-ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:81:9-84:20
+ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:88:9-94:24
+	android:screenOrientation
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:91:13-49
 	android:label
-		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:83:13-59
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:90:13-59
 	android:name
-		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:82:13-71
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:89:13-52
+activity#com.example.guiyuan.Activity.MenuActivity
+ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:95:9-96:51
+	android:screenOrientation
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:96:13-49
+	android:name
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:95:19-56
+activity#com.example.guiyuan.Activity.HongGangActivity
+ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:97:9-98:51
+	android:screenOrientation
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:98:13-49
+	android:name
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:97:19-60
+activity#com.example.guiyuan.Activity.YiKuActivity
+ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:99:9-100:61
+	android:screenOrientation
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:100:13-49
+	android:name
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:99:19-56

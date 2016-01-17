@@ -36,10 +36,10 @@ public class LoginActivity extends Activity {
     private boolean isAutoLogin =false;
     private static String LOGINIP ="";
     ProgressDialog dialog = null;
-    String url ="http://192.168.1.105:7000";
+    String url ="http://192.168.1.51:7000";
     private static String UserName ="";
     private static String PassWord="";
-    private static String LoginResult = "";
+    private static String LoginResult;
     private static String[] CangHao = {};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +57,9 @@ public class LoginActivity extends Activity {
         map = preferenceService.getPrefrences();
         etUserName.setText(map.get("UserName"));
         etPassWord.setText(map.get("PassWord"));
+        if (map.size()>0){
+            checkBox.setChecked(true);
+        }
         dialog = new ProgressDialog(this);
         dialog.setMessage("登录中....");
 
@@ -68,9 +71,9 @@ public class LoginActivity extends Activity {
                 UserName = etUserName.getText().toString();
                 PassWord = etPassWord.getText().toString();
                 //判断是否勾选记住密码选项
-                if (isAutoLogin) {
+
                     preferenceService.save(etUserName.getText().toString(), etPassWord.getText().toString());
-                }
+
 
                 //判断账户身份及判断登录状态
                 new MyThread().execute(Constant.URL);
@@ -129,7 +132,7 @@ public class LoginActivity extends Activity {
            LoginResult = JsonUtil.parseLoginResult(s);
            dialog.dismiss();
            if (/*"1".equals(LoginResult)||*/"2".equals(LoginResult)){
-               Intent intent = new Intent(LoginActivity.this,ZhiKuActivity.class);
+               Intent intent = new Intent(LoginActivity.this,MenuActivity.class);
                intent.putExtra("UserName", UserName);
                startActivity(intent);
                LoginActivity.this.finish();
@@ -145,7 +148,7 @@ public class LoginActivity extends Activity {
                startActivity(intent);
                LoginActivity.this.finish();
            }else {
-               Toast.makeText(LoginActivity.this, "登录失败,请检查账号和密码是否正确", Toast.LENGTH_SHORT).show();
+               Toast.makeText(LoginActivity.this, "登录失败,请检查网络", Toast.LENGTH_SHORT).show();
            }
            Log.i("123+++++++++++", LoginResult.toString());
        }

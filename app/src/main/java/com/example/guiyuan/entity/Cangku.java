@@ -3,7 +3,7 @@ package com.example.guiyuan.entity;
 public class Cangku {
 	private String storenum;
 	private String foodname;
-	private int level;
+	private String level;
 	private String water;
 	private String weight;
 	public String getStorenum() {
@@ -18,10 +18,10 @@ public class Cangku {
 	public void setFoodname(String foodname) {
 		this.foodname = foodname;
 	}
-	public int getLevel() {
+	public String getLevel() {
 		return level;
 	}
-	public void setLevel(int level) {
+	public void setLevel(String level) {
 		this.level = level;
 	}
 	public String getWater() {
@@ -36,7 +36,7 @@ public class Cangku {
 	public void setWeight(String weight) {
 		this.weight = weight;
 	}
-	public Cangku(String storenum, String foodname, int level, String water,
+	public Cangku(String storenum, String foodname, String level, String water,
 			String weight) {
 		super();
 		this.storenum = storenum;

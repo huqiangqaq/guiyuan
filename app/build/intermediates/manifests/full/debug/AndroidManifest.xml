@@ -11,15 +11,19 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.NFC" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/zhlk_icon"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.example.guiyuan.Activity.LoginActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,24 +32,26 @@
         </activity>
         <activity
             android:name="com.example.guiyuan.Activity.HisVerticalActivity"
-            android:label="@string/title_activity_his_vertical" >
-        </activity>
+            android:label="@string/title_activity_his_vertical"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.example.guiyuan.Activity.QianyangActivity"
-            android:label="@string/title_activity_qianyang" >
+            android:label="@string/title_activity_qianyang"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.example.guiyuan.Activity.ZhiKuActivity"
-            android:label="@string/title_activity_zhi_ku" >
+            android:label="@string/title_activity_zhi_ku"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.example.guiyuan.Activity.SelectStoreActivity"
-            android:label="@string/title_activity_select_store" >
-        </activity>
+            android:label="@string/title_activity_select_store"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.example.guiyuan.Activity.ChukuActivity"
-            android:label="@string/title_activity_chuku" >
-        </activity>
+            android:label="@string/title_activity_chuku"
+            android:screenOrientation="portrait" />
 
         <!-- NFC引用2015-07-24  xiandqw -->
         <activity
@@ -61,11 +67,9 @@
                 <data android:mimeType="text/plain" />
             </intent-filter>
             <intent-filter>
-                <action android:name="android.nfc.action.TAG_DISCOVERED" >
-                </action>
+                <action android:name="android.nfc.action.TAG_DISCOVERED" />
 
-                <category android:name="android.intent.category.DEFAULT" >
-                </category>
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.nfc.action.TECH_DISCOVERED" />
@@ -78,8 +82,18 @@
         <!-- NFC -->
         <activity
             android:name="com.example.guiyuan.Activity.MenWeiActivity"
-            android:label="@string/title_activity_men_wei" >
+            android:label="@string/title_activity_men_wei"
+            android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name="com.example.guiyuan.Activity.MenuActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.guiyuan.Activity.HongGangActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.guiyuan.Activity.YiKuActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

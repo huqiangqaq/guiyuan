@@ -2,11 +2,14 @@ package com.example.guiyuan.Utils;
 
 import android.util.Log;
 
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.params.HttpClientParams;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.BasicHttpParams;
@@ -20,6 +23,7 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -41,9 +45,8 @@ public class HttpGetAndPost
 
         Log.i("mylog", baseUrl);
     }
-    public void HttpGetAndPost(JSONObject _jsonParam)
+    public HttpGetAndPost(JSONObject _jsonParam)
     {
-        String jsonString = "";
         JSONArray jsonArray=new JSONArray();
 
         try {
@@ -52,9 +55,6 @@ public class HttpGetAndPost
             JSONObject jsonObject=new JSONObject();
             jsonObject.put("name", _jsonParam.get("name"));
             jsonArray.put(jsonObject);
-
-            jsonString=jsonArray.toString();
-            // }
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -74,18 +74,19 @@ public class HttpGetAndPost
      * @return
      * 返回的字符串
      */
-    public String doGet(Map params)
+    public String doGet(Map<?, ?> params)
     {
 		/* 建立HTTPGet对象 */
         String paramStr = "";
-        Iterator iter = params.entrySet().iterator();
+        Iterator<?> iter = params.entrySet().iterator();
         while (iter.hasNext())
         {
-            Map.Entry entry = (Map.Entry) iter.next();
+            @SuppressWarnings("unchecked")
+			Map.Entry<String,String> entry = (Map.Entry<String,String>) iter.next();
             Object key = entry.getKey();
             Object val = entry.getValue();
             paramStr += paramStr =File.separatorChar + key.toString() + /*File.separatorChar + */val.toString();
-            Log.i("mylog1111111111", paramStr);
+            Log.i("ichoiceTest", paramStr);
         }
         if (!paramStr.equals(""))
         {
@@ -187,6 +188,61 @@ public class HttpGetAndPost
 
         return strResult;
     }
+    
+    public String doPut(Map<String, String> params) {
+		
+		   // Put方式
+			//public static boolean onLinkNetPut(String url, Map<String, String> params) {
+				try {
+					/* 1. 判断传递进来的url连接地是否为空 */
+					if (null == /*url*/baseUrl) {
+						return "Url is null!";
+					}
+					StringBuilder sb = new StringBuilder();
+					sb.append(/*url*/baseUrl).append("?");
+					if (params != null && params.size() != 0) {
+						for (Map.Entry<String, String> entry : params.entrySet()) {
+							// 如果请求参数中有中文，需要进行URLEncoder编码
+							sb.append(entry.getKey())
+									.append("=")
+									.append(URLEncoder.encode(entry.getValue(), "utf-8"));
+							sb.append("&");
+						}
+						sb.deleteCharAt(sb.length() - 1);
+						System.out.println(sb.toString());
+						Log.d("ichoiceTest", sb.toString());
+					}
+
+					/* 1.1 创建httpPut请求，并设置Url地址 */
+					HttpPut httpPut = new HttpPut(sb.toString());
+					Log.e("iChoiceTest", "start URL:"+sb.toString());
+
+					/* 1.2 获取HttpClient对象，并发送请求，得到响应 */
+					HttpClient httpClient = getHttpClient();
+					// 1.3发送请求，获取服务器返回的相应对象  
+					HttpResponse httpResponse = httpClient.execute(httpPut);
+					
+					Log.i("iChoiceTest", "resp:"+httpResponse.toString());
+
+					/* 1.4从响应中获取数据 */
+					if (httpResponse.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {
+						return "HTTP Error : "+httpResponse.getStatusLine().getStatusCode();
+					}
+					HttpEntity httpEntity = httpResponse.getEntity();
+
+					String object = (httpEntity == null) ? null : (EntityUtils
+							.toString(httpEntity, "UTF-8"));
+					Log.e("object", object);
+					return object;
+
+				} catch (Exception e) {
+					e.printStackTrace();
+					Log.e("Exception=", e.getMessage() + "");
+					Log.e("e", e.getMessage() + "");
+					return "OH~EXCEPTION!!!";
+				}
+
+			}
 
     public HttpClient getHttpClient()
     {

@@ -58,7 +58,7 @@
                 android:layout_gravity="center_vertical"
                 android:ellipsize="end"
                 android:singleLine="true"
-                android:text="二等" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tv_water"

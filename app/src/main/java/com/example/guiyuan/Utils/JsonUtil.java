@@ -2,7 +2,6 @@ package com.example.guiyuan.Utils;
 
 import android.util.Log;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -19,6 +18,17 @@ public class JsonUtil {
         try {
             JSONObject jsonObject = new JSONObject(json);
             str = jsonObject.getString("LoginResult");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return str;
+    }
+    
+    public static String parseLoginResult(String socketName,String json){
+        String str = "";
+        try {
+            JSONObject jsonObject = new JSONObject(json);
+            str = jsonObject.getString(socketName+"Result");
         } catch (JSONException e) {
             e.printStackTrace();
         }

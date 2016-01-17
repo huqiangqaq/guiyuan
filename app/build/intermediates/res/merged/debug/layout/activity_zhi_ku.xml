@@ -57,7 +57,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="right"
-                android:text="车牌后四位"
+                android:text="车牌号"
+                android:textSize="18sp"
                 android:textColor="@color/gray" />
 
             <TextView
@@ -66,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="2"
-                android:text="车牌后四位" />
+                android:textSize="18sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -81,6 +82,7 @@
                 android:layout_weight="1"
                 android:gravity="right"
                 android:text="粮食品种"
+                android:textSize="18sp"
                 android:textColor="@color/gray" />
 
             <TextView
@@ -89,7 +91,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="2"
-                android:text="粮食品种" />
+                android:textSize="18sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -104,6 +106,7 @@
                 android:layout_weight="1"
                 android:gravity="right"
                 android:text="粮食等级"
+                android:textSize="18sp"
                 android:textColor="@color/gray" />
 
             <TextView
@@ -112,7 +115,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="2"
-                android:text="二等" />
+                android:textSize="18sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -127,6 +130,7 @@
                 android:layout_weight="1"
                 android:gravity="right"
                 android:text="粮食性质"
+                android:textSize="18sp"
                 android:textColor="@color/gray" />
 
             <TextView
@@ -135,7 +139,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="2"
-                android:text="商品粮" />
+                android:textSize="18sp"/>
         </LinearLayout>
         <!-- 水分 -->
 
@@ -151,6 +155,7 @@
                 android:layout_weight="1"
                 android:gravity="right"
                 android:text="水分(%)"
+                android:textSize="18sp"
                 android:textColor="@color/gray" />
 
             <TextView
@@ -159,7 +164,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="2"
-                android:text="20" />
+                android:textSize="18sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -173,7 +178,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="right"
-                android:text="容量/出糙"
+                android:text="容重/出糙"
+                android:textSize="18sp"
                 android:textColor="@color/gray" />
 
             <TextView
@@ -182,7 +188,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="2"
-                android:text="690" />
+                android:textSize="18sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -197,6 +203,7 @@
                 android:layout_weight="1"
                 android:gravity="right"
                 android:text="杂质"
+                android:textSize="18sp"
                 android:textColor="@color/gray" />
 
             <TextView
@@ -205,7 +212,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="2"
-                android:text="2" />
+                android:textSize="18sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -220,6 +227,7 @@
                 android:layout_weight="1"
                 android:gravity="right"
                 android:text="仓号"
+                android:textSize="18sp"
                 android:textColor="@color/gray" />
 
             <Spinner
@@ -232,52 +240,52 @@
                 android:spinnerMode="dropdown" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal" >
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:orientation="horizontal" >-->
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="right"
-                android:text="扣量"
-                android:textColor="@color/gray" />
+            <!--<TextView-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="1"-->
+                <!--android:gravity="right"-->
+                <!--android:text="扣量"-->
+                <!--android:textColor="@color/gray" />-->
 
-            <EditText
-                android:id="@+id/et_kouliang"
-                android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="5dp"
-                android:layout_weight="2"
-                android:background="@drawable/edit"
-                android:inputType="number" />
-        </LinearLayout>
+            <!--<EditText-->
+                <!--android:id="@+id/et_kouliang"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="30dp"-->
+                <!--android:layout_marginLeft="5dp"-->
+                <!--android:layout_weight="2"-->
+                <!--android:background="@drawable/edit"-->
+                <!--android:inputType="number" />-->
+        <!--</LinearLayout>-->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal" >
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:orientation="horizontal" >-->
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="right"
-                android:text="增量"
-                android:textColor="@color/gray" />
+            <!--<TextView-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="1"-->
+                <!--android:gravity="right"-->
+                <!--android:text="增量"-->
+                <!--android:textColor="@color/gray" />-->
 
-            <EditText
-                android:id="@+id/et_zeng"
-                android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="5dp"
-                android:layout_weight="2"
-                android:background="@drawable/edit" />
-        </LinearLayout>
+            <!--<EditText-->
+                <!--android:id="@+id/et_zeng"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="30dp"-->
+                <!--android:layout_marginLeft="5dp"-->
+                <!--android:layout_weight="2"-->
+                <!--android:background="@drawable/edit" />-->
+        <!--</LinearLayout>-->
     </LinearLayout>
 
     <LinearLayout
@@ -303,7 +311,7 @@
             android:layout_marginLeft="30dp"
             android:background="@drawable/edit"
             android:gravity="center"
-            android:text="已刷卡" />
+            android:text="读取卡信息" />
 
         <TextView
             android:id="@+id/tv_confirm"

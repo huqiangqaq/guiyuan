@@ -19,6 +19,10 @@ import com.lidroid.xutils.view.annotation.ViewInject;
 public class HistoryAdapter extends BaseAdapter{
 	private Context context;
 	private List<HistoryVertical> list;
+
+	public HistoryAdapter() {
+	}
+
 	public HistoryAdapter(Context context,List<HistoryVertical> list){
 		this.context=context;
 		this.list=list;
@@ -52,15 +56,16 @@ public class HistoryAdapter extends BaseAdapter{
 		ViewUtils.inject(viewholder, convertView);
 		HistoryVertical hi=list.get(position);
 		viewholder.tv_vernum.setText(hi.getCarnum());
-		viewholder.tv_storeNum.setText(hi.getStorenum());
+		viewholder.tv_storeNum.setText("运往："+hi.getStorenum());
 		viewholder.tv_date.setText(hi.getTime());
 		viewholder.tv_foodname.setText(hi.getFoodvari());
 		viewholder.tv_foodtype.setText(hi.getFoodtype());
 		viewholder.tv_level.setText(hi.getLevel()+"");
 
 		viewholder.tv_waterper.setText(hi.getWaterper()+"%");
-		viewholder.tv_rongzhong.setText(hi.getRongweight()+"KG");
+		viewholder.tv_rongzhong.setText(hi.getRongweight()+"G/L");
 		viewholder.tv_zazhi.setText(hi.getZazhi()+"%");
+
 		viewholder.tv_maozhong.setText(hi.getMaozhong()+"KG");
 		viewholder.tv_storeman.setText(hi.getStoreman());
 		viewholder.tv_qianyang.setText(hi.getQianyangman());

@@ -9,13 +9,17 @@
     android:background="@color/royalblue"
     android:layout_width="match_parent"
     android:layout_height="40dp"
+    android:padding="5dp"
     >
-    <ImageView 
+    <TextView
         android:id="@+id/iv_back"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:src="@drawable/back"
-        android:scaleType="fitXY" 
+        android:background="@color/skyblue"
+        android:text="返回到上一层"
+        android:scaleType="fitXY"
+        android:layout_alignParentLeft="true"
+        android:gravity="center_vertical"
          />
     <TextView 
         android:layout_width="wrap_content"

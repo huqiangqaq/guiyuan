@@ -60,8 +60,6 @@ public class ZhiKuFragment extends Fragment{
 		tv_water = (TextView) view.findViewById(R.id.tv_water);
 		tv_zazhi = (TextView) view.findViewById(R.id.tv_zazhi);
 		sp_storenum = (Spinner) view.findViewById(R.id.sp_storenum);
-		et_kouliang = (EditText) view.findViewById(R.id.et_kouliang);
-		et_zeng = (EditText) view.findViewById(R.id.et_zeng);
 		tv_confirm = (TextView) view.findViewById(R.id.tv_confirm);
 		tv_shuaka = (TextView) view.findViewById(R.id.tv_shuaka);
 		

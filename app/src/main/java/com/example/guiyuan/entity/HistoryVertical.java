@@ -7,17 +7,17 @@ public class HistoryVertical {
 	private String foodvari;
 	private String foodtype;
 	private String level;
-	private float waterper;
-	private float rongweight;
-	private float zazhi;
-	private float maozhong;
+	private String waterper;
+	private String rongweight;
+	private String zazhi;
+	private String maozhong;
 	private String storeman;
 	private String qianyangman;
 
 	public HistoryVertical() {
 	}
 
-	public HistoryVertical(String carnum, String storenum, String time, String foodvari, String foodtype, String level, float waterper, float rongweight, float zazhi, float maozhong, String storeman, String qianyangman) {
+	public HistoryVertical(String carnum, String storenum, String time, String foodvari, String foodtype, String level, String waterper, String rongweight, String zazhi, String maozhong, String storeman, String qianyangman) {
 		this.carnum = carnum;
 		this.storenum = storenum;
 		this.time = time;
@@ -80,35 +80,35 @@ public class HistoryVertical {
 		this.level = level;
 	}
 
-	public float getWaterper() {
+	public String getWaterper() {
 		return waterper;
 	}
 
-	public void setWaterper(float waterper) {
+	public void setWaterper(String waterper) {
 		this.waterper = waterper;
 	}
 
-	public float getRongweight() {
+	public String getRongweight() {
 		return rongweight;
 	}
 
-	public void setRongweight(float rongweight) {
+	public void setRongweight(String rongweight) {
 		this.rongweight = rongweight;
 	}
 
-	public float getZazhi() {
+	public String getZazhi() {
 		return zazhi;
 	}
 
-	public void setZazhi(float zazhi) {
+	public void setZazhi(String zazhi) {
 		this.zazhi = zazhi;
 	}
 
-	public float getMaozhong() {
+	public String getMaozhong() {
 		return maozhong;
 	}
 
-	public void setMaozhong(float maozhong) {
+	public void setMaozhong(String maozhong) {
 		this.maozhong = maozhong;
 	}
 

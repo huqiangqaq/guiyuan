@@ -7,11 +7,8 @@ import android.content.Intent;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.nfc.tech.MifareClassic;
-import android.nfc.tech.NfcV;
 import android.os.Build;
 import android.util.Log;
-import android.view.View;
-import android.view.View.OnClickListener;
 
 @SuppressLint("NewApi")
 @TargetApi(Build.VERSION_CODES.GINGERBREAD_MR1)
@@ -22,25 +19,25 @@ public class control_nfc {
 		else
 			return null;
 	}
+
 	/**
 	 * @author Administrator
-	 * 读取标签块内容 
-	 * 
-	 * ****/
+	 * 读取标签块内容
+	 ****/
 	static public String readSingOneBlock(Intent intent, String password,
-			int address) {
-		
+										  int address) {
+
 
 		//if (intent != null) {
-		if(null == intent || null == intent.getAction()) {
-			Log.i("ichoiceTest","Intent is : NULL");
+		if (null == intent || null == intent.getAction()) {
+			Log.i("ichoiceTest", "Intent is : NULL");
 			return "";
 		}
-		Log.i("ichoiceTest","Intent is : "+intent.toString());
+		//Log.i("ichoiceTest", "Intent is : " + intent.toString());
 		Tag m_tagFromIntent = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
-		
+		if (intent != null) {
 			byte[] passw = stringToBytes(password);
-			if (address<0) {
+			if (address < 0) {
 				return "";
 			} else {
 				//int add = Integer.valueOf(address);
@@ -50,25 +47,24 @@ public class control_nfc {
 						try {
 							mfc.connect();
 							int bSec = mfc.blockToSector(address);
-							Log.i("ichoiceTest", "Addr in readSingOneBlock is : "+address);
-							Log.i("ichoiceTest", "Sector is : "+bSec);
-							Log.i("ichoiceTest", "Total Sector is : "+mfc.getSectorCount());
+							Log.i("ichoiceTest", "Addr in readSingOneBlock is : " + address);
+							Log.i("ichoiceTest", "Sector is : " + bSec);
+							Log.i("ichoiceTest", "Total Sector is : " + mfc.getSectorCount());
 							Log.i("ichoiceTest", mfc.toString());
 							//for (int i=0;i<61;i++) {
-							if (bSec < mfc.getSectorCount()) 
+							if (bSec < mfc.getSectorCount())
 							//	if (true)
-								{
+							{
 								if (mfc.authenticateSectorWithKeyA(bSec, passw)) {
-								//if (mfc.authenticateSectorWithKeyA(i/4, passw)) {
+									//if (mfc.authenticateSectorWithKeyA(i/4, passw)) {
 									byte[] data = mfc.readBlock(address);
-									if (data != null) 
-									{
+									if (data != null) {
 										String strid = bytesToHexString(data);
-										Log.i("ichoiceTest", "addr is : "+address);
-										Log.i("ichoiceTest", "original data is : "+data);
-										Log.i("ichoiceTest", "original data is : "+strid);
-										strid=hexStr2Str(strid.substring(0,16));
-										Log.i("ichoiceTest", "return data is : "+strid);
+										Log.i("ichoiceTest", "addr is : " + address);
+										Log.i("ichoiceTest", "original data is : " + data);
+										Log.i("ichoiceTest", "original data is : " + strid);
+										strid = hexStr2Str(strid.substring(0, 16));
+										Log.i("ichoiceTest", "return data is : " + strid);
 										mfc.close();
 										return strid;
 									} else {
@@ -79,20 +75,22 @@ public class control_nfc {
 							} else
 								// strUI += "Please check you password";
 								mfc.close();
-								//}
+							//}
 							//mfc.close();
 							//return "";
-						} 
-						catch (IOException e) {
+						} catch (IOException e) {
 							//e.printStackTrace();
-                            return "";
+							return "";
 						}
 					}
 				}
 			}
-			return "";
-
+		}
+		return "";
 	}
+
+
+
 	/**
 	 * 写标签
 	 * @author Administrator

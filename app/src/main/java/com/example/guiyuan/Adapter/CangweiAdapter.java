@@ -54,8 +54,8 @@ public class CangweiAdapter extends BaseAdapter{
 		ViewUtils.inject(viewholder,convertView);
 		Cangku hi=list.get(position);
 		viewholder.tv_storename.setText(hi.getStorenum());
-		viewholder.tv_level.setText(hi.getLevel()+"等");
-		viewholder.tv_water.setText(hi.getWater()+"%水分");
+		viewholder.tv_level.setText(hi.getLevel());
+		viewholder.tv_water.setText(hi.getWater()+"%");
 		viewholder.tv_foodname.setText(hi.getFoodname());
 		return convertView;
 	}
