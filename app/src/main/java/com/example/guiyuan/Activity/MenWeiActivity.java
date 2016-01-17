@@ -119,70 +119,70 @@ public class MenWeiActivity extends Activity {
 									String[] arr = data.split("\\},");
 									String s = arr[1].substring(1);
 									String[] ary = s.split(",");
-									if (!"".equals(ary[0])){
-										tv_name.setText(ary[0]);
-									}else {
+									if (("".equals(ary[0]))||("null".equals(ary[0]))){
 										tv_name.setText("");
-									}
-									if (!"".equals(ary[1])){
-										tv_sex.setText(ary[1]);
 									}else {
+										tv_name.setText(ary[0]);
+									}
+									if (("".equals(ary[1]))||("null".equals(ary[1]))){
 										tv_sex.setText("");
-									}
-									if (!"".equals(ary[2])){
-										tv_minzu.setText(ary[2]);
 									}else {
+										tv_sex.setText(ary[1]);
+									}
+									if (("".equals(ary[2]))||("null".equals(ary[2]))){
 										tv_minzu.setText("");
-									}
-									if (!"".equals(ary[3])){
-										tv_idenfi.setText(ary[3]);
 									}else {
+										tv_minzu.setText(ary[2]);
+									}
+									if (("".equals(ary[3]))||("null".equals(ary[3]))){
 										tv_idenfi.setText("");
-									}
-									if (!"".equals(ary[4])){
-										tv_chepai.setText(ary[4]);
 									}else {
+										tv_idenfi.setText(ary[3]);
+									}
+									if (("".equals(ary[4]))||("null".equals(ary[4]))){
 										tv_chepai.setText("");
-									}
-									if (!"".equals(ary[5])){
-										tv_pinzhong.setText(ary[5]);
 									}else {
+										tv_chepai.setText(ary[4]);
+									}
+									if (("".equals(ary[5]))||("null".equals(ary[5]))){
 										tv_pinzhong.setText("");
-									}
-									if (!"".equals(ary[6])){
-										tv_level.setText(ary[6]);
 									}else {
+										tv_pinzhong.setText(ary[5]);
+									}
+									if (("".equals(ary[6]))||("null".equals(ary[6]))){
 										tv_level.setText("");
-									}
-									if (!"".equals(ary[7])){
-										tv_shuifen.setText(ary[7]+"%");
 									}else {
+										tv_level.setText(ary[6]);
+									}
+									if (("".equals(ary[7]))||("null".equals(ary[7]))){
 										tv_shuifen.setText(""+"%");
-									}
-									if (!"".equals(ary[8])){
-										tv_maozhong.setText(ary[8]+"KG");
 									}else {
+										tv_shuifen.setText(ary[7]+"%");
+									}
+									if (("".equals(ary[8]))||("null".equals(ary[8]))){
 										tv_maozhong.setText(""+"KG");
-									}
-									if (!"".equals(ary[9])){
-										tv_pizhong.setText(ary[9]+"KG");
 									}else {
+										tv_maozhong.setText(ary[8]+"KG");
+									}
+									if (("".equals(ary[9]))||("null".equals(ary[9]))){
 										tv_pizhong.setText(""+"KG");
-									}
-									if (!"".equals(ary[10])){
-										tv_date.setText(ary[10]);
 									}else {
+										tv_pizhong.setText(ary[9]+"KG");
+									}
+									if (("".equals(ary[10]))||("null".equals(ary[10]))){
 										tv_date.setText("");
+									}else {
+										tv_date.setText(ary[10]);
 									}
 
 									double pizhong,maozhong;
-									if ("".equals(ary[9])){
+									if (("".equals(ary[9])||("null".equals(ary[9])))){
 										pizhong = 0;
 
 									}else {
 										pizhong = Double.parseDouble(ary[9]);
 									}
-									if ("".equals(ary[8])){
+									if (("".equals(ary[8]))||("null".equals(ary[8]))){
 										maozhong = 0;
 
 									}else {
@@ -198,7 +198,7 @@ public class MenWeiActivity extends Activity {
 											iv_logomsg.setBackgroundResource(R.drawable.in5);    //入库完成
 											shuaka.setVisibility(View.GONE);
 											btn_recycle.setVisibility(View.VISIBLE);
-											tv_message.setText("交粮完成！可以出库！");
+											tv_message.setText("拉粮完成！可以出库！");
 										} else if ("1".equals(status) || "2".equals(status) || "4".equals(status)) { //入库未完成
 											iv_logomsg.setBackgroundResource(R.drawable.in124);
 											tv_message.setText("交粮未完成！请去回皮！");
@@ -228,19 +228,19 @@ public class MenWeiActivity extends Activity {
 											iv_logomsg.setBackgroundResource(R.drawable.out5);     			//出库完成
 											btn_recycle.setVisibility(View.VISIBLE);
 											shuaka.setVisibility(View.GONE);
-											tv_message.setText("交粮完成！可以出库！");
+											tv_message.setText("拉粮完成！可以出库！");
 										} else if ("1".equals(status) || "2".equals(status) || "4".equals(status)) {     //出库未完成
 											iv_logomsg.setBackgroundResource(R.drawable.out12430);
 											tv_message.setText("拉粮终止！请去称毛重！");
 											tv_message.setTextColor(getResources().getColor(R.color.tomato));
-											tv_pizhong.setText("请称重！");
-											tv_pizhong.setTextColor(getResources().getColor(R.color.tomato));
+											tv_maozhong.setText("请称重！");
+											tv_maozhong.setTextColor(getResources().getColor(R.color.tomato));
 										} else if ("3".equals(status) && chengji == 0) {
 											iv_logomsg.setBackgroundResource(R.drawable.out12430);         //出库退粮未完成
 											tv_message.setText("拉粮终止！请去称毛重！");
 											tv_message.setTextColor(getResources().getColor(R.color.tomato));
-											tv_pizhong.setText("请称重！");
-											tv_pizhong.setTextColor(getResources().getColor(R.color.tomato));
+											tv_maozhong.setText("请称重！");
+											tv_maozhong.setTextColor(getResources().getColor(R.color.tomato));
 										} else if ("3".equals(status) && chengji != 0) {					//出库退粮完成
 											iv_logomsg.setBackgroundResource(R.drawable.out3);
 											btn_recycle.setVisibility(View.VISIBLE);

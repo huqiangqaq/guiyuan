@@ -111,50 +111,50 @@ public class ChukuActivity extends Activity {
 											String[] arr = data.split("\\},");
 											String s = arr[1].substring(1);
 											String[] ary = s.split(",");
-											if (!"".equals(ary[0])){
-												tv_name.setText(ary[0]);
-											}else {
+											if (("".equals(ary[0]))||("null".equals(ary[0]))){
 												tv_name.setText("");
-											}
-											if (!"".equals(ary[1])){
-												tv_chepai.setText(ary[1]);
 											}else {
+												tv_name.setText(ary[0]);
+											}
+											if (("".equals(ary[1]))||("null".equals(ary[1]))){
 												tv_chepai.setText("");
-											}
-											if (!"".equals(ary[2])){
-												tv_idenfi.setText(ary[2]);
 											}else {
+												tv_chepai.setText(ary[1]);
+											}
+											if (("".equals(ary[2]))||("null".equals(ary[2]))){
 												tv_idenfi.setText("");
-											}
-											if (!"".equals(ary[3])){
-												tv_foodname.setText(ary[3]);
 											}else {
+												tv_idenfi.setText(ary[2]);
+											}
+											if (("".equals(ary[3]))||("null".equals(ary[3]))){
 												tv_foodname.setText("");
+											}else {
+												tv_foodname.setText(ary[3]);
 											}
-											if (!"".equals(ary[4])){
+											if (("".equals(ary[4]))||("null".equals(ary[4]))){
+												tv_level.setText("");
+											}else {
 												tv_level.setText(ary[4]);
-											}else {
-												tv_level.setText(""+"级");
 											}
-											if (!"".equals(ary[5])){
-												tv_water.setText(ary[5] + "%");
-											}else {
+											if (("".equals(ary[5]))||("null".equals(ary[5]))){
 												tv_water.setText(""+"%");
-											}
-											if (!"".equals(ary[8])){
-												tv_price.setText(ary[8] + "元");
 											}else {
+												tv_water.setText(ary[5] + "%");
+											}
+											if (("".equals(ary[8]))||("null".equals(ary[8]))){
 												tv_price.setText(""+"元");
-											}
-											if (!"".equals(ary[9])){
-												tv_weight.setText(ary[9] + "KG");
 											}else {
+												tv_price.setText(ary[8] + "元");
+											}
+											if (("".equals(ary[9]))||("null".equals(ary[9]))){
 												tv_weight.setText(""+"KG");
-											}
-											if (!"".equals(ary[10])){
-												tv_left.setText(ary[10] + "KG");
 											}else {
+												tv_weight.setText(ary[9] + "KG");
+											}
+											if (("".equals(ary[10]))||("null".equals(ary[10]))){
 												tv_left.setText(""+"KG");
+											}else {
+												tv_left.setText(ary[10] + "KG");
 											}
 											tv_confirm.setVisibility(View.VISIBLE);
 											shuaka.setVisibility(View.GONE);

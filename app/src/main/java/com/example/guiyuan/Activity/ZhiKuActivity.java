@@ -177,40 +177,40 @@ public class ZhiKuActivity extends Activity {
 					String[] arr = data.split("\\},");
 					String s = arr[1].substring(1);
 					String[] ary = s.split(",");
-					if (!"".equals(ary[0])){
-						tv_che4.setText(ary[0]);
-					}else {
+					if (("".equals(ary[0]))||("null".equals(ary[0]))){
 						tv_che4.setText("");
-					}
-					if (!"".equals(ary[1])){
-						tv_foodname.setText(ary[1]);
 					}else {
+						tv_che4.setText(ary[0]);
+					}
+					if (("".equals(ary[1]))||("null".equals(ary[1]))){
 						tv_foodname.setText("");
-					}
-					if (!"".equals(ary[4])){
-						tv_level.setText(ary[4]);
 					}else {
+						tv_foodname.setText(ary[1]);
+					}
+					if (("".equals(ary[4]))||("null".equals(ary[4]))){
 						tv_level.setText("");
-					}
-					if (!"".equals(ary[3])){
-						tv_foodtype.setText(ary[3]);
 					}else {
+						tv_level.setText(ary[4]);
+					}
+					if (("".equals(ary[3]))||("null".equals(ary[3]))){
 						tv_foodtype.setText("");
-					}
-					if (!"".equals(ary[5])){
-						tv_water.setText(ary[5]);
 					}else {
+						tv_foodtype.setText(ary[3]);
+					}
+					if (("".equals(ary[5]))||("null".equals(ary[5]))){
 						tv_water.setText("");
-					}
-					if (!"".equals(ary[6])){
-						tv_rl.setText(ary[6]);
 					}else {
+						tv_water.setText(ary[5]);
+					}
+					if (("".equals(ary[6]))||("null".equals(ary[6]))){
 						tv_rl.setText("");
-					}
-					if (!"".equals(ary[7])){
-						tv_zazhi.setText(ary[7]);
 					}else {
+						tv_rl.setText(ary[6]);
+					}
+					if (("".equals(ary[7]))||("null".equals(ary[7]))){
 						tv_zazhi.setText("");
+					}else {
+						tv_zazhi.setText(ary[7]);
 					}
 
 					NetUtil.sendNetReqByGet(Constant.STORE_ADDRESS, new MyCallBack(
