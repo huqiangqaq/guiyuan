@@ -8,7 +8,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 /**
- * Created by 83916 on 2016/1/6.
+ * Created by huqiang on 2016/1/6.
  */
 public class NetCheckUtil {
     /**
