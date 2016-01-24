@@ -247,7 +247,7 @@ public class ZhiKuActivity extends Activity {
 			if (flag){
 				myhttAndPost=new HttpGetAndPost(params[0]/*+File.separatorChar +"jj"*/,UserName+"/"+mCode);
 			}else {
-				myhttAndPost=new HttpGetAndPost(params[0]/*+File.separatorChar +"jj"*/,UserName+"/"+mCode+"/"+storenum+kouliang);
+				myhttAndPost=new HttpGetAndPost(params[0]/*+File.separatorChar +"jj"*/,UserName+"/"+mCode+"/"+storenum+"/"+kouliang);
 			}
 
 
