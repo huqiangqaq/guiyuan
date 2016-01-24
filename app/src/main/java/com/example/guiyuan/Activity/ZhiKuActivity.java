@@ -24,6 +24,7 @@ import com.example.guiyuan.R.id;
 import com.example.guiyuan.R.layout;
 import com.example.guiyuan.R.menu;
 import com.example.guiyuan.Utils.Constant;
+import com.example.guiyuan.Utils.EditChangeListener;
 import com.example.guiyuan.Utils.HttpGetAndPost;
 import com.example.guiyuan.Utils.JsonUtil;
 import com.example.guiyuan.Utils.MyCallBack;
@@ -55,10 +56,10 @@ public class ZhiKuActivity extends Activity {
 	TextView tv_zazhi;
 	@ViewInject(R.id.sp_storenum)
 	Spinner sp_storenum;
-//	@ViewInject(R.id.et_kouliang)
-//	EditText et_kouliang;
+	@ViewInject(R.id.et_kouliang)
+	EditText et_kouliang;
 //	@ViewInject(R.id.et_zeng)
-	EditText et_zeng;
+	//EditText et_zeng;
 	@ViewInject(R.id.tv_confirm)
 	TextView tv_confirm;
 	@ViewInject(R.id.tv_shuaka)
@@ -73,6 +74,7 @@ public class ZhiKuActivity extends Activity {
 	private static String UserName;
 	private static String storenum;
 	private static  boolean flag=false;
+	private static String kouliang;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -103,6 +105,7 @@ public class ZhiKuActivity extends Activity {
 				ZhiKuActivity.this.startActivity(intent);
 			}
 		});
+		et_kouliang.addTextChangedListener(new EditChangeListener(et_kouliang,this));
 		
 		tv_shuaka.setOnClickListener(new OnClickListener() {
 			@Override
@@ -138,6 +141,7 @@ public class ZhiKuActivity extends Activity {
 //										new MyCallBack(ZhiKuActivity.this, 4,
 //												null));
 							storenum = (String) sp_storenum.getSelectedItem();
+							kouliang = et_kouliang.getText().toString();
 							new MyThread().execute(Constant.UPDATE_ADDRESS);
 						}
 					});
@@ -244,7 +248,7 @@ public class ZhiKuActivity extends Activity {
 			if (flag){
 				myhttAndPost=new HttpGetAndPost(params[0]/*+File.separatorChar +"jj"*/,UserName+"/"+mCode);
 			}else {
-				myhttAndPost=new HttpGetAndPost(params[0]/*+File.separatorChar +"jj"*/,UserName+"/"+mCode+"/"+storenum);
+				myhttAndPost=new HttpGetAndPost(params[0]/*+File.separatorChar +"jj"*/,UserName+"/"+mCode+"/"+storenum+kouliang);
 			}
 
 

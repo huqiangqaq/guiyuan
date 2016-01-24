@@ -15,7 +15,7 @@ public class EditChangeListener implements TextWatcher {
     private CharSequence temp; //监听前的文本
     private int editStart;  //光标开始位置
     private int editEnd;  //光标结束位置
-    private  int maxNum = 2;   //最大输入数
+    private  int maxNum = 100;   //最大数
     private String TAG = "EditChangeListener";
     private Context context;
 
@@ -44,12 +44,12 @@ public class EditChangeListener implements TextWatcher {
 
         editStart  = et_num.getSelectionStart();
         editEnd = et_num.getSelectionEnd();
-        if (temp.length() > maxNum){
-            Toast.makeText(context, "你输入的字数已经超过了限制", Toast.LENGTH_SHORT).show();
+        if (temp.length()>0&&Double.parseDouble(String.valueOf(temp))> maxNum){
+            Toast.makeText(context, "您只能输入小于100的数", Toast.LENGTH_SHORT).show();
             s.delete(editStart-1,editEnd);
-            int tempSelection = editEnd;
-            et_num.setText(s);
-            et_num.setSelection(tempSelection);
+            //int tempSelection = editEnd;
+            et_num.setText("");
+            //et_num.setSelection(tempSelection);
 
         }
     }

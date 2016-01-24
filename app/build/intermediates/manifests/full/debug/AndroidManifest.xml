@@ -24,11 +24,6 @@
             android:name="com.example.guiyuan.Activity.LoginActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="com.example.guiyuan.Activity.HisVerticalActivity"
@@ -43,6 +38,11 @@
             android:name="com.example.guiyuan.Activity.ZhiKuActivity"
             android:label="@string/title_activity_zhi_ku"
             android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name="com.example.guiyuan.Activity.SelectStoreActivity"

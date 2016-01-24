@@ -240,29 +240,29 @@
                 android:spinnerMode="dropdown" />
         </LinearLayout>
 
-        <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:orientation="horizontal" >-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
 
-            <!--<TextView-->
-                <!--android:layout_width="0dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_weight="1"-->
-                <!--android:gravity="right"-->
-                <!--android:text="扣量"-->
-                <!--android:textColor="@color/gray" />-->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="扣量"
+                android:textColor="@color/gray" />
 
-            <!--<EditText-->
-                <!--android:id="@+id/et_kouliang"-->
-                <!--android:layout_width="0dp"-->
-                <!--android:layout_height="30dp"-->
-                <!--android:layout_marginLeft="5dp"-->
-                <!--android:layout_weight="2"-->
-                <!--android:background="@drawable/edit"-->
-                <!--android:inputType="number" />-->
-        <!--</LinearLayout>-->
+            <EditText
+                android:id="@+id/et_kouliang"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="2"
+                android:background="@drawable/edit"
+                android:inputType="numberDecimal" />
+        </LinearLayout>
 
         <!--<LinearLayout-->
             <!--android:layout_width="match_parent"-->

@@ -58,7 +58,6 @@
             android:layout_height="30dp"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
-            android:padding="5dp"
             android:spinnerMode="dropdown"
             android:background="@drawable/edit"
             />
