@@ -48,7 +48,7 @@ public class EditChangeListener implements TextWatcher {
             Toast.makeText(context, "您只能输入小于100的数", Toast.LENGTH_SHORT).show();
             s.delete(editStart-1,editEnd);
             //int tempSelection = editEnd;
-            et_num.setText("");
+                et_num.setText("");
             //et_num.setSelection(tempSelection);
 
         }
