@@ -120,7 +120,6 @@ public class ZhiKuActivity extends Activity {
 //				}
 //				final String code ="5";
 				mCode = code;
-				Log.i("hjkkkj",mCode);
 				if (!"".equals(mCode)) {
 					NetUtil.sendNetReqByGet(
 							Constant.ZHIKU_ADDRESS + "/" + mCode,
