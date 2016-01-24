@@ -3,6 +3,7 @@ package com.example.guiyuan.Activity;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.example.guiyuan.MyApplication;
 import com.example.guiyuan.R;
 import com.example.guiyuan.Utils.Constant;
 import com.example.guiyuan.Utils.HttpGetAndPost;
@@ -12,6 +13,7 @@ import com.example.guiyuan.Utils.PreferenceService;
 
 
 import android.app.Activity;
+import android.app.Application;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -41,6 +43,7 @@ public class LoginActivity extends Activity {
     private static String PassWord="";
     private static String LoginResult;
     private static String[] CangHao = {};
+    private static MyApplication application;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -131,6 +134,9 @@ public class LoginActivity extends Activity {
            super.onPostExecute(s);
            LoginResult = JsonUtil.parseLoginResult(s);
            dialog.dismiss();
+           application = MyApplication.getInstance();
+           application.setUserName(UserName);
+           application.setPassWord(PassWord);
            if (/*"1".equals(LoginResult)||*/"2".equals(LoginResult)){
                Intent intent = new Intent(LoginActivity.this,MenuActivity.class);
                intent.putExtra("UserName", UserName);
