@@ -142,7 +142,7 @@ public class QianyangActivity extends Activity {
 					waters = water.getText().toString();
 					rl = rongliang.getText().toString();
 					zz = zazhi.getText().toString();
-					Intent intent = getIntent();
+					//Intent intent = getIntent();
 					//UserName = intent.getStringExtra("UserName");
 					UserName = application.getUserName();
 				/*	String path = Constant.BASE_ADDRESS + File.separatorChar + "PDA" + File.separatorChar + "CreateAssay" + File.separatorChar+UserName+File.separatorChar
