@@ -3,7 +3,7 @@ package com.example.guiyuan.Activity;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.guiyuan.MyApplication;
+import com.example.guiyuan.Application.MyApplication;
 import com.example.guiyuan.R;
 import com.example.guiyuan.Utils.Constant;
 import com.example.guiyuan.Utils.HttpGetAndPost;
@@ -13,7 +13,6 @@ import com.example.guiyuan.Utils.PreferenceService;
 
 
 import android.app.Activity;
-import android.app.Application;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;

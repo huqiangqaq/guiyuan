@@ -1,4 +1,4 @@
-package com.example.guiyuan;
+package com.example.guiyuan.Application;
 
 import android.app.Application;
 
