@@ -14,6 +14,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.guiyuan.Adapter.HistoryAdapter;
+import com.example.guiyuan.Application.MyApplication;
 import com.example.guiyuan.R;
 import com.example.guiyuan.Utils.Constant;
 import com.example.guiyuan.Utils.HttpGetAndPost;
@@ -46,14 +47,17 @@ public class YiKuActivity extends Activity {
     Button ykSubmit;
     public static final int STORE = 1;
     private static String operationPersonID, liangWeight, cargoNo, desStoreHouse;
+    private static MyApplication application;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_yi_ku);
         ViewUtils.inject(this);
-        Intent intent = getIntent();
-        operationPersonID = intent.getStringExtra("UserName");
+        application =MyApplication.getInstance();
+//        Intent intent = getIntent();
+//        operationPersonID = intent.getStringExtra("UserName");
+        operationPersonID = application.getUserName();
         NetUtil.sendNetReqByGet(Constant.STORE_ADDRESS, new MyCallBack(
                 STORE));
         ykSubmit.setOnClickListener(new View.OnClickListener() {

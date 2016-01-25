@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.guiyuan.Application.MyApplication;
 import com.example.guiyuan.R;
 import com.example.guiyuan.R.id;
 import com.example.guiyuan.R.layout;
@@ -79,12 +80,14 @@ public class ChukuActivity extends Activity {
 	private static String mStroeNum="";
 	private static String UserName;
 	private static boolean flag = false;
+	private static MyApplication application;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_chuku);
 		ViewUtils.inject(this);
+		application = MyApplication.getInstance();
 		shuaka.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -185,8 +188,9 @@ public class ChukuActivity extends Activity {
 					ChukuActivity.this.startActivityForResult(new Intent(ChukuActivity.this,SelectStoreActivity.class),REQUEST_CODE);
 				else{
 					//确认提交
-					Intent intent = getIntent();
-					UserName = intent.getStringExtra("UserName");
+//					Intent intent = getIntent();
+//					UserName = intent.getStringExtra("UserName");
+					UserName = application.getUserName();
 					System.out.println(mStroeNum);
 					System.out.println(mCode);
 					flag = false;

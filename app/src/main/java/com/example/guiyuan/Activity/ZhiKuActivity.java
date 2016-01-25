@@ -4,6 +4,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.app.Application;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import cilico.tools.Nfcreceive;
 
+import com.example.guiyuan.Application.MyApplication;
 import com.example.guiyuan.R;
 import com.example.guiyuan.R.id;
 import com.example.guiyuan.R.layout;
@@ -75,6 +77,7 @@ public class ZhiKuActivity extends Activity {
 	private static String storenum;
 	private static  boolean flag=false;
 	private static String kouliang;
+	private static MyApplication application;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -83,8 +86,10 @@ public class ZhiKuActivity extends Activity {
 		ViewUtils.inject(this);
 		tv_confirm.setVisibility(View.GONE);
 		tv_cancel.setVisibility(View.GONE);
-		Intent intent = getIntent();
-		UserName = intent.getStringExtra("UserName");
+//		Intent intent = getIntent();
+//		UserName = intent.getStringExtra("UserName");
+		application = MyApplication.getInstance();
+		UserName = application.getUserName();
 		if(!Constant.DEBUG_WITH_NO_NFC_DEVICE) {Nfcreceive.m_handler = mnfcHandler;}
 		tv_change.setOnClickListener(new OnClickListener() {
 			

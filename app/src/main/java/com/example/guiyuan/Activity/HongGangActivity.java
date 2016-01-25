@@ -1,6 +1,7 @@
 package com.example.guiyuan.Activity;
 
 import android.app.Activity;
+import android.app.Application;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.guiyuan.Application.MyApplication;
 import com.example.guiyuan.R;
 import com.example.guiyuan.Utils.Constant;
 import com.example.guiyuan.Utils.HttpGetAndPost;
@@ -74,6 +76,7 @@ public class HongGangActivity extends Activity {
     private String[] shengfen = {"辽", "吉", "京", "蒙", "黑", "津", "冀", "浙", "沪", "粤", "鲁", "晋", "豫", "军"};
     public static final int HGTNAME = 1;
     private static Map<String,String> map;
+    private static MyApplication application;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,11 +84,13 @@ public class HongGangActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_hong_gang);
         ViewUtils.inject(this);
+        application = MyApplication.getInstance();
         hg_weight.setText(0 + "");
         hg_maozhong.setText(0+"");
         hg_pizhong.setText(0+"");
-        Intent intent = getIntent();
-        UserName = intent.getStringExtra("UserName");
+//        Intent intent = getIntent();
+//        UserName = intent.getStringExtra("UserName");
+        UserName = application.getUserName();
         hg_maozhong.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {

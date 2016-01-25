@@ -138,18 +138,18 @@ public class LoginActivity extends Activity {
            application.setPassWord(PassWord);
            if (/*"1".equals(LoginResult)||*/"2".equals(LoginResult)){
                Intent intent = new Intent(LoginActivity.this,MenuActivity.class);
-               intent.putExtra("UserName", UserName);
+//               intent.putExtra("UserName", UserName);
                startActivity(intent);
                LoginActivity.this.finish();
            }else if ("1".equals(LoginResult)){
                Intent intent = new Intent(LoginActivity.this, QianyangActivity.class);
-               intent.putExtra("UserName", UserName);
+//               intent.putExtra("UserName", UserName);
                startActivity(intent);
                LoginActivity.this.finish();
            }else if ("3".equals(LoginResult)){
                //Toast.makeText(getApplicationContext(),"你是门卫",Toast.LENGTH_SHORT).show();
                Intent intent = new Intent(LoginActivity.this, MenWeiActivity.class);
-               intent.putExtra("UserName", UserName);
+//               intent.putExtra("UserName", UserName);
                startActivity(intent);
                LoginActivity.this.finish();
            }else {
