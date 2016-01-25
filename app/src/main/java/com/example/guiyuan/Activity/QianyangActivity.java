@@ -27,6 +27,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import cilico.tools.Nfcreceive;
 
+import com.example.guiyuan.Application.MyApplication;
 import com.example.guiyuan.R;
 import com.example.guiyuan.R.id;
 import com.example.guiyuan.R.layout;
@@ -79,6 +80,7 @@ public class QianyangActivity extends Activity {
 	private String[] shengfen = {"辽","吉","京","蒙","黑","津","冀","浙","沪","粤","鲁","晋","豫","军"};
 	private String[] num = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N"};
 	private static String carnum,foodname,foodtype,storenum,waters,rl,zz,UserName,code;
+	private static MyApplication application;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -86,6 +88,7 @@ public class QianyangActivity extends Activity {
 		setContentView(R.layout.activity_qianyang);
 		ViewUtils.inject(this);
 		init();
+		application = MyApplication.getInstance();
 		sp_chepai.setAdapter(new ArrayAdapter<String>(
 				QianyangActivity.this,
 				android.R.layout.simple_spinner_dropdown_item, shengfen));
@@ -140,7 +143,8 @@ public class QianyangActivity extends Activity {
 					rl = rongliang.getText().toString();
 					zz = zazhi.getText().toString();
 					Intent intent = getIntent();
-					UserName = intent.getStringExtra("UserName");
+					//UserName = intent.getStringExtra("UserName");
+					UserName = application.getUserName();
 				/*	String path = Constant.BASE_ADDRESS + File.separatorChar + "PDA" + File.separatorChar + "CreateAssay" + File.separatorChar+UserName+File.separatorChar
 							+ carnum + File.separatorChar + waters + File.separatorChar + rl + File.separatorChar + zz
 							+ File.separatorChar + storenum + File.separatorChar + foodname + File.separatorChar
