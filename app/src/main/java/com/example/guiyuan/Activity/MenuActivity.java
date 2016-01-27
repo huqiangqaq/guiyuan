@@ -28,7 +28,7 @@ public class MenuActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_menu);
         gridView = (GridView) findViewById(R.id.mGridView);
-        final Intent intent = getIntent();
+        //final Intent intent = getIntent();
         //UserName = intent.getStringExtra("UserName");
         // 生成动态数组，并且转入数据
         list = new ArrayList<Map<String, Object>>();

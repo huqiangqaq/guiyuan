@@ -60,7 +60,7 @@ ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:
 	android:theme
 		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:24:9-40
 	android:name
-		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:20:9-38
+		ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:20:9-50
 activity#com.example.guiyuan.Activity.LoginActivity
 ADDED from D:\Android\Android Projects\guiyuan\app\src\main\AndroidManifest.xml:25:9-35:20
 	android:screenOrientation

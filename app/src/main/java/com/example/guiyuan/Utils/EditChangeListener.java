@@ -28,6 +28,7 @@ public class EditChangeListener implements TextWatcher {
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
         Log.i(TAG, "输入文本前的状态");
         temp =s;
+
     }
 
     @Override

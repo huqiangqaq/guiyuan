@@ -70,7 +70,6 @@ public class ZhiKuActivity extends Activity {
 	TextView tv_change;
 	@ViewInject(R.id.tv_cancel)
 	TextView tv_cancel;
-	private Handler myhandler = new Handler();
 	private Handler mnfcHandler = new MainNfcHandler();
 	private static String mCode;
 	private static String UserName;
