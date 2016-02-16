@@ -264,7 +264,7 @@ public class ChukuActivity extends Activity {
 			if (flag){
 				myhttAndPost=new HttpGetAndPost(params[0]/*+File.separatorChar +"jj"*/,UserName+"/"+mCode);
 			}else {
-				myhttAndPost=new HttpGetAndPost(params[0]/*+File.separatorChar +"jj"*/,UserName+"/"+mCode+"/"+mStroeNum);
+				myhttAndPost=new HttpGetAndPost(params[0]/*+File.separatorChar +"jj"*/,UserName+"/"+mCode+"/"+mStroeNum+"0");
 			}
 
 

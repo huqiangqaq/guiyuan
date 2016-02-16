@@ -84,7 +84,7 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:text="登录"
-        android:background="@color/item1"
+        android:background="@drawable/login_btn_selector"
         android:id="@+id/btn_Login"
         android:layout_gravity="center_horizontal"/>
 

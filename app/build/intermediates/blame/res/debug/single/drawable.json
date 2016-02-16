@@ -32,24 +32,28 @@
         "source": "C:\\Users\\83916\\Desktop\\guiyuan\\app\\src\\main\\res\\drawable\\status5.png"
     },
     {
-        "merged": "E:\\workspace\\AndroidStudioProjects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\status3.png",
-        "source": "E:\\workspace\\AndroidStudioProjects\\guiyuan\\app\\src\\main\\res\\drawable\\status3.png"
+        "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\login_btn_selector.xml",
+        "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\drawable\\login_btn_selector.xml"
     },
     {
-        "merged": "E:\\workspace\\AndroidStudioProjects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\logo.png",
-        "source": "E:\\workspace\\AndroidStudioProjects\\guiyuan\\app\\src\\main\\res\\drawable\\logo.png"
+        "merged": "E:\\workspace\\AndroidStudioProjects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\status3.png",
+        "source": "E:\\workspace\\AndroidStudioProjects\\guiyuan\\app\\src\\main\\res\\drawable\\status3.png"
     },
     {
         "merged": "C:\\Users\\83916\\Desktop\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\status4.png",
         "source": "C:\\Users\\83916\\Desktop\\guiyuan\\app\\src\\main\\res\\drawable\\status4.png"
     },
     {
-        "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\logo.png",
-        "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\drawable\\logo.png"
+        "merged": "E:\\workspace\\AndroidStudioProjects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\logo.png",
+        "source": "E:\\workspace\\AndroidStudioProjects\\guiyuan\\app\\src\\main\\res\\drawable\\logo.png"
     },
     {
         "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\status2.png",
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\drawable\\status2.png"
+    },
+    {
+        "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\logo.png",
+        "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\drawable\\logo.png"
     },
     {
         "merged": "E:\\workspace\\AndroidStudioProjects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\status5.png",
@@ -60,12 +64,12 @@
         "source": "E:\\workspace\\AndroidStudioProjects\\guiyuan\\app\\src\\main\\res\\drawable\\shixin.xml"
     },
     {
-        "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\carnum.xml",
-        "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\drawable\\carnum.xml"
-    },
-    {
         "merged": "C:\\Users\\83916\\Desktop\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_shape_edit2.xml",
         "source": "C:\\Users\\83916\\Desktop\\guiyuan\\app\\src\\main\\res\\drawable\\common_shape_edit2.xml"
+    },
+    {
+        "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\carnum.xml",
+        "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\drawable\\carnum.xml"
     },
     {
         "merged": "E:\\workspace\\AndroidStudioProjects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\status2.png",
