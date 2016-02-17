@@ -251,7 +251,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="right"
-                android:text="扣量"
+                android:text="扣重"
+                android:textSize="18sp"
                 android:textColor="@color/gray" />
 
             <EditText
