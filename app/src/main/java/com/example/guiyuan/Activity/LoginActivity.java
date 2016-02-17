@@ -19,7 +19,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -37,6 +40,7 @@ public class LoginActivity extends Activity {
     private PreferenceService preferenceService;
     private Map<String,String> map;
     private boolean isAutoLogin =false;
+    private static boolean isExit = false;
     private static String LOGINIP ="";
     ProgressDialog progressDialog = null;
     String url ="http://192.168.1.51:7000";
@@ -45,6 +49,13 @@ public class LoginActivity extends Activity {
     private static String LoginResult;
     private static String[] CangHao = {};
     private static MyApplication application;
+    private Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            isExit = false;
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -185,4 +196,20 @@ public class LoginActivity extends Activity {
            Log.i("123+++++++++++", LoginResult.toString());
        }
    }
+    //退出程序
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode==KeyEvent.KEYCODE_BACK){
+            if (!isExit){
+                isExit = true;
+                Toast.makeText(LoginActivity.this,"再按一次退出程序",Toast.LENGTH_SHORT).show();
+                handler.sendEmptyMessageDelayed(0, 2000);
+            }else {
+                finish();
+                System.exit(0);
+            }
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }
