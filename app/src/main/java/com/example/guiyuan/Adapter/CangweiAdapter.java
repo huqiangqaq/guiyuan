@@ -18,51 +18,58 @@ import com.example.guiyuan.entity.Cangku;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
-public class CangweiAdapter extends BaseAdapter{
-	private Context context;
-	private List<Cangku> list;
-	public CangweiAdapter(Context context,List<Cangku> list){
-		this.context=context;
-		this.list=list;
-	}
-	@Override
-	public int getCount() {
-		return list.size();
-	}
+public class CangweiAdapter extends BaseAdapter {
+    private Context context;
+    private List<Cangku> list;
 
-	@Override
-	public Object getItem(int position) {
-		return list.get(position);
-	}
+    public CangweiAdapter(Context context, List<Cangku> list) {
+        this.context = context;
+        this.list = list;
+    }
 
-	@Override
-	public long getItemId(int position) {
-		// TODO Auto-generated method stub
-		return position;
-	}
+    @Override
+    public int getCount() {
+        return list.size();
+    }
 
-	@Override
-	public View getView(int position, View convertView, ViewGroup parent) {
-		final ViewHolder viewholder;
-		if(convertView==null){
-			viewholder=new ViewHolder();
-			convertView=LayoutInflater.from(context).inflate(R.layout.item_selectstore, null);
-			convertView.setTag(viewholder);
-		}else{
-			viewholder=(ViewHolder)convertView.getTag();
-		}
-		ViewUtils.inject(viewholder,convertView);
-		Cangku hi=list.get(position);
-		viewholder.tv_storename.setText(hi.getStorenum());
-		viewholder.tv_level.setText(hi.getLevel());
-		viewholder.tv_water.setText(hi.getWater()+"%");
-		viewholder.tv_foodname.setText(hi.getFoodname());
-		return convertView;
-	}
-	static class ViewHolder{
-		@ViewInject(R.id.tv_storename)TextView tv_storename;
-		@ViewInject(R.id.tv_level)TextView tv_level;
-		@ViewInject(R.id.tv_water)TextView tv_water;
-		@ViewInject(R.id.tv_foodname)TextView tv_foodname;
-	}
+    @Override
+    public Object getItem(int position) {
+        return list.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        // TODO Auto-generated method stub
+        return position;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        final ViewHolder viewholder;
+        if (convertView == null) {
+            viewholder = new ViewHolder();
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_selectstore, null);
+            convertView.setTag(viewholder);
+        } else {
+            viewholder = (ViewHolder) convertView.getTag();
+        }
+        ViewUtils.inject(viewholder, convertView);
+        Cangku hi = list.get(position);
+        viewholder.tv_storename.setText(hi.getStorenum());
+        viewholder.tv_level.setText(hi.getLevel());
+        viewholder.tv_water.setText(hi.getWater() + "%");
+        viewholder.tv_foodname.setText(hi.getFoodname());
+        return convertView;
+    }
+
+    static class ViewHolder {
+        @ViewInject(R.id.tv_storename)
+        TextView tv_storename;
+        @ViewInject(R.id.tv_level)
+        TextView tv_level;
+        @ViewInject(R.id.tv_water)
+        TextView tv_water;
+        @ViewInject(R.id.tv_foodname)
+        TextView tv_foodname;
+    }
 }
