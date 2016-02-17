@@ -13,7 +13,9 @@ import com.example.guiyuan.Utils.PreferenceService;
 
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -36,7 +38,7 @@ public class LoginActivity extends Activity {
     private Map<String,String> map;
     private boolean isAutoLogin =false;
     private static String LOGINIP ="";
-    ProgressDialog dialog = null;
+    ProgressDialog progressDialog = null;
     String url ="http://192.168.1.51:7000";
     private static String UserName ="";
     private static String PassWord="";
@@ -62,23 +64,39 @@ public class LoginActivity extends Activity {
         if (map.size()>0){
             checkBox.setChecked(true);
         }
-        dialog = new ProgressDialog(this);
-        dialog.setMessage("登录中....");
+
 
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog.show();
+
                 UserName = etUserName.getText().toString();
                 PassWord = etPassWord.getText().toString();
-                //判断是否勾选记住密码选项
+                if ("".equals(UserName)||"".equals(PassWord)){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+                    AlertDialog dialog = builder.setTitle("提示信息:")
+                            .setMessage("账号或密码不能为空！")
+                            .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                }
+                            }).create();
+                    dialog.show();
+                }else {
+                    progressDialog = new ProgressDialog(LoginActivity.this);
+                    progressDialog.setMessage("登录中....");
+                    progressDialog.show();
+                    //判断是否勾选记住密码选项
 
                     preferenceService.save(etUserName.getText().toString(), etPassWord.getText().toString());
 
 
-                //判断账户身份及判断登录状态
-                new MyThread().execute(Constant.URL);
+                    //判断账户身份及判断登录状态
+                    new MyThread().execute(Constant.URL);
+                }
+
 
 
 //                HttpUtil.GetJsonFromNet(getApplicationContext(), LOGINIP, params, new HttpUtil.GetJsonCallBack() {
@@ -132,7 +150,7 @@ public class LoginActivity extends Activity {
        protected void onPostExecute(String s) {
            super.onPostExecute(s);
            LoginResult = JsonUtil.parseLoginResult(s);
-           dialog.dismiss();
+           progressDialog.dismiss();
            application = MyApplication.getInstance();
            application.setUserName(UserName);
            application.setPassWord(PassWord);
@@ -153,7 +171,16 @@ public class LoginActivity extends Activity {
                startActivity(intent);
                LoginActivity.this.finish();
            }else {
-               Toast.makeText(LoginActivity.this, "登录失败,请检查网络", Toast.LENGTH_SHORT).show();
+               AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+               AlertDialog alertDialog = builder.setTitle("提示信息")
+                       .setMessage("登陆失败，请检查网络")
+                       .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                           @Override
+                           public void onClick(DialogInterface dialog, int which) {
+
+                           }
+                       }).create();
+               alertDialog.show();
            }
            Log.i("123+++++++++++", LoginResult.toString());
        }
