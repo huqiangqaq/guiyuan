@@ -1,6 +1,8 @@
 package com.example.guiyuan.Activity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -48,12 +50,15 @@ public class YiKuActivity extends Activity {
     public static final int STORE = 1;
     private static String operationPersonID, liangWeight, cargoNo, desStoreHouse;
     private static MyApplication application;
+    private static AlertDialog alertDialog = null;
+    private static AlertDialog.Builder builder = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_yi_ku);
         ViewUtils.inject(this);
+        builder = new AlertDialog.Builder(YiKuActivity.this);
         application =MyApplication.getInstance();
 //        Intent intent = getIntent();
 //        operationPersonID = intent.getStringExtra("UserName");
@@ -165,13 +170,29 @@ public class YiKuActivity extends Activity {
 
             String result = JsonUtil.parseLoginResult("CreateNbyk", s);
             if (result.equals("true")) {
-                Toast.makeText(getApplicationContext(), "操作成功", Toast.LENGTH_SHORT).show();
+                alertDialog = builder.setTitle("提示信息：")
+                        .setMessage("操作成功")
+                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                alertDialog.dismiss();
+                            }
+                        }).create();
+                alertDialog.show();
 
 			/*	water.setText("");
 				rongliang.setText("");
 				zazhi.setText("");*/
             } else {
-                Toast.makeText(getApplicationContext(), "提交失败", Toast.LENGTH_SHORT).show();
+                alertDialog = builder.setTitle("提示信息:")
+                        .setMessage("提交失败")
+                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                alertDialog.dismiss();
+                            }
+                        }).create();
+                alertDialog.show();
             }
         }
     }

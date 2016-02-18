@@ -4,7 +4,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Application;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -78,6 +80,8 @@ public class ZhiKuActivity extends Activity {
     private static boolean flag = false;
     private static String kouliang;
     private static MyApplication application;
+    private static AlertDialog alertDialog = null;
+    private static AlertDialog.Builder builder = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,10 +89,9 @@ public class ZhiKuActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_zhi_ku);
         ViewUtils.inject(this);
+        builder = new AlertDialog.Builder(ZhiKuActivity.this);
         tv_confirm.setVisibility(View.GONE);
         tv_cancel.setVisibility(View.GONE);
-//		Intent intent = getIntent();
-//		UserName = intent.getStringExtra("UserName");
         application = MyApplication.getInstance();
         UserName = application.getUserName();
         if (!Constant.DEBUG_WITH_NO_NFC_DEVICE) {
@@ -278,7 +281,16 @@ public class ZhiKuActivity extends Activity {
 
             //String result = JsonUtil.parseLoginResult(s);
             if ("true".equals(result)) {
-                Toast.makeText(getApplicationContext(), "操作成功", Toast.LENGTH_SHORT).show();
+                builder = new AlertDialog.Builder(ZhiKuActivity.this);
+                alertDialog = builder.setTitle("提示信息")
+                        .setMessage("操作成功")
+                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        }).create();
+                alertDialog.show();
                 tv_che4.setText("");
                 tv_foodname.setText("");
                 tv_level.setText("");
@@ -290,7 +302,15 @@ public class ZhiKuActivity extends Activity {
                 tv_cancel.setVisibility(View.GONE);
 
             } else {
-                Toast.makeText(getApplicationContext(), "操作失败", Toast.LENGTH_SHORT).show();
+                alertDialog = builder.setTitle("提示信息")
+                        .setMessage("操作失败")
+                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        }).create();
+                alertDialog.show();
             }
         }
     }

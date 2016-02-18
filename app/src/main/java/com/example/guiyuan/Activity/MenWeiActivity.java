@@ -5,6 +5,8 @@ import org.json.JSONObject;
 
 import android.R.string;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -74,11 +76,14 @@ public class MenWeiActivity extends Activity {
 	LinearLayout llcontent;
 	private static String mCode="";
 	private static String UserName;
+	private static AlertDialog alertDialog = null;
+	private static AlertDialog.Builder builder = null;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_men_wei);
+		builder = new AlertDialog.Builder(MenWeiActivity.this);
 		ViewUtils.inject(this);
 		shuaka.setOnClickListener(new OnClickListener() {
 
@@ -112,7 +117,15 @@ public class MenWeiActivity extends Activity {
 								String data = json
 										.getString("getCarStatusByCardIdResult");
 								if (data.length()<60){
-									Toast.makeText(MenWeiActivity.this,"当前卡号无效，请换卡",Toast.LENGTH_SHORT).show();
+									alertDialog = builder.setTitle("提示信息")
+											.setMessage("当前卡号无效，请换卡")
+											.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+												@Override
+												public void onClick(DialogInterface dialog, int which) {
+
+												}
+											}).create();
+									alertDialog.show();
 								}else {
 									data = data.substring(1,
 											data.length() - 2);
@@ -316,7 +329,15 @@ public class MenWeiActivity extends Activity {
 			super.onPostExecute(s);
 			String result = JsonUtil.parseLoginResult("recycleCard",s);
 			if ("true".equals(result)){
-				Toast.makeText(getApplicationContext(),"操作成功",Toast.LENGTH_SHORT).show();
+				alertDialog = builder.setTitle("提示信息")
+						.setMessage("操作成功")
+						.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+
+							}
+						}).create();
+				alertDialog.show();
 				shuaka.setVisibility(View.VISIBLE);
 				tv_name.setText("");
 				tv_sex.setText("");
@@ -333,7 +354,15 @@ public class MenWeiActivity extends Activity {
 				llcontent.setVisibility(View.GONE);
 				btn_recycle.setVisibility(View.GONE);
 			}else {
-				Toast.makeText(getApplicationContext(),"操作失败",Toast.LENGTH_SHORT).show();
+				alertDialog = builder.setTitle("提示信息")
+						.setMessage("操作失败")
+						.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+
+							}
+						}).create();
+				alertDialog.show();
 			}
 		}
 	}

@@ -36,19 +36,17 @@ public class LoginActivity extends Activity {
     private EditText etUserName,etPassWord;
     private Button btnLogin;
     private CheckBox checkBox;
-    //private static String UserName,PassWord;
     private PreferenceService preferenceService;
     private Map<String,String> map;
     private boolean isAutoLogin =false;
     private static boolean isExit = false;
-    private static String LOGINIP ="";
     ProgressDialog progressDialog = null;
-    String url ="http://192.168.1.51:7000";
     private static String UserName ="";
     private static String PassWord="";
     private static String LoginResult;
-    private static String[] CangHao = {};
     private static MyApplication application;
+    private static AlertDialog alertDialog = null;
+    private static AlertDialog.Builder builder = null;
     private Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -61,6 +59,7 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_login);
+        builder = new AlertDialog.Builder(LoginActivity.this);
         init();
         if (!NetCheckUtil.isConnected(this)){
             //btnLogin.setEnabled(false);
@@ -85,8 +84,7 @@ public class LoginActivity extends Activity {
                 UserName = etUserName.getText().toString();
                 PassWord = etPassWord.getText().toString();
                 if ("".equals(UserName)||"".equals(PassWord)){
-                    AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                    AlertDialog dialog = builder.setTitle("提示信息:")
+                     alertDialog = builder.setTitle("提示信息:")
                             .setMessage("账号或密码不能为空！")
                             .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                                 @Override
@@ -94,7 +92,7 @@ public class LoginActivity extends Activity {
 
                                 }
                             }).create();
-                    dialog.show();
+                    alertDialog.show();
                 }else {
                     progressDialog = new ProgressDialog(LoginActivity.this);
                     progressDialog.setMessage("登录中....");
@@ -167,28 +165,24 @@ public class LoginActivity extends Activity {
            application.setPassWord(PassWord);
            if (/*"1".equals(LoginResult)||*/"2".equals(LoginResult)){
                Intent intent = new Intent(LoginActivity.this,MenuActivity.class);
-//               intent.putExtra("UserName", UserName);
                startActivity(intent);
                LoginActivity.this.finish();
            }else if ("1".equals(LoginResult)){
                Intent intent = new Intent(LoginActivity.this, QianyangActivity.class);
-//               intent.putExtra("UserName", UserName);
                startActivity(intent);
                LoginActivity.this.finish();
            }else if ("3".equals(LoginResult)){
                //Toast.makeText(getApplicationContext(),"你是门卫",Toast.LENGTH_SHORT).show();
                Intent intent = new Intent(LoginActivity.this, MenWeiActivity.class);
-//               intent.putExtra("UserName", UserName);
                startActivity(intent);
                LoginActivity.this.finish();
            }else {
-               AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-               AlertDialog alertDialog = builder.setTitle("提示信息")
+              alertDialog = builder.setTitle("提示信息")
                        .setMessage("登陆失败，请检查网络")
                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                            @Override
                            public void onClick(DialogInterface dialog, int which) {
-
+                                alertDialog.dismiss();
                            }
                        }).create();
                alertDialog.show();

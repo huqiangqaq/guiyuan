@@ -10,6 +10,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -81,11 +83,14 @@ public class QianyangActivity extends Activity {
 	private String[] num = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N"};
 	private static String carnum,foodname,foodtype,storenum,waters,rl,zz,UserName,code;
 	private static MyApplication application;
+	private static AlertDialog alertDialog = null;
+	private static AlertDialog.Builder builder = null;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_qianyang);
+		builder = new AlertDialog.Builder(QianyangActivity.this);
 		ViewUtils.inject(this);
 		init();
 		application = MyApplication.getInstance();
@@ -297,7 +302,15 @@ public class QianyangActivity extends Activity {
 			
 			String result = JsonUtil.parseLoginResult("CreateAssay",s);
 			if(result.equals("true")) {
-				Toast.makeText(getApplicationContext(), "操作成功", Toast.LENGTH_SHORT).show();
+				alertDialog = builder.setTitle("提示信息")
+						.setMessage("操作成功")
+						.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+								alertDialog.dismiss();
+							}
+						}).create();
+				alertDialog.show();
 				carno.setText("");
 				tv_wait.setText("提交成功");
 
@@ -306,7 +319,15 @@ public class QianyangActivity extends Activity {
 				zazhi.setText("");*/
 			}
 			else {
-				Toast.makeText(getApplicationContext(), "提交失败，该粮库卡可能正在使用中", Toast.LENGTH_SHORT).show();
+				alertDialog = builder.setTitle("提示信息:")
+						.setMessage("提交失败，该粮库卡可能正在使用中！")
+						.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+								alertDialog.dismiss();
+							}
+						}).create();
+				alertDialog.show();
 			}
 		}
 	}

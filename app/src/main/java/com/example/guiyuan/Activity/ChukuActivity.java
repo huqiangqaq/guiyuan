@@ -4,6 +4,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -81,12 +83,15 @@ public class ChukuActivity extends Activity {
     private static String UserName;
     private static boolean flag = false;
     private static MyApplication application;
+    private static AlertDialog alertDialog = null;
+    private static AlertDialog.Builder builder = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_chuku);
+        builder = new AlertDialog.Builder(ChukuActivity.this);
         ViewUtils.inject(this);
         application = MyApplication.getInstance();
         shuaka.setOnClickListener(new OnClickListener() {
@@ -288,7 +293,15 @@ public class ChukuActivity extends Activity {
 
             //String result = JsonUtil.parseLoginResult(s);
             if ("true".equals(result)) {
-                Toast.makeText(getApplicationContext(), "操作成功", Toast.LENGTH_SHORT).show();
+                alertDialog = builder.setTitle("提示信息")
+                        .setMessage("操作成功")
+                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        }).create();
+                alertDialog.show();
                 tv_name.setText("");
                 tv_chepai.setText("");
                 tv_idenfi.setText("");
@@ -305,7 +318,15 @@ public class ChukuActivity extends Activity {
                 tv_confirm.setVisibility(View.VISIBLE);
                 tv_reselect.setVisibility(View.GONE);
             } else {
-                Toast.makeText(getApplicationContext(), "操作失败", Toast.LENGTH_SHORT).show();
+                alertDialog = builder.setTitle("提示信息")
+                        .setMessage("操作失败")
+                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        }).create();
+                alertDialog.show();
             }
         }
     }
