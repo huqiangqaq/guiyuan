@@ -113,7 +113,15 @@ public class ChukuActivity extends Activity {
                                         String data = json
                                                 .getString("getSaleInfomationResult");
                                         if (data.length() < 80) {
-                                            Toast.makeText(ChukuActivity.this, "当前卡号无效，请换卡", Toast.LENGTH_SHORT).show();
+                                            alertDialog = builder.setTitle("提示信息:")
+                                                    .setMessage("当前卡号无效，请换卡")
+                                                    .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                                                        @Override
+                                                        public void onClick(DialogInterface dialog, int which) {
+                                                            alertDialog.dismiss();
+                                                        }
+                                                    }).create();
+                                            alertDialog.show();
                                         } else {
                                             data = data.substring(1,
                                                     data.length() - 2);
