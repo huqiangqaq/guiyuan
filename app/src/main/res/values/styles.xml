@@ -15,7 +15,7 @@
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
-        
+        <item name="android:windowAnimationStyle">@style/default_animation</item>
     </style>
     <style name="BackgroundOnly">
         <item name="android:windowBackground">@null</item>
@@ -24,6 +24,12 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowNoDisplay">true</item>
         <item name="android:windowIsFloating">true</item>
+    </style>
+    
+    <style name="default_animation" mce_bogus="1"
+        parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/fade</item>
+        <item name="android:activityCloseEnterAnimation">@anim/hold</item>
     </style>
 
 </resources>

@@ -308,7 +308,6 @@ public class ZhiKuActivity extends Activity {
                 tv_zazhi.setText("");
                 tv_confirm.setVisibility(View.GONE);
                 tv_cancel.setVisibility(View.GONE);
-
             } else {
                 alertDialog = builder.setTitle("提示信息")
                         .setMessage("操作失败")
