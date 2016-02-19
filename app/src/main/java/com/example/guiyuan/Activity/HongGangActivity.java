@@ -1,7 +1,9 @@
 package com.example.guiyuan.Activity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Application;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -77,6 +79,8 @@ public class HongGangActivity extends Activity {
     public static final int HGTNAME = 1;
     private static Map<String,String> map;
     private static MyApplication application;
+    private AlertDialog dialog = null;
+    private AlertDialog.Builder builder = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +88,7 @@ public class HongGangActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_hong_gang);
         ViewUtils.inject(this);
+        builder = new AlertDialog.Builder(HongGangActivity.this);
         application = MyApplication.getInstance();
         hg_weight.setText(0 + "");
         hg_maozhong.setText(0+"");
@@ -213,7 +218,15 @@ public class HongGangActivity extends Activity {
 
             String result = JsonUtil.parseLoginResult("CreateHgrk", s);
             if (result.equals("true")) {
-                Toast.makeText(getApplicationContext(), "操作成功", Toast.LENGTH_SHORT).show();
+                dialog = builder.setTitle("提示信息")
+                        .setMessage("操作成功")
+                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        }).create();
+                dialog.show();
                 hg_carno.setText("");
                 hg_maozhong.setText("");
                 hg_pizhong.setText("");
@@ -223,7 +236,15 @@ public class HongGangActivity extends Activity {
                 tvhg_reselect.setVisibility(View.GONE);
                 tv_hgconfirm.setVisibility(View.VISIBLE);
             } else {
-                Toast.makeText(getApplicationContext(), "提交失败", Toast.LENGTH_SHORT).show();
+                dialog = builder.setTitle("提示信息")
+                        .setMessage("操作成功")
+                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        }).create();
+                dialog.show();
             }
         }
     }

@@ -306,7 +306,7 @@ public class ChukuActivity extends Activity {
                         .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-
+                                alertDialog.dismiss();
                             }
                         }).create();
                 alertDialog.show();
@@ -331,7 +331,7 @@ public class ChukuActivity extends Activity {
                         .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-
+                                alertDialog.dismiss();
                             }
                         }).create();
                 alertDialog.show();

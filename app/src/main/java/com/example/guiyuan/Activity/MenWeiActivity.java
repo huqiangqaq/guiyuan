@@ -334,7 +334,7 @@ public class MenWeiActivity extends Activity {
 						.setPositiveButton("确定", new DialogInterface.OnClickListener() {
 							@Override
 							public void onClick(DialogInterface dialog, int which) {
-
+								dialog.dismiss();
 							}
 						}).create();
 				alertDialog.show();
@@ -359,7 +359,7 @@ public class MenWeiActivity extends Activity {
 						.setPositiveButton("确定", new DialogInterface.OnClickListener() {
 							@Override
 							public void onClick(DialogInterface dialog, int which) {
-
+								dialog.dismiss();
 							}
 						}).create();
 				alertDialog.show();
