@@ -8261,15 +8261,7 @@
                     "endOffset": 7895
                 },
                 "from": {
-                    "file": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\values\\styles.xml",
-                    "position": {
-                        "startLine": 15,
-                        "startColumn": 4,
-                        "startOffset": 525,
-                        "endLine": 18,
-                        "endColumn": 12,
-                        "endOffset": 765
-                    }
+                    "file": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\values\\styles.xml"
                 }
             },
             {
@@ -8290,9 +8282,9 @@
                     "startLine": 183,
                     "startColumn": 4,
                     "startOffset": 8302,
-                    "endLine": 186,
+                    "endLine": 187,
                     "endColumn": 12,
-                    "endOffset": 8553
+                    "endOffset": 8630
                 },
                 "from": {
                     "file": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\values\\styles.xml",
@@ -8300,9 +8292,9 @@
                         "startLine": 28,
                         "startColumn": 4,
                         "startOffset": 1187,
-                        "endLine": 32,
+                        "endLine": 33,
                         "endColumn": 12,
-                        "endOffset": 1450
+                        "endOffset": 1528
                     }
                 }
             }

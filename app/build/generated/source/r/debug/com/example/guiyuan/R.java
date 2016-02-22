@@ -10,7 +10,8 @@ package com.example.guiyuan;
 public final class R {
     public static final class anim {
         public static final int fade=0x7f040000;
-        public static final int hold=0x7f040001;
+        public static final int fade_out=0x7f040001;
+        public static final int hold=0x7f040002;
     }
     public static final class attr {
     }
