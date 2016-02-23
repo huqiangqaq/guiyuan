@@ -77,7 +77,7 @@ public class HongGangActivity extends Activity {
     private static boolean flag;
     private String[] shengfen = {"辽", "吉", "京", "蒙", "黑", "津", "冀", "浙", "沪", "粤", "鲁", "晋", "豫", "军"};
     public static final int HGTNAME = 1;
-    private static Map<String,String> map;
+    private static Map<String, String> map;
     private static MyApplication application;
     private AlertDialog dialog = null;
     private AlertDialog.Builder builder = null;
@@ -91,8 +91,8 @@ public class HongGangActivity extends Activity {
         builder = new AlertDialog.Builder(HongGangActivity.this);
         application = MyApplication.getInstance();
         hg_weight.setText(0 + "");
-        hg_maozhong.setText(0+"");
-        hg_pizhong.setText(0+"");
+        hg_maozhong.setText(0 + "");
+        hg_pizhong.setText(0 + "");
 //        Intent intent = getIntent();
 //        UserName = intent.getStringExtra("UserName");
         UserName = application.getUserName();
@@ -106,10 +106,10 @@ public class HongGangActivity extends Activity {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 piWeight = Double.parseDouble(String.valueOf(hg_pizhong.getText()));
-                double f = maoWeight-piWeight;
+                double f = maoWeight - piWeight;
                 BigDecimal b = new BigDecimal(f);
-                double f1 =b.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();
-                hg_weight.setText(f1+"");
+                double f1 = b.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+                hg_weight.setText(f1 + "");
             }
         });
         sp_hgchepai.setAdapter(new ArrayAdapter<String>(
@@ -139,8 +139,8 @@ public class HongGangActivity extends Activity {
                     carPerson = hg_name.getText().toString();
                     carNo = sp_hgchepai.getSelectedItem().toString() + hg_carno.getText().toString().toUpperCase();
                     hgtNo = sp_hongganta.getSelectedItem().toString();
-                    for (int i=0;i<sp_hongganta.getAdapter().getCount();i++){
-                        map.put(sp_hongganta.getAdapter().getItem(i).toString(), String.valueOf(i+1));
+                    for (int i = 0; i < sp_hongganta.getAdapter().getCount(); i++) {
+                        map.put(sp_hongganta.getAdapter().getItem(i).toString(), String.valueOf(i + 1));
 
                     }
                     liangWeight = Double.parseDouble(String.valueOf(hg_maozhong.getText())) - Double.parseDouble(String.valueOf(hg_pizhong.getText()));
