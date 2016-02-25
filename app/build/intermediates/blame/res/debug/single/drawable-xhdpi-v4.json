@@ -2,13 +2,5 @@
     {
         "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_launcher.png",
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\drawable-xhdpi\\ic_launcher.png"
-    },
-    {
-        "merged": "E:\\workspace\\AndroidStudioProjects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_launcher.png",
-        "source": "E:\\workspace\\AndroidStudioProjects\\guiyuan\\app\\src\\main\\res\\drawable-xhdpi\\ic_launcher.png"
-    },
-    {
-        "merged": "C:\\Users\\83916\\Desktop\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_launcher.png",
-        "source": "C:\\Users\\83916\\Desktop\\guiyuan\\app\\src\\main\\res\\drawable-xhdpi\\ic_launcher.png"
     }
 ]

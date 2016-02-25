@@ -1,9 +1,5 @@
 [
     {
-        "merged": "E:\\workspace\\AndroidStudioProjects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_launcher.png",
-        "source": "E:\\workspace\\AndroidStudioProjects\\guiyuan\\app\\src\\main\\res\\drawable-mdpi\\ic_launcher.png"
-    },
-    {
         "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\back.png",
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\drawable-mdpi\\back.png"
     },
@@ -18,33 +14,5 @@
     {
         "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\u285.png",
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\drawable-mdpi\\u285.png"
-    },
-    {
-        "merged": "C:\\Users\\83916\\Desktop\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\home.png",
-        "source": "C:\\Users\\83916\\Desktop\\guiyuan\\app\\src\\main\\res\\drawable-mdpi\\home.png"
-    },
-    {
-        "merged": "E:\\workspace\\AndroidStudioProjects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\home.png",
-        "source": "E:\\workspace\\AndroidStudioProjects\\guiyuan\\app\\src\\main\\res\\drawable-mdpi\\home.png"
-    },
-    {
-        "merged": "C:\\Users\\83916\\Desktop\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\back.png",
-        "source": "C:\\Users\\83916\\Desktop\\guiyuan\\app\\src\\main\\res\\drawable-mdpi\\back.png"
-    },
-    {
-        "merged": "E:\\workspace\\AndroidStudioProjects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\back.png",
-        "source": "E:\\workspace\\AndroidStudioProjects\\guiyuan\\app\\src\\main\\res\\drawable-mdpi\\back.png"
-    },
-    {
-        "merged": "C:\\Users\\83916\\Desktop\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\u285.png",
-        "source": "C:\\Users\\83916\\Desktop\\guiyuan\\app\\src\\main\\res\\drawable-mdpi\\u285.png"
-    },
-    {
-        "merged": "C:\\Users\\83916\\Desktop\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_launcher.png",
-        "source": "C:\\Users\\83916\\Desktop\\guiyuan\\app\\src\\main\\res\\drawable-mdpi\\ic_launcher.png"
-    },
-    {
-        "merged": "E:\\workspace\\AndroidStudioProjects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\u285.png",
-        "source": "E:\\workspace\\AndroidStudioProjects\\guiyuan\\app\\src\\main\\res\\drawable-mdpi\\u285.png"
     }
 ]

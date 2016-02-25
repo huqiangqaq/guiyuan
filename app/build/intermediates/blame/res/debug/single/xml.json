@@ -1,13 +1,5 @@
 [
     {
-        "merged": "E:\\workspace\\AndroidStudioProjects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\xml\\nfc_tech_filter.xml",
-        "source": "E:\\workspace\\AndroidStudioProjects\\guiyuan\\app\\src\\main\\res\\xml\\nfc_tech_filter.xml"
-    },
-    {
-        "merged": "C:\\Users\\83916\\Desktop\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\xml\\nfc_tech_filter.xml",
-        "source": "C:\\Users\\83916\\Desktop\\guiyuan\\app\\src\\main\\res\\xml\\nfc_tech_filter.xml"
-    },
-    {
         "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\xml\\nfc_tech_filter.xml",
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\xml\\nfc_tech_filter.xml"
     }
