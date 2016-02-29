@@ -1,5 +1,6 @@
 package com.example.guiyuan.Activity;
 
+import com.example.guiyuan.Base.BaseActivity;
 import com.example.guiyuan.R;
 import com.example.guiyuan.R.layout;
 import com.example.guiyuan.R.menu;
@@ -8,7 +9,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 
-public class MainActivity extends Activity {
+public class MainActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.example.guiyuan.Application.MyApplication;
+import com.example.guiyuan.Base.BaseActivity;
 import com.example.guiyuan.R;
 import com.example.guiyuan.Utils.Constant;
 import com.example.guiyuan.Utils.HttpGetAndPost;
@@ -32,7 +33,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
-public class LoginActivity extends Activity {
+public class LoginActivity extends BaseActivity {
     private EditText etUserName,etPassWord;
     private Button btnLogin;
     private CheckBox checkBox;

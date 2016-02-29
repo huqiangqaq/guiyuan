@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.SimpleAdapter;
 
+import com.example.guiyuan.Base.BaseActivity;
 import com.example.guiyuan.R;
 
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MenuActivity extends Activity {
+public class MenuActivity extends BaseActivity {
     GridView gridView;
     String[] titles;
     List<Map<String,Object>> list;

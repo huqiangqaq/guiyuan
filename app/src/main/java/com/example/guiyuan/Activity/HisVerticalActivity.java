@@ -19,6 +19,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.guiyuan.Base.BaseActivity;
 import com.example.guiyuan.R;
 import com.example.guiyuan.Adapter.HistoryAdapter;
 import com.example.guiyuan.R.id;
@@ -33,7 +34,7 @@ import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
-public class HisVerticalActivity extends Activity {
+public class HisVerticalActivity extends BaseActivity {
 @ViewInject(R.id.iv_back)TextView iv_back;
 @ViewInject(R.id.lvlist)ListView lvlist;
 private List<HistoryVertical> list;

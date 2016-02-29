@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.guiyuan.Application.MyApplication;
+import com.example.guiyuan.Base.BaseActivity;
 import com.example.guiyuan.R;
 import com.example.guiyuan.Utils.Constant;
 import com.example.guiyuan.Utils.HttpGetAndPost;
@@ -39,7 +40,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class HongGangActivity extends Activity {
+public class HongGangActivity extends BaseActivity {
     @ViewInject(R.id.sp_hgchepai)
     Spinner sp_hgchepai;
     @ViewInject(R.id.hg_carno)

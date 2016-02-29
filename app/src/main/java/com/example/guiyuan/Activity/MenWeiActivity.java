@@ -22,6 +22,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.guiyuan.Base.BaseActivity;
 import com.example.guiyuan.R;
 import com.example.guiyuan.Utils.Constant;
 import com.example.guiyuan.Utils.HttpGetAndPost;
@@ -37,7 +38,7 @@ import com.lidroid.xutils.view.annotation.ViewInject;
 
 import cilico.tools.Nfcreceive;
 
-public class MenWeiActivity extends Activity {
+public class MenWeiActivity extends BaseActivity {
 	@ViewInject(R.id.iv_logomsg)
 	ImageView iv_logomsg;
 	@ViewInject(R.id.iv_message)

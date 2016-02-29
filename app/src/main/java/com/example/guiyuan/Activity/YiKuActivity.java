@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.guiyuan.Adapter.HistoryAdapter;
 import com.example.guiyuan.Application.MyApplication;
+import com.example.guiyuan.Base.BaseActivity;
 import com.example.guiyuan.R;
 import com.example.guiyuan.Utils.Constant;
 import com.example.guiyuan.Utils.HttpGetAndPost;
@@ -38,7 +39,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class YiKuActivity extends Activity {
+public class YiKuActivity extends BaseActivity {
     @ViewInject(R.id.sp_FromchepaiNum)
     Spinner sp_FromchepaiNum;
     @ViewInject(R.id.sp_TargetChePai)

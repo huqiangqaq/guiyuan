@@ -20,6 +20,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.guiyuan.Base.BaseActivity;
 import com.example.guiyuan.R;
 import com.example.guiyuan.Adapter.CangweiAdapter;
 import com.example.guiyuan.R.id;
@@ -34,7 +35,7 @@ import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
-public class SelectStoreActivity extends Activity {
+public class SelectStoreActivity extends BaseActivity {
 	private List<Cangku> list;
 	private CangweiAdapter adapter;
 	@ViewInject(R.id.lvlist)ListView lvlist;

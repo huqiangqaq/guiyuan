@@ -11,6 +11,7 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.DownloadManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -30,6 +31,7 @@ import android.widget.Toast;
 import cilico.tools.Nfcreceive;
 
 import com.example.guiyuan.Application.MyApplication;
+import com.example.guiyuan.Base.BaseActivity;
 import com.example.guiyuan.R;
 import com.example.guiyuan.R.id;
 import com.example.guiyuan.R.layout;
@@ -48,7 +50,7 @@ import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.example.guiyuan.Utils.SpinnerDropDownList;
 
-public class QianyangActivity extends Activity {
+public class QianyangActivity extends BaseActivity {
 	@ViewInject(R.id.tv_his)
 	TextView history;
 	@ViewInject(R.id.sp_foodname)

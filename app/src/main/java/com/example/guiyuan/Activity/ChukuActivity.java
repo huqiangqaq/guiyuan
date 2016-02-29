@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.guiyuan.Application.MyApplication;
+import com.example.guiyuan.Base.BaseActivity;
 import com.example.guiyuan.R;
 import com.example.guiyuan.R.id;
 import com.example.guiyuan.R.layout;
@@ -38,7 +39,7 @@ import com.lidroid.xutils.view.annotation.ViewInject;
 
 import cilico.tools.Nfcreceive;
 
-public class ChukuActivity extends Activity {
+public class ChukuActivity extends BaseActivity {
     @ViewInject(R.id.tv_name)
     TextView tv_name;
     @ViewInject(R.id.tv_chepai)

@@ -24,6 +24,7 @@ import android.widget.Toast;
 import cilico.tools.Nfcreceive;
 
 import com.example.guiyuan.Application.MyApplication;
+import com.example.guiyuan.Base.BaseActivity;
 import com.example.guiyuan.R;
 import com.example.guiyuan.R.id;
 import com.example.guiyuan.R.layout;
@@ -42,7 +43,7 @@ import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
-public class ZhiKuActivity extends Activity {
+public class ZhiKuActivity extends BaseActivity {
     @ViewInject(R.id.tv_his)
     TextView tv_his;
     @ViewInject(R.id.tv_che4)
