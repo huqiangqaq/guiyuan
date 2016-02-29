@@ -63,7 +63,6 @@ public class LoginActivity extends BaseActivity {
         builder = new AlertDialog.Builder(LoginActivity.this);
         init();
         if (!NetCheckUtil.isConnected(this)){
-            //btnLogin.setEnabled(false);
             Toast.makeText(this,"当前无网络连接，请检查网络设置",Toast.LENGTH_SHORT).show();
         }
 
@@ -75,8 +74,6 @@ public class LoginActivity extends BaseActivity {
         if (map.size()>0){
             checkBox.setChecked(true);
         }
-
-
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
