@@ -65,8 +65,6 @@ public class LoginActivity extends BaseActivity {
         /**
          * 测试2253397848
          *
-         *1223123
-         * 测试提交
          */
         if (!NetCheckUtil.isConnected(this)){
             Toast.makeText(this,"当前无网络连接，请检查网络设置",Toast.LENGTH_SHORT).show();
