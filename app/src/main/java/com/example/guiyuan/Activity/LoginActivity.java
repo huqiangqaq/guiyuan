@@ -63,7 +63,7 @@ public class LoginActivity extends BaseActivity {
         builder = new AlertDialog.Builder(LoginActivity.this);
         init();
         /**
-         *
+         *1223123
          * 测试提交
          */
         if (!NetCheckUtil.isConnected(this)){
