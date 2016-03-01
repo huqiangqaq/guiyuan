@@ -8,6 +8,10 @@
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\drawable\\back.png"
     },
     {
+        "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\spinner_edit.xml",
+        "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\drawable\\spinner_edit.xml"
+    },
+    {
         "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_shape_edit2.xml",
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\drawable\\common_shape_edit2.xml"
     },
@@ -46,6 +50,10 @@
     {
         "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\login_btn_selector.xml",
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\drawable\\login_btn_selector.xml"
+    },
+    {
+        "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\dropdown.png",
+        "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\drawable\\dropdown.png"
     },
     {
         "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\status5.png",

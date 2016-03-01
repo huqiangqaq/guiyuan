@@ -194,7 +194,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
+            android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
@@ -207,15 +207,31 @@
                 android:gravity="right"
                 android:text="烘干塔" />
 
-            <Spinner
-                android:layout_width="0dp"
-                android:id="@+id/sp_hongganta"
-                android:layout_height="30dp"
+            <LinearLayout
                 android:layout_marginLeft="5dp"
+                android:layout_width="0dp"
                 android:layout_weight="2"
-                android:background="@drawable/edit"
-                android:spinnerMode="dropdown"
-                />
+                android:layout_height="34dp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/edit">
+
+
+                <Spinner
+                    android:id="@+id/sp_hongganta"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/spinner_edit"/>
+                <ImageView
+                    android:layout_marginRight="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:src="@drawable/dropdown"/>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 

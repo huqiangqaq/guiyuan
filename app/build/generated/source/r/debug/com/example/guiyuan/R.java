@@ -204,15 +204,16 @@ public final class R {
         public static final int pass=0x7f02001c;
         public static final int shidu_icon=0x7f02001d;
         public static final int shixin=0x7f02001e;
-        public static final int status1=0x7f02001f;
-        public static final int status2=0x7f020020;
-        public static final int status3=0x7f020021;
-        public static final int status4=0x7f020022;
-        public static final int status5=0x7f020023;
-        public static final int status6=0x7f020024;
-        public static final int u285=0x7f020025;
-        public static final int xungeng_icon=0x7f020026;
-        public static final int zhlk_icon=0x7f020027;
+        public static final int spinner_edit=0x7f02001f;
+        public static final int status1=0x7f020020;
+        public static final int status2=0x7f020021;
+        public static final int status3=0x7f020022;
+        public static final int status4=0x7f020023;
+        public static final int status5=0x7f020024;
+        public static final int status6=0x7f020025;
+        public static final int u285=0x7f020026;
+        public static final int xungeng_icon=0x7f020027;
+        public static final int zhlk_icon=0x7f020028;
     }
     public static final class id {
         public static final int ItemImage=0x7f0b0051;
@@ -324,6 +325,7 @@ public final class R {
         public static final int item_his=0x7f03000c;
         public static final int item_selectstore=0x7f03000d;
         public static final int nfcreceive=0x7f03000e;
+        public static final int spinner_checked_text=0x7f03000f;
     }
     public static final class menu {
         public static final int chuku=0x7f0a0000;

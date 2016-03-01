@@ -20,6 +20,10 @@
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\item_selectstore.xml"
     },
     {
+        "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\spinner_checked_text.xml",
+        "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\spinner_checked_text.xml"
+    },
+    {
         "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_login.xml",
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\activity_login.xml"
     },
