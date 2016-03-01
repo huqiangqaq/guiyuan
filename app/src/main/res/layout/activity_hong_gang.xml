@@ -16,7 +16,7 @@
             android:layout_centerInParent="true"
             android:text="烘干入库"
             android:textColor="#fff"
-            android:textSize="16sp" />
+            android:textSize="18sp" />
 
         <!--<TextView-->
             <!--android:id="@+id/tv_his"-->
