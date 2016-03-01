@@ -62,6 +62,10 @@ public class LoginActivity extends BaseActivity {
         setContentView(R.layout.activity_login);
         builder = new AlertDialog.Builder(LoginActivity.this);
         init();
+        /**
+         *
+         * 测试提交
+         */
         if (!NetCheckUtil.isConnected(this)){
             Toast.makeText(this,"当前无网络连接，请检查网络设置",Toast.LENGTH_SHORT).show();
         }

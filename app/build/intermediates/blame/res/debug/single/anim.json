@@ -1,11 +1,23 @@
 [
     {
+        "merged": "E:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\anim\\fade_out.xml",
+        "source": "E:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\anim\\fade_out.xml"
+    },
+    {
+        "merged": "E:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\anim\\fade.xml",
+        "source": "E:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\anim\\fade.xml"
+    },
+    {
         "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\anim\\fade_out.xml",
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\anim\\fade_out.xml"
     },
     {
         "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\anim\\fade.xml",
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\anim\\fade.xml"
+    },
+    {
+        "merged": "E:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\anim\\hold.xml",
+        "source": "E:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\anim\\hold.xml"
     },
     {
         "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\anim\\hold.xml",
