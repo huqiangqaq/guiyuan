@@ -55,6 +55,7 @@ public class LoginActivity extends BaseActivity {
             isExit = false;
         }
     };
+    //just test
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
