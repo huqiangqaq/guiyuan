@@ -3,8 +3,12 @@ package com.example.guiyuan.Utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by 83916 on 2016/1/2.
@@ -13,6 +17,7 @@ public class PreferenceService {
     private Context context;
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor;
+    private Set<String> set = new HashSet<String>();
 
     public PreferenceService(Context context) {
         this.context = context;
@@ -21,7 +26,8 @@ public class PreferenceService {
     }
 
     public void save(String UserName,String PassWord){
-
+        set.add(UserName);
+        editor.putStringSet("content",set);
         editor.putString("UserName",UserName);
         editor.putString("PassWord",PassWord);
         editor.commit();
