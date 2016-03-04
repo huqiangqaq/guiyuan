@@ -6,6 +6,7 @@ import org.json.JSONObject;
 import android.R.string;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Application;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -22,6 +23,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.guiyuan.Application.MyApplication;
 import com.example.guiyuan.Base.BaseActivity;
 import com.example.guiyuan.R;
 import com.example.guiyuan.Utils.Constant;
@@ -77,6 +79,7 @@ public class MenWeiActivity extends BaseActivity {
 	LinearLayout llcontent;
 	private static String mCode="";
 	private static String UserName;
+	private MyApplication application;
 	private static AlertDialog alertDialog = null;
 	private static AlertDialog.Builder builder = null;
 	@Override
@@ -84,6 +87,8 @@ public class MenWeiActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_men_wei);
+		application = MyApplication.getInstance();
+		UserName = application.getUserName();
 		builder = new AlertDialog.Builder(MenWeiActivity.this);
 		ViewUtils.inject(this);
 		shuaka.setOnClickListener(new OnClickListener() {
@@ -102,7 +107,7 @@ public class MenWeiActivity extends BaseActivity {
 				mCode = code;
 				Log.i("hjljl",code);
 				Intent intent = getIntent();
-				UserName = intent.getStringExtra("UserName");
+
 				if (code != null && !code.equals("")) {
 					NetUtil.sendNetReqByGet(Constant.MENWEI_ADDRESS + "/" + code, new RequestCallBack<String>() {
 

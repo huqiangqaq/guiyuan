@@ -6,6 +6,7 @@ import java.util.Map;
 import com.example.guiyuan.Application.MyApplication;
 import com.example.guiyuan.Base.BaseActivity;
 import com.example.guiyuan.R;
+import com.example.guiyuan.Utils.ActivityCollector;
 import com.example.guiyuan.Utils.Constant;
 import com.example.guiyuan.Utils.HttpGetAndPost;
 import com.example.guiyuan.Utils.JsonUtil;
