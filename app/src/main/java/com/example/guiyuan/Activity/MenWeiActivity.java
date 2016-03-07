@@ -105,8 +105,6 @@ public class MenWeiActivity extends BaseActivity {
 				}
 //				String code = "1";
 				mCode = code;
-				Log.i("hjljl",code);
-				Intent intent = getIntent();
 
 				if (code != null && !code.equals("")) {
 					NetUtil.sendNetReqByGet(Constant.MENWEI_ADDRESS + "/" + code, new RequestCallBack<String>() {
