@@ -122,6 +122,7 @@ public class ZhiKuActivity extends BaseActivity {
         tv_shuaka.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.i("huqiang",kouliang);
                 String code = Nfcreceive.readSigOneBlock(Constants.PASSWORD, Constants.ADD);
 
 //				if(!Constant.DEBUG_WITH_NO_NFC_DEVICE) {
@@ -131,6 +132,7 @@ public class ZhiKuActivity extends BaseActivity {
 //					 code="55222222";
 //				}
 //				final String code ="5";
+
                 mCode = code;
                 if (!"".equals(mCode)) {
                     NetUtil.sendNetReqByGet(
@@ -152,7 +154,12 @@ public class ZhiKuActivity extends BaseActivity {
 //										new MyCallBack(ZhiKuActivity.this, 4,
 //												null));
                                 storenum = (String) sp_storenum.getSelectedItem();
-                            kouliang = et_kouliang.getText().toString();
+                            if ("".equals(et_kouliang.getText().toString())){
+                                kouliang = "0";
+                            }else {
+                                kouliang = et_kouliang.getText().toString();
+                            }
+
                             new MyThread().execute(Constant.UPDATE_ADDRESS);
                         }
                     });
@@ -166,7 +173,9 @@ public class ZhiKuActivity extends BaseActivity {
                 // TODO Auto-generated method stub
                 System.out.println(mCode);
                 flag = true;
+
                 new MyThread().execute(Constant.TERMINATE_ADDRESS);
+
                 //NetUtil.sendNetReqByGet(Constant.TERMINATE_ADDRESS + "/" + UserName + "/" + mCode, new MyCallBack(ZhiKuActivity.this, 4, null));
             }
         });
