@@ -359,6 +359,8 @@ public final class R {
         public static final int AppBaseTheme=0x7f070000;
         public static final int AppTheme=0x7f070001;
         public static final int BackgroundOnly=0x7f070002;
+        /** <item name="android:activityCloseEnterAnimation">@anim/hold</item>
+         */
         public static final int default_animation=0x7f070003;
     }
     public static final class xml {

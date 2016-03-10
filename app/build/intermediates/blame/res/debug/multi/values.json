@@ -5159,10 +5159,18 @@
                     "startOffset": 8302,
                     "endLine": 187,
                     "endColumn": 12,
-                    "endOffset": 8630
+                    "endOffset": 8637
                 },
                 "from": {
-                    "file": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\values\\styles.xml"
+                    "file": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 28,
+                        "startColumn": 4,
+                        "startOffset": 1187,
+                        "endLine": 33,
+                        "endColumn": 12,
+                        "endOffset": 1535
+                    }
                 }
             }
         ]

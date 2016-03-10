@@ -30,7 +30,7 @@
         parent="@android:style/Animation.Activity">
         <item name="android:activityOpenEnterAnimation">@anim/fade</item>
         <item name="android:activityOpenExitAnimation">@anim/fade_out</item>
-        <item name="android:activityCloseEnterAnimation">@anim/hold</item>
+        <!--<item name="android:activityCloseEnterAnimation">@anim/hold</item>-->
     </style>
 
 </resources>
