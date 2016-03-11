@@ -10,9 +10,6 @@ public class MyApplication extends Application {
     private String PassWord;
     private static MyApplication instance;
     public static MyApplication getInstance(){
-        if (instance==null){
-            instance = new MyApplication();
-        }
         return instance;
     }
     @Override
