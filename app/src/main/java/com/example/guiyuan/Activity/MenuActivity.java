@@ -13,6 +13,7 @@ import android.widget.SimpleAdapter;
 
 import com.example.guiyuan.Base.BaseActivity;
 import com.example.guiyuan.R;
+import com.example.guiyuan.Utils.ActivityCollector;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,8 +32,6 @@ public class MenuActivity extends BaseActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_menu);
         gridView = (GridView) findViewById(R.id.mGridView);
-        //final Intent intent = getIntent();
-        //UserName = intent.getStringExtra("UserName");
         // 生成动态数组，并且转入数据
         list = new ArrayList<Map<String, Object>>();
         ArrayList<HashMap<String, Object>> lstImageItem = new ArrayList<HashMap<String, Object>>();
@@ -67,19 +66,15 @@ public class MenuActivity extends BaseActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (titles[position].equalsIgnoreCase("入库管理")){
                     Intent intent1 = new Intent(MenuActivity.this,ZhiKuActivity.class);
-                    //intent1.putExtra("UserName",UserName);
                     startActivity(intent1);
                 }else if (titles[position].equalsIgnoreCase("出库管理")){
                     Intent intent1 = new Intent(MenuActivity.this,ChukuActivity.class);
-                    //intent1.putExtra("UserName",UserName);
                     startActivity(intent1);
                 }else if (titles[position].equalsIgnoreCase("烘干入库")){
                     Intent intent1 = new Intent(MenuActivity.this, HongGangActivity.class);
-                    //intent1.putExtra("UserName",UserName);
                     startActivity(intent1);
                 }else if (titles[position].equalsIgnoreCase("移库管理")){
                     Intent intent1 = new Intent(MenuActivity.this,YiKuActivity.class);
-                    //intent1.putExtra("UserName",UserName);
                     startActivity(intent1);
                 }
             }
@@ -89,7 +84,7 @@ public class MenuActivity extends BaseActivity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK){
-            finish();
+            ActivityCollector.finishAll();
         }
         return super.onKeyDown(keyCode, event);
     }

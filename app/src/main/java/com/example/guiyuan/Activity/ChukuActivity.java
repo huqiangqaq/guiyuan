@@ -202,13 +202,8 @@ public class ChukuActivity extends BaseActivity {
                 if (!flag)
                     ChukuActivity.this.startActivityForResult(new Intent(ChukuActivity.this, SelectStoreActivity.class), REQUEST_CODE);
                 else {
-                    //确认提交
-//					Intent intent = getIntent();
-//					UserName = intent.getStringExtra("UserName");
-                    UserName = application.getUserName();
                     System.out.println(mStroeNum);
                     System.out.println(mCode);
-                    flag = false;
                     new MyThread().execute(Constant.UPDATE_ADDRESS);
 //					NetUtil.sendNetReqByGet(
 //							Constant.UPDATE_ADDRESS + "/"+UserName+"/" + mCode
@@ -227,7 +222,6 @@ public class ChukuActivity extends BaseActivity {
             public void onClick(View arg0) {
                 // TODO Auto-generated method stub
                 System.out.println(mCode);
-                //NetUtil.sendNetReqByGet(Constant.TERMINATE_ADDRESS+"/"+UserName+"/"+mCode, new MyCallBack(ChukuActivity.this, 4, null));
                 new MyThread().execute(Constant.TERMINATE_ADDRESS);
             }
         });
@@ -299,8 +293,6 @@ public class ChukuActivity extends BaseActivity {
             } else {
                 result = JsonUtil.parseLoginResult("updateCargoNoAndStatus", s);
             }
-
-            //String result = JsonUtil.parseLoginResult(s);
             if ("true".equals(result)) {
                 alertDialog = builder.setTitle("提示信息")
                         .setMessage("操作成功")

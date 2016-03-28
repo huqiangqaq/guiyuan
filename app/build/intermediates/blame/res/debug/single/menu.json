@@ -8,14 +8,6 @@
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\menu\\his_vertical.xml"
     },
     {
-        "merged": "E:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\menu\\zhi_ku.xml",
-        "source": "E:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\menu\\zhi_ku.xml"
-    },
-    {
-        "merged": "E:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\menu\\his_vertical.xml",
-        "source": "E:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\menu\\his_vertical.xml"
-    },
-    {
         "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\menu\\select_store.xml",
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\menu\\select_store.xml"
     },
@@ -24,28 +16,8 @@
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\menu\\zhi_ku.xml"
     },
     {
-        "merged": "E:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\menu\\select_store.xml",
-        "source": "E:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\menu\\select_store.xml"
-    },
-    {
         "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\menu\\qianyang.xml",
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\menu\\qianyang.xml"
-    },
-    {
-        "merged": "E:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\menu\\chuku.xml",
-        "source": "E:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\menu\\chuku.xml"
-    },
-    {
-        "merged": "E:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
-        "source": "E:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\menu\\main.xml"
-    },
-    {
-        "merged": "E:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\menu\\men_wei.xml",
-        "source": "E:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\menu\\men_wei.xml"
-    },
-    {
-        "merged": "E:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\menu\\qianyang.xml",
-        "source": "E:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\menu\\qianyang.xml"
     },
     {
         "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\menu\\men_wei.xml",

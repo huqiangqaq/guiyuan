@@ -172,7 +172,6 @@ public class LoginActivity extends BaseActivity {
                startActivity(intent);
                LoginActivity.this.finish();
            }else if ("3".equals(LoginResult)){
-               //Toast.makeText(getApplicationContext(),"你是门卫",Toast.LENGTH_SHORT).show();
                Intent intent = new Intent(LoginActivity.this, MenWeiActivity.class);
                startActivity(intent);
                LoginActivity.this.finish();

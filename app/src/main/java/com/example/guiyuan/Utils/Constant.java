@@ -1,7 +1,7 @@
 package com.example.guiyuan.Utils;
 
 public interface Constant {
-	String URL ="http://192.168.1.51:7000";
+	String URL ="http://192.168.1.3:7000";
 	String HIS_ADDRESS=URL+"/PDA/getCarRecordList/";
 	String FOODNAME_ADDRESS=URL+"/PDA/getGrainVarietiesList/";
 	String FOODTYPE_ADDRESS=URL+"/PDA/getGrainPropertyList/";

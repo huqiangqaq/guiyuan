@@ -94,8 +94,10 @@ public class QianyangActivity extends BaseActivity {
 		setContentView(R.layout.activity_qianyang);
 		builder = new AlertDialog.Builder(QianyangActivity.this);
 		ViewUtils.inject(this);
-		init();
 		application = MyApplication.getInstance();
+		UserName = application.getUserName();
+		init();
+
 		sp_chepai.setAdapter(new ArrayAdapter<String>(
 				QianyangActivity.this,
 				android.R.layout.simple_spinner_dropdown_item, shengfen));
@@ -149,23 +151,6 @@ public class QianyangActivity extends BaseActivity {
 					waters = water.getText().toString();
 					rl = rongliang.getText().toString();
 					zz = zazhi.getText().toString();
-					//Intent intent = getIntent();
-					//UserName = intent.getStringExtra("UserName");
-					UserName = application.getUserName();
-				/*	String path = Constant.BASE_ADDRESS + File.separatorChar + "PDA" + File.separatorChar + "CreateAssay" + File.separatorChar+UserName+File.separatorChar
-							+ carnum + File.separatorChar + waters + File.separatorChar + rl + File.separatorChar + zz
-							+ File.separatorChar + storenum + File.separatorChar + foodname + File.separatorChar
-							+ foodtype + File.separatorChar + code/* + ""*/;
-//					RequestParams params = new RequestParams();
-//					params.addBodyParameter("username", UserName);
-//					NetUtil.sendNetReqByPost(path,params, new MyCallBack(4));*/
-
-					
-//					Toast.makeText(getApplicationContext(), "成功", Toast.LENGTH_SHORT).show();
-//					carno.setText("");
-//					water.setText("");
-//					rongliang.setText("");
-//					zazhi.setText("");
 					
 				}
 			}

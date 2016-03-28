@@ -4,72 +4,16 @@
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\activity_men_wei.xml"
     },
     {
+        "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\nfcreceive.xml",
+        "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\nfcreceive.xml"
+    },
+    {
         "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_select_store.xml",
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\activity_select_store.xml"
     },
     {
         "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_chuku.xml",
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\activity_chuku.xml"
-    },
-    {
-        "merged": "E:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_men_wei.xml",
-        "source": "E:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\activity_men_wei.xml"
-    },
-    {
-        "merged": "E:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_login.xml",
-        "source": "E:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\activity_login.xml"
-    },
-    {
-        "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_qianyang.xml",
-        "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\activity_qianyang.xml"
-    },
-    {
-        "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_yi_ku.xml",
-        "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\activity_yi_ku.xml"
-    },
-    {
-        "merged": "E:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_his_vertical.xml",
-        "source": "E:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\activity_his_vertical.xml"
-    },
-    {
-        "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_zhi_ku.xml",
-        "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\activity_zhi_ku.xml"
-    },
-    {
-        "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_his.xml",
-        "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\item_his.xml"
-    },
-    {
-        "merged": "E:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_chuku.xml",
-        "source": "E:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\activity_chuku.xml"
-    },
-    {
-        "merged": "E:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_zhi_ku.xml",
-        "source": "E:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\activity_zhi_ku.xml"
-    },
-    {
-        "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\nfcreceive.xml",
-        "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\nfcreceive.xml"
-    },
-    {
-        "merged": "E:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_select_store.xml",
-        "source": "E:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\activity_select_store.xml"
-    },
-    {
-        "merged": "E:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_his.xml",
-        "source": "E:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\item_his.xml"
-    },
-    {
-        "merged": "E:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_hong_gang.xml",
-        "source": "E:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\activity_hong_gang.xml"
-    },
-    {
-        "merged": "E:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\spinner_checked_text.xml",
-        "source": "E:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\spinner_checked_text.xml"
-    },
-    {
-        "merged": "E:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_yi_ku.xml",
-        "source": "E:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\activity_yi_ku.xml"
     },
     {
         "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_selectstore.xml",
@@ -88,43 +32,35 @@
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\grid_item.xml"
     },
     {
-        "merged": "E:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\nfcreceive.xml",
-        "source": "E:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\nfcreceive.xml"
+        "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_qianyang.xml",
+        "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\activity_qianyang.xml"
+    },
+    {
+        "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_yi_ku.xml",
+        "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\activity_yi_ku.xml"
     },
     {
         "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_menu.xml",
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\activity_menu.xml"
     },
     {
-        "merged": "E:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_menu.xml",
-        "source": "E:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\activity_menu.xml"
-    },
-    {
-        "merged": "E:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_qianyang.xml",
-        "source": "E:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\activity_qianyang.xml"
-    },
-    {
         "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_hong_gang.xml",
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\activity_hong_gang.xml"
+    },
+    {
+        "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_zhi_ku.xml",
+        "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\activity_zhi_ku.xml"
+    },
+    {
+        "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_his.xml",
+        "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\item_his.xml"
     },
     {
         "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_his_vertical.xml",
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\activity_his_vertical.xml"
     },
     {
-        "merged": "E:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_selectstore.xml",
-        "source": "E:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\item_selectstore.xml"
-    },
-    {
-        "merged": "E:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
-        "source": "E:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\activity_main.xml"
-    },
-    {
         "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\activity_main.xml"
-    },
-    {
-        "merged": "E:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\grid_item.xml",
-        "source": "E:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\grid_item.xml"
     }
 ]

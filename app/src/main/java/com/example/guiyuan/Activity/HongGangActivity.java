@@ -94,8 +94,6 @@ public class HongGangActivity extends BaseActivity {
         hg_weight.setText(0 + "");
         hg_maozhong.setText(0 + "");
         hg_pizhong.setText(0 + "");
-//        Intent intent = getIntent();
-//        UserName = intent.getStringExtra("UserName");
         UserName = application.getUserName();
         hg_maozhong.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -145,10 +143,7 @@ public class HongGangActivity extends BaseActivity {
 
                     }
                     liangWeight = Double.parseDouble(String.valueOf(hg_maozhong.getText())) - Double.parseDouble(String.valueOf(hg_pizhong.getText()));
-                    //maoWeight = Double.parseDouble(String.valueOf(hg_maozhong.getText()));
-                    //piWeight = Double.parseDouble(String.valueOf(hg_pizhong.getText()));
-                    //Water = red_hgwater.getText().toString();
-                    //hg_weight.setText(liangWeight+"");
+                   //异步获取数据
                     new MyThread().execute(Constant.URL);
                 }
             }
