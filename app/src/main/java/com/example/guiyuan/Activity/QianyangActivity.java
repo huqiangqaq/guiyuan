@@ -73,8 +73,6 @@ public class QianyangActivity extends BaseActivity {
 	TextView shuaka;
 	@ViewInject(R.id.sp_chepai)
 	Spinner sp_chepai;
-	//@ViewInject(R.id.sp_chepaiNum)
-//	Spinner sp_chepaiNum;
 	@ViewInject(id.rlMessage)
 	RelativeLayout rlMessage;
 	public static final int FOODNAME = 1;
@@ -102,10 +100,6 @@ public class QianyangActivity extends BaseActivity {
 				QianyangActivity.this,
 				android.R.layout.simple_spinner_dropdown_item, shengfen));
 		sp_chepai.setSelection(0);
-	/*	sp_chepaiNum.setAdapter(new ArrayAdapter<String>(
-				QianyangActivity.this,
-				android.R.layout.simple_spinner_dropdown_item, num));	
-		sp_chepaiNum.setSelection(0);*/
 		water.setText("20");
 		rongliang.setText("675");
 		zazhi.setText("1");
@@ -301,9 +295,6 @@ public class QianyangActivity extends BaseActivity {
 				carno.setText("");
 				tv_wait.setText("提交成功");
 
-			/*	water.setText("");
-				rongliang.setText("");
-				zazhi.setText("");*/
 			}
 			else {
 				alertDialog = builder.setTitle("提示信息:")

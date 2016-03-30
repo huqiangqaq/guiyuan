@@ -100,8 +100,6 @@ public class LoginActivity extends BaseActivity {
                     //判断是否勾选记住密码选项
 
                     preferenceService.save(etUserName.getText().toString(), etPassWord.getText().toString());
-
-
                     //判断账户身份及判断登录状态
                     new MyThread().execute(Constant.URL);
                 }
