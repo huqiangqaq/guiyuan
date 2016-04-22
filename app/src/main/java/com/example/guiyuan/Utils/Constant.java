@@ -17,4 +17,11 @@ public interface Constant {
 	String RECYCLE_CARD = URL+"/PDA/recycleCard";
 	Boolean DEBUG_WITH_NO_NFC_DEVICE =false;
 	Boolean IS_CANGKUNUMBER_OPPWITH_CANGKUID=false;
+	//122.224.207.26
+
+	//抽样称重界面接口信息
+	public static String ITEM_URL = "http://122.224.207.26:7000/PDA/getDetailByRfidCode/";
+	public static String WEIGHT_URL = "http://122.224.207.26:7000/PDA/getWeight/";
+	public static String WEIGHT_SINGLE = "http://122.224.207.26:7000/PDA/postSingleWeightRecord/";
+	public static String WEIGHT_END = "http://122.224.207.26:7000/PDA/postALLWeightRecord/";
 }

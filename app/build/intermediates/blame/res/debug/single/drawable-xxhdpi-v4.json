@@ -1,6 +1,38 @@
 [
     {
+        "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\delete2.png",
+        "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\drawable-xxhdpi\\delete2.png"
+    },
+    {
         "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\ic_launcher.png",
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\drawable-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\cyweight_btn_selector.xml",
+        "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\drawable-xxhdpi\\cyweight_btn_selector.xml"
+    },
+    {
+        "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\button_bg.png",
+        "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\drawable-xxhdpi\\button_bg.png"
+    },
+    {
+        "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\back.png",
+        "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\drawable-xxhdpi\\back.png"
+    },
+    {
+        "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\detail.png",
+        "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\drawable-xxhdpi\\detail.png"
+    },
+    {
+        "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\cyweight_del.png",
+        "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\drawable-xxhdpi\\cyweight_del.png"
+    },
+    {
+        "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\cy_end.png",
+        "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\drawable-xxhdpi\\cy_end.png"
+    },
+    {
+        "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\bg_06.png",
+        "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\drawable-xxhdpi\\bg_06.png"
     }
 ]

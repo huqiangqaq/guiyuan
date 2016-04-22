@@ -35,7 +35,7 @@ public class MenuActivity extends BaseActivity {
         // 生成动态数组，并且转入数据
         list = new ArrayList<Map<String, Object>>();
         ArrayList<HashMap<String, Object>> lstImageItem = new ArrayList<HashMap<String, Object>>();
-        titles = new String[]{"入库管理", "出库管理","烘干入库","移库管理"};
+        titles = new String[]{"入库管理", "出库管理","烘干入库","移库管理","抽样称重"};
         int[] ids = new int[titles.length];
         //添加模块图标资源
         for (int i =0;i<titles.length;i++){
@@ -46,6 +46,8 @@ public class MenuActivity extends BaseActivity {
             }else if ("烘干入库".equalsIgnoreCase(titles[i])){
                 ids[i] = R.drawable.shidu_icon;
             }else if ("移库管理".equalsIgnoreCase(titles[i])){
+                ids[i] = R.drawable.xungeng_icon;
+            }else if ("抽样称重".equalsIgnoreCase(titles[i])){
                 ids[i] = R.drawable.xungeng_icon;
             }
         }
@@ -75,6 +77,9 @@ public class MenuActivity extends BaseActivity {
                     startActivity(intent1);
                 }else if (titles[position].equalsIgnoreCase("移库管理")){
                     Intent intent1 = new Intent(MenuActivity.this,YiKuActivity.class);
+                    startActivity(intent1);
+                }else if (titles[position].equalsIgnoreCase("抽样称重")){
+                    Intent intent1 = new Intent(MenuActivity.this,CYWeight.class);
                     startActivity(intent1);
                 }
             }

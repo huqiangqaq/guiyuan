@@ -96,6 +96,12 @@
         <activity
             android:name="com.example.guiyuan.Activity.YiKuActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.guiyuan.Activity.CYWeight"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <service android:name="com.example.guiyuan.Service.LongRunningService" />
     </application>
 
 </manifest>

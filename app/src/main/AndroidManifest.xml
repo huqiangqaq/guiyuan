@@ -28,10 +28,8 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".Activity.HisVerticalActivity"
@@ -95,12 +93,15 @@
             </activity>
         <activity android:name=".Activity.MenuActivity"
             android:screenOrientation="portrait">
-
         </activity>
         <activity android:name=".Activity.HongGangActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".Activity.YiKuActivity"
             android:screenOrientation="portrait"></activity>
+        <activity android:name=".Activity.CYWeight"
+            android:screenOrientation="portrait">
+        </activity>
+        <service android:name=".Service.LongRunningService"/>
     </application>
 
 </manifest>

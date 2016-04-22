@@ -173,6 +173,10 @@ public class LoginActivity extends BaseActivity {
                Intent intent = new Intent(LoginActivity.this, MenWeiActivity.class);
                startActivity(intent);
                LoginActivity.this.finish();
+           }else if ("4".equals(LoginResult)){
+               Intent intent = new Intent(LoginActivity.this,CYWeight.class);
+               startActivity(intent);
+               LoginActivity.this.finish();
            }else {
               alertDialog = builder.setTitle("提示信息")
                        .setMessage("登陆失败，请检查网络")

@@ -12,6 +12,14 @@
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\activity_select_store.xml"
     },
     {
+        "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\custom_dialog_item.xml",
+        "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\custom_dialog_item.xml"
+    },
+    {
+        "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\custom_dialog.xml",
+        "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\custom_dialog.xml"
+    },
+    {
         "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_chuku.xml",
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\activity_chuku.xml"
     },
@@ -46,6 +54,10 @@
     {
         "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_hong_gang.xml",
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\activity_hong_gang.xml"
+    },
+    {
+        "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\cy_weight_update.xml",
+        "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\cy_weight_update.xml"
     },
     {
         "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_zhi_ku.xml",
