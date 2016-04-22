@@ -16,10 +16,6 @@
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\drawable-xxhdpi\\button_bg.png"
     },
     {
-        "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\back.png",
-        "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\drawable-xxhdpi\\back.png"
-    },
-    {
         "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\detail.png",
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\drawable-xxhdpi\\detail.png"
     },

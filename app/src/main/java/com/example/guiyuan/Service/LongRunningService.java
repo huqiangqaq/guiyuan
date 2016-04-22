@@ -40,7 +40,6 @@ public class LongRunningService extends Service {
                     public void onError(Call call, Exception e) {
 
                     }
-
                     @Override
                     public void onResponse(String response) {
                         String weight = JsonUtil.pareWeight(response);
@@ -55,50 +54,4 @@ public class LongRunningService extends Service {
                 });
         return super.onStartCommand(intent, flags, startId);
     }
-
-    public static String pareWeight(String jsonStr){
-        String weight = "";
-        try {
-            JSONObject object = new JSONObject(jsonStr);
-            String array = object.getString("getWeightResult");
-            JSONArray array1 = new JSONArray(array);
-            for (int i=0;i<array1.length();i++){
-                weight = array1.getJSONObject(i).getString("重量");
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return weight;
-    }
-
-    public static String parseResult_return(String jsonStr){
-        String result = "";
-        try {
-            JSONObject object = new JSONObject(jsonStr);
-            String data = object.getString("PostSingleWeightRecordResult");
-            JSONArray array = new JSONArray(data);
-            for (int i=0;i<array.length();i++){
-                result = array.getJSONObject(i).getString("处理结果");
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
-
-    public static String parseResut_end(String jsonStr){
-        String result = "";
-        try {
-            JSONObject object = new JSONObject(jsonStr);
-            String data = object.getString("PostALLWeightRecordResult");
-            JSONArray array = new JSONArray(data);
-            for (int i = 0;i<array.length();i++){
-                result = array.getJSONObject(i).getString("处理结果");
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
-
 }

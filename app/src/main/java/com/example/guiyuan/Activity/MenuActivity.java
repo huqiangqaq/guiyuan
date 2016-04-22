@@ -48,7 +48,7 @@ public class MenuActivity extends BaseActivity {
             }else if ("移库管理".equalsIgnoreCase(titles[i])){
                 ids[i] = R.drawable.xungeng_icon;
             }else if ("抽样称重".equalsIgnoreCase(titles[i])){
-                ids[i] = R.drawable.xungeng_icon;
+                ids[i] = R.drawable.cycz_icon;
             }
         }
         for (int i=0;i<ids.length;i++){

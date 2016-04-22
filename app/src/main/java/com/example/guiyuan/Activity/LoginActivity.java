@@ -25,6 +25,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.Menu;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -174,12 +175,12 @@ public class LoginActivity extends BaseActivity {
                startActivity(intent);
                LoginActivity.this.finish();
            }else if ("4".equals(LoginResult)){
-               Intent intent = new Intent(LoginActivity.this,CYWeight.class);
+               Intent intent = new Intent(LoginActivity.this,MenuActivity.class);
                startActivity(intent);
                LoginActivity.this.finish();
            }else {
               alertDialog = builder.setTitle("提示信息")
-                       .setMessage("登陆失败，请检查网络")
+                       .setMessage("登陆失败，请检查网络或者账号是否正确")
                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                            @Override
                            public void onClick(DialogInterface dialog, int which) {

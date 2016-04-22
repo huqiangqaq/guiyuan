@@ -65,6 +65,7 @@ public class JsonUtil {
         }
         return list;
     }
+    //抽样称重界面查询信息
     public static List<Item> pareJson(Context context, String jsonStr){
         List<Item> list = new ArrayList<Item>();
         try {
@@ -89,6 +90,7 @@ public class JsonUtil {
         return list;
     }
 
+    //后台轮询服务查询出的磅秤重量
     public static String pareWeight(String jsonStr){
         String weight = "";
         try {
@@ -103,7 +105,7 @@ public class JsonUtil {
         }
         return weight;
     }
-
+    //单次称重的返回结果
     public static String parseResult_return(String jsonStr){
         String result = "";
         try {
@@ -118,6 +120,7 @@ public class JsonUtil {
         }
         return result;
     }
+    //结束抽样称重的返回结果
     public static String parseResut_end(String jsonStr){
         String result = "";
         try {

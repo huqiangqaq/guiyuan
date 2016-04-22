@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,6 +35,7 @@ import com.ichoice.nfcHandler.Constants;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,6 +46,7 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
     private TextView tv_num,tv_category,tv_count,tv_averageWieght,tv_pizhong,tv_averageAure,detail_num,detail_maozhong,detail_chupi,detail_jingzhong,tv_curr_Weight;
     private EditText et_singlecount;
     private Button btn_single,btn_end,btn_detail;
+    private ImageView iv_cyWeight_back;
     private ListView lv_detail;
     private WeightAdapter adapter;
     private List<Detail> list = new ArrayList<Detail>();
@@ -98,9 +101,8 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
         OkHttpUtils.get().url(Constant.ITEM_URL+rfidCode).build().execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e) {
-
+                e.printStackTrace();
             }
-
             @Override
             public void onResponse(String response) {
                 item_list = JsonUtil.pareJson(CYWeight.this,response);
@@ -131,6 +133,8 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
         btn_single = (Button) findViewById(R.id.btn_single);
         btn_end = (Button) findViewById(R.id.btn_end);
         btn_detail = (Button) findViewById(R.id.btn_detail);
+        iv_cyWeight_back = (ImageView) findViewById(R.id.iv_cyWeight_back);
+        iv_cyWeight_back.setOnClickListener(this);
         btn_single.setOnClickListener(this);
         btn_end.setOnClickListener(this);
         btn_detail.setOnClickListener(this);
@@ -152,6 +156,7 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
                 builder.setView(view);
                 lv_detail = (ListView) view.findViewById(R.id.lvcontent);
                 adapter = new WeightAdapter(CYWeight.this,list);
+                //适配器中list size的回调，当list remove时，通知ui刷新
                 adapter.setOnListDel(this);
                 lv_detail.setAdapter(adapter);
                 builder.show();
@@ -159,6 +164,7 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
             case R.id.btn_single:
                 if (item_list.size()==0){
                     Toast.makeText(CYWeight.this,"当前卡号无效，请更换IC卡",Toast.LENGTH_SHORT).show();
+                    return;
                 }
                 if (rfidGuid==null){
                     Toast.makeText(CYWeight.this,"请先扫描IC卡", Toast.LENGTH_SHORT).show();
@@ -179,6 +185,8 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
 
                         @Override
                         public void onResponse(String response) {
+                            double averageWeight = 0;
+                            double averageWeightAure = 0;
                             progressDialog.dismiss();
                             String result = JsonUtil.parseResult_return(response);
                             if (TextUtils.equals("1",result)){
@@ -190,11 +198,19 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
                                 detail_num.setText((Integer.parseInt(et_singlecount.getText().toString()))*list.size()+"");
                                 tv_count.setText(list.size()+"");
                                 detail_maozhong.setText(data+"KG");
-                                tv_averageWieght.setText(Integer.parseInt(data)*list.size()+"KG");
+                                double currentWeight = Double.parseDouble(data);
+                                averageWeight = currentWeight+averageWeight;
+                                BigDecimal b2 = new BigDecimal(averageWeight/baoshu);
+                                double f2 = b2.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+                                tv_averageWieght.setText(f2+"KG");
                                 detail_chupi.setText(item_list.get(0).getItem_pizhong()+"KG");
-                                double jingzhong = Double.parseDouble(data)-(Double.parseDouble(item_list.get(0).getItem_pizhong())*baoshu);
-                                detail_jingzhong.setText((Double.parseDouble(data)-(Double.parseDouble(item_list.get(0).getItem_pizhong())*baoshu))+"");
-                                tv_averageAure.setText(jingzhong*list.size()+"KG");
+                                double jingzhong = currentWeight-(Double.parseDouble(item_list.get(0).getItem_pizhong())*baoshu);
+                                averageWeightAure = jingzhong+averageWeightAure;
+                                detail_jingzhong.setText((currentWeight-(Double.parseDouble(item_list.get(0).getItem_pizhong())*(Integer.parseInt(et_singlecount.getText().toString()))))+"");
+                                double averageAure = averageWeightAure/baoshu;
+                                BigDecimal b = new BigDecimal(averageAure);
+                                double f1 = b.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+                                tv_averageAure.setText(f1+"KG");
                                 i++;
                             }else {
                                 Toast.makeText(CYWeight.this,"提交称重失败", Toast.LENGTH_SHORT).show();
@@ -246,8 +262,9 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
                     }
                 });
                 break;
-
-
+            case R.id.iv_back:
+                this.finish();
+                break;
         }
     }
     private BroadcastReceiver myReceiver = new BroadcastReceiver() {
@@ -271,7 +288,7 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
         }
         list.clear();
     }
-
+    //回调通知ui刷新
     @Override
     public void OnDel(int size) {
         tv_count.setText(size+"");
@@ -287,7 +304,6 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
         @Override
         public void handleMessage(Message msg) {
             if (msg.what==2) {
-
                 rfidGuid=(String)msg.obj;
                 Toast.makeText(CYWeight.this,"已刷卡", Toast.LENGTH_SHORT).show();
                 rfidCode= Nfcreceive.readSigOneBlock(Constants.PASSWORD, Constants.ADD);    //获取卡号
@@ -309,5 +325,11 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
             }
             super.handleMessage(msg);
         }
-    };
+    }
+
+    private double parse2(double d){
+        BigDecimal b = new BigDecimal(d);
+        double f = b.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+        return f;
+    }
 }

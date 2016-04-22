@@ -68,6 +68,10 @@
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\drawable\\status4.png"
     },
     {
+        "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cycz_icon.png",
+        "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\drawable\\cycz_icon.png"
+    },
+    {
         "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_launcher.png",
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\drawable\\ic_launcher.png"
     },

@@ -1,6 +1,8 @@
 package com.example.guiyuan.Adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,9 +73,26 @@ public class WeightAdapter extends BaseAdapter {
         holder.btn_del.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                list.remove(position);
-                onListDel.OnDel(list.size());
-                notifyDataSetChanged();
+                AlertDialog.Builder builder = new AlertDialog.Builder(mcontext);
+                AlertDialog dialog = builder.setTitle("提示信息")
+                        .setMessage("确定删除此条称重记录吗?")
+                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                list.remove(position);
+                                dialog.dismiss();
+                                onListDel.OnDel(list.size());
+                                notifyDataSetChanged();
+                            }
+                        })
+                        .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        }).create();
+                dialog.show();
+
             }
         });
         return convertView;
