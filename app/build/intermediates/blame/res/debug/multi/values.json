@@ -2971,8 +2971,198 @@
                     "startLine": 158,
                     "startColumn": 4,
                     "startOffset": 6947,
+                    "endColumn": 43,
+                    "endOffset": 6986
+                },
+                "from": {
+                    "file": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 978,
+                        "endColumn": 43,
+                        "endOffset": 1017
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 159,
+                    "startColumn": 4,
+                    "startOffset": 6991,
+                    "endColumn": 47,
+                    "endOffset": 7034
+                },
+                "from": {
+                    "file": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 1063,
+                        "endColumn": 47,
+                        "endOffset": 1106
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 160,
+                    "startColumn": 4,
+                    "startOffset": 7039,
+                    "endColumn": 43,
+                    "endOffset": 7078
+                },
+                "from": {
+                    "file": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 720,
+                        "endColumn": 43,
+                        "endOffset": 759
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 161,
+                    "startColumn": 4,
+                    "startOffset": 7083,
+                    "endColumn": 40,
+                    "endOffset": 7119
+                },
+                "from": {
+                    "file": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 678,
+                        "endColumn": 40,
+                        "endOffset": 714
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 162,
+                    "startColumn": 4,
+                    "startOffset": 7124,
+                    "endColumn": 41,
+                    "endOffset": 7161
+                },
+                "from": {
+                    "file": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 27,
+                        "startColumn": 4,
+                        "startOffset": 1279,
+                        "endColumn": 41,
+                        "endOffset": 1316
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 163,
+                    "startColumn": 4,
+                    "startOffset": 7166,
+                    "endColumn": 38,
+                    "endOffset": 7200
+                },
+                "from": {
+                    "file": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 810,
+                        "endColumn": 38,
+                        "endOffset": 844
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 164,
+                    "startColumn": 4,
+                    "startOffset": 7205,
+                    "endColumn": 39,
+                    "endOffset": 7240
+                },
+                "from": {
+                    "file": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 850,
+                        "endColumn": 39,
+                        "endOffset": 885
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 165,
+                    "startColumn": 4,
+                    "startOffset": 7245,
+                    "endColumn": 36,
+                    "endOffset": 7277
+                },
+                "from": {
+                    "file": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 25,
+                        "startColumn": 4,
+                        "startOffset": 1199,
+                        "endColumn": 36,
+                        "endOffset": 1231
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 166,
+                    "startColumn": 4,
+                    "startOffset": 7282,
+                    "endColumn": 38,
+                    "endOffset": 7316
+                },
+                "from": {
+                    "file": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 891,
+                        "endColumn": 38,
+                        "endOffset": 925
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 167,
+                    "startColumn": 4,
+                    "startOffset": 7321,
+                    "endColumn": 43,
+                    "endOffset": 7360
+                },
+                "from": {
+                    "file": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 765,
+                        "endColumn": 43,
+                        "endOffset": 804
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 168,
+                    "startColumn": 4,
+                    "startOffset": 7365,
                     "endColumn": 52,
-                    "endOffset": 6995
+                    "endOffset": 7413
                 },
                 "from": {
                     "file": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\values\\strings.xml",
@@ -2987,11 +3177,87 @@
             },
             {
                 "to": {
-                    "startLine": 159,
+                    "startLine": 169,
                     "startColumn": 4,
-                    "startOffset": 7000,
+                    "startOffset": 7418,
+                    "endColumn": 40,
+                    "endOffset": 7454
+                },
+                "from": {
+                    "file": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 26,
+                        "startColumn": 4,
+                        "startOffset": 1237,
+                        "endColumn": 40,
+                        "endOffset": 1273
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 170,
+                    "startColumn": 4,
+                    "startOffset": 7459,
+                    "endColumn": 39,
+                    "endOffset": 7494
+                },
+                "from": {
+                    "file": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 24,
+                        "startColumn": 4,
+                        "startOffset": 1158,
+                        "endColumn": 39,
+                        "endOffset": 1193
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 171,
+                    "startColumn": 4,
+                    "startOffset": 7499,
+                    "endColumn": 38,
+                    "endOffset": 7533
+                },
+                "from": {
+                    "file": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 1023,
+                        "endColumn": 38,
+                        "endOffset": 1057
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 172,
+                    "startColumn": 4,
+                    "startOffset": 7538,
+                    "endColumn": 45,
+                    "endOffset": 7579
+                },
+                "from": {
+                    "file": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 931,
+                        "endColumn": 45,
+                        "endOffset": 972
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 173,
+                    "startColumn": 4,
+                    "startOffset": 7584,
                     "endColumn": 62,
-                    "endOffset": 7058
+                    "endOffset": 7642
                 },
                 "from": {
                     "file": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\values\\strings.xml",
@@ -3006,11 +3272,11 @@
             },
             {
                 "to": {
-                    "startLine": 160,
+                    "startLine": 174,
                     "startColumn": 4,
-                    "startOffset": 7063,
+                    "startOffset": 7647,
                     "endColumn": 75,
-                    "endOffset": 7134
+                    "endOffset": 7718
                 },
                 "from": {
                     "file": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\values\\strings.xml",
@@ -3025,11 +3291,11 @@
             },
             {
                 "to": {
-                    "startLine": 161,
+                    "startLine": 175,
                     "startColumn": 4,
-                    "startOffset": 7139,
+                    "startOffset": 7723,
                     "endColumn": 65,
-                    "endOffset": 7200
+                    "endOffset": 7784
                 },
                 "from": {
                     "file": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\values\\strings.xml",
@@ -3044,11 +3310,11 @@
             },
             {
                 "to": {
-                    "startLine": 162,
+                    "startLine": 176,
                     "startColumn": 4,
-                    "startOffset": 7205,
+                    "startOffset": 7789,
                     "endColumn": 68,
-                    "endOffset": 7269
+                    "endOffset": 7853
                 },
                 "from": {
                     "file": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\values\\strings.xml",
@@ -3063,11 +3329,11 @@
             },
             {
                 "to": {
-                    "startLine": 163,
+                    "startLine": 177,
                     "startColumn": 4,
-                    "startOffset": 7274,
+                    "startOffset": 7858,
                     "endColumn": 75,
-                    "endOffset": 7345
+                    "endOffset": 7929
                 },
                 "from": {
                     "file": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\values\\strings.xml",
@@ -3082,11 +3348,11 @@
             },
             {
                 "to": {
-                    "startLine": 164,
+                    "startLine": 178,
                     "startColumn": 4,
-                    "startOffset": 7350,
+                    "startOffset": 7934,
                     "endColumn": 63,
-                    "endOffset": 7409
+                    "endOffset": 7993
                 },
                 "from": {
                     "file": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\values\\strings.xml",
@@ -3101,12 +3367,50 @@
             },
             {
                 "to": {
-                    "startLine": 165,
+                    "startLine": 179,
                     "startColumn": 4,
-                    "startOffset": 7414,
-                    "endLine": 171,
+                    "startOffset": 7998,
+                    "endColumn": 46,
+                    "endOffset": 8040
+                },
+                "from": {
+                    "file": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 630,
+                        "endColumn": 46,
+                        "endOffset": 672
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 180,
+                    "startColumn": 4,
+                    "startOffset": 8045,
+                    "endColumn": 44,
+                    "endOffset": 8085
+                },
+                "from": {
+                    "file": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 4,
+                        "startOffset": 1112,
+                        "endColumn": 44,
+                        "endOffset": 1152
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 181,
+                    "startColumn": 4,
+                    "startOffset": 8090,
+                    "endLine": 187,
                     "endColumn": 12,
-                    "endOffset": 7700
+                    "endOffset": 8376
                 },
                 "from": {
                     "file": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\values\\styles.xml",
@@ -3122,12 +3426,12 @@
             },
             {
                 "to": {
-                    "startLine": 172,
+                    "startLine": 188,
                     "startColumn": 4,
-                    "startOffset": 7705,
-                    "endLine": 175,
+                    "startOffset": 8381,
+                    "endLine": 191,
                     "endColumn": 12,
-                    "endOffset": 7942
+                    "endOffset": 8618
                 },
                 "from": {
                     "file": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\values\\styles.xml",
@@ -3143,12 +3447,12 @@
             },
             {
                 "to": {
-                    "startLine": 176,
+                    "startLine": 192,
                     "startColumn": 4,
-                    "startOffset": 7947,
-                    "endLine": 183,
+                    "startOffset": 8623,
+                    "endLine": 199,
                     "endColumn": 12,
-                    "endOffset": 8344
+                    "endOffset": 9020
                 },
                 "from": {
                     "file": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\values\\styles.xml",
@@ -3164,12 +3468,12 @@
             },
             {
                 "to": {
-                    "startLine": 184,
+                    "startLine": 200,
                     "startColumn": 4,
-                    "startOffset": 8349,
-                    "endLine": 188,
+                    "startOffset": 9025,
+                    "endLine": 204,
                     "endColumn": 12,
-                    "endOffset": 8684
+                    "endOffset": 9360
                 },
                 "from": {
                     "file": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\values\\styles.xml",

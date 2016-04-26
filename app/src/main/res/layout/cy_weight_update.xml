@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:layout_centerInParent="true"
-            android:text="抽样称重"
+            android:text="@string/tittle_weight"
             android:textColor="@color/white"
             android:textSize="20sp" />
     </RelativeLayout>
@@ -41,7 +41,7 @@
             <Button
                 android:id="@+id/btn_end"
                 android:textColor="@color/white"
-                android:text="结束抽样"
+                android:text="@string/btn_end"
                 android:layout_width="120dp"
                 android:layout_height="40dp"
                 android:layout_alignParentLeft="true"
@@ -52,7 +52,7 @@
             <Button
                 android:id="@+id/btn_detail"
                 android:textColor="@color/white"
-                android:text="详细列表"
+                android:text="@string/btn_detail"
                 android:layout_width="120dp"
                 android:layout_height="40dp"
                 android:layout_alignParentRight="true"
@@ -70,7 +70,7 @@
                 android:layout_height="40dp"
                 android:layout_centerInParent="true"
                 android:gravity="center"
-                android:text="当前重量"
+                android:text="@string/cur_weight"
                 android:textColor="@color/white"
                 android:textSize="22sp" />
         </RelativeLayout>
@@ -80,32 +80,34 @@
             android:layout_height="match_parent">
 
             <LinearLayout
-                android:layout_width="180dp"
+                android:id="@+id/ll1"
+                android:layout_width="200dp"
                 android:layout_height="80dp"
                 android:layout_centerHorizontal="true"
                 android:orientation="horizontal">
 
-                <TextView
+                <EditText
+                    android:inputType="numberDecimal"
                     android:id="@+id/tv_curr_Weight"
-                    android:layout_width="wrap_content"
+                    android:layout_width="130dp"
                     android:layout_height="60dp"
-                    android:layout_marginLeft="40dp"
-                    android:gravity="center"
+                    android:layout_marginLeft="50dp"
+                    android:gravity="start"
                     android:text="200"
                     android:textColor="@color/white"
-                    android:textSize="45sp"
+                    android:textSize="34sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="15dp"
-                    android:gravity="center"
-                    android:text="kg"
-                    android:textColor="@color/white"
-                    android:textSize="30sp" />
-
             </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_toRightOf="@+id/ll1"
+                android:gravity="bottom"
+                android:layout_marginTop="15dp"
+                android:text="kg"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
 
         </RelativeLayout>
     </LinearLayout>
@@ -127,7 +129,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="15dp"
-                android:text="车牌号"
+                android:text="@string/carcum"
                 android:textSize="18sp" />
 
             <TextView
@@ -156,7 +158,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="15dp"
-                android:text="品种"
+                android:text="@string/category"
                 android:textSize="18sp" />
 
             <TextView
@@ -185,7 +187,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="15dp"
-                android:text="称重次数"
+                android:text="@string/count"
                 android:textSize="18sp" />
 
             <TextView
@@ -193,7 +195,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="270dp"
-                android:text="20"
+                android:text="0"
                 android:textSize="18sp" />
         </RelativeLayout>
 
@@ -213,7 +215,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="15dp"
-                android:text="单次包数"
+                android:text="@string/single_count"
                 android:textSize="18sp" />
 
             <EditText
@@ -244,7 +246,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="15dp"
-                android:text="平均毛重"
+                android:text="@string/averweight"
                 android:textSize="18sp" />
 
             <TextView
@@ -252,7 +254,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="270dp"
-                android:text="25.05KG"
                 android:textSize="18sp" />
         </RelativeLayout>
 
@@ -273,15 +274,16 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="15dp"
-                android:text="皮重"
+                android:text="@string/pizhong"
                 android:textSize="18sp" />
 
-            <TextView
+            <EditText
+                android:inputType="numberDecimal"
                 android:id="@+id/tv_pizhong"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="270dp"
-                android:text="0.05KG"
+                android:text="0.05"
                 android:textSize="18sp" />
         </RelativeLayout>
 
@@ -302,7 +304,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="15dp"
-                android:text="平均净重"
+                android:text="@string/averweightaure"
                 android:textSize="18sp" />
 
             <TextView
@@ -310,7 +312,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="270dp"
-                android:text="25.00KG"
                 android:textSize="18sp" />
         </RelativeLayout>
 
@@ -348,7 +349,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="15dp"
                     android:layout_weight="1"
-                    android:text="总共包数"
+                    android:text="@string/total_count"
                     android:textSize="18sp" />
 
                 <TextView
@@ -357,7 +358,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
-                    android:text="16"
                     android:textSize="16sp" />
             </LinearLayout>
 
@@ -379,7 +379,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="10dp"
                     android:layout_weight="1"
-                    android:text="毛重"
+                    android:text="@string/maozhong"
                     android:textSize="18sp" />
 
                 <TextView
@@ -388,7 +388,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
-                    android:text="20KG"
                     android:textSize="16sp" />
             </LinearLayout>
 
@@ -418,7 +417,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="15dp"
                     android:layout_weight="1"
-                    android:text="除皮"
+                    android:text="@string/chupi"
                     android:textSize="18sp" />
 
                 <TextView
@@ -427,7 +426,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
-                    android:text="16"
                     android:textSize="16sp" />
             </LinearLayout>
 
@@ -449,7 +447,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="10dp"
                     android:layout_weight="1"
-                    android:text="净重"
+                    android:text="@string/jingzhong"
                     android:textSize="18sp" />
 
                 <TextView
@@ -458,7 +456,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
-                    android:text="20KG"
                     android:textSize="16sp" />
             </LinearLayout>
         </LinearLayout>
@@ -470,7 +467,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="15dp"
             android:background="@drawable/cyweight_btn_selector"
-            android:text="称重"
+            android:text="@string/btn_weight"
             android:textColor="#ffffff"
             android:textSize="22sp" />
 

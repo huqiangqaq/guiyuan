@@ -14,8 +14,7 @@ public class ActivityCollector {
         activities.add(activity);
     }
 
-    public
-    static void removeActivity(Activity activity){
+    public static void removeActivity(Activity activity){
         activities.remove(activity);
     }
 

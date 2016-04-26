@@ -46,7 +46,6 @@
             android:name=".Activity.ZhiKuActivity"
             android:label="@string/title_activity_zhi_ku"
             android:screenOrientation="portrait">
-
             </activity>
         <activity
             android:name=".Activity.SelectStoreActivity"
@@ -100,6 +99,7 @@
             android:screenOrientation="portrait"></activity>
         <activity android:name=".Activity.CYWeight"
             android:screenOrientation="portrait">
+
         </activity>
         <service android:name=".Service.LongRunningService"/>
     </application>

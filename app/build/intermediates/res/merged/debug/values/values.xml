@@ -156,13 +156,29 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <string name="action_settings">Settings</string>
     <string name="app_name">智慧粮库</string>
+    <string name="averweight">平均毛重</string>
+    <string name="averweightaure">平均净重</string>
+    <string name="btn_detail">详细列表</string>
+    <string name="btn_end">结束抽样</string>
+    <string name="btn_weight">称重</string>
+    <string name="carcum">车牌号</string>
+    <string name="category">品种</string>
+    <string name="chupi">除皮</string>
+    <string name="count">称重次数</string>
+    <string name="cur_weight">当前重量</string>
     <string name="hello_world">Hello world!</string>
+    <string name="jingzhong">净重</string>
+    <string name="maozhong">毛重</string>
+    <string name="pizhong">皮重</string>
+    <string name="single_count">单次包数</string>
     <string name="title_activity_chuku">ChukuActivity</string>
     <string name="title_activity_his_vertical">HisVerticalActivity</string>
     <string name="title_activity_men_wei">MenWeiActivity</string>
     <string name="title_activity_qianyang">QianyangActivity</string>
     <string name="title_activity_select_store">SelectStoreActivity</string>
     <string name="title_activity_zhi_ku">ZhiKuActivity</string>
+    <string name="tittle_weight">抽样称重</string>
+    <string name="total_count">总共包数</string>
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
             Theme customizations available in newer API levels can go in

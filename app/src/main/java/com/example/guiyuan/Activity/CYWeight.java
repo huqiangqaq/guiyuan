@@ -43,8 +43,8 @@ import cilico.tools.Nfcreceive;
 import okhttp3.Call;
 
 public class CYWeight extends BaseActivity implements View.OnClickListener,WeightAdapter.OnListDel {
-    private TextView tv_num,tv_category,tv_count,tv_averageWieght,tv_pizhong,tv_averageAure,detail_num,detail_maozhong,detail_chupi,detail_jingzhong,tv_curr_Weight;
-    private EditText et_singlecount;
+    private TextView tv_num,tv_category,tv_count,tv_averageWieght,/*tv_pizhong,*/tv_averageAure,detail_num,detail_maozhong,detail_chupi,detail_jingzhong/*,tv_curr_Weight*/;
+    private EditText et_singlecount,tv_curr_Weight,tv_pizhong;
     private Button btn_single,btn_end,btn_detail;
     private ImageView iv_cyWeight_back;
     private ListView lv_detail;
@@ -58,6 +58,9 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
     private String data = null;//后台轮询查到的重量
     private String end = null;
     private ProgressDialog progressDialog = null;
+    double averageWeight = 0;
+    double averageWeightAure = 0;
+    double detail_baoshu = 0;
     // 定义接收的hander
     private Handler mnfcHandler = new MainNfcHandler();
 //    private PreferenceService preferenceService;
@@ -70,15 +73,6 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
         setContentView(R.layout.cy_weight_update);
         Nfcreceive.m_handler = mnfcHandler;
         init();
-//        preferenceService = new PreferenceService(getApplicationContext());
-//        map = new HashMap<>();
-//        map = preferenceService.getPreferences();
-//        ip1 = map.get("loginip1");
-//        ip2 = map.get("loginip2");
-//        ip3 =map.get("loginip3");
-//        ip4 = map.get("loginip4");
-//        duankouip = map.get("duankouip");
-//        IP = "http://" + ip1+ "." + ip2 + "." + ip3 + "." + ip4 + ":"+duankouip+"/getBarnDevList/";
         if (null==rfidGuid){
             Toast.makeText(CYWeight.this,"请放入IC卡", Toast.LENGTH_SHORT).show();
             return;
@@ -111,7 +105,7 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
                     tv_num.setText(item_list.get(0).getItem_carnum());
                     tv_category.setText(item_list.get(0).getItem_category());
                     et_singlecount.setText(item_list.get(0).getItem_singlecount());
-                    tv_pizhong.setText(item_list.get(0).getItem_pizhong()+"KG");
+                    tv_pizhong.setText(item_list.get(0).getItem_pizhong());
                 }
 
             }
@@ -123,7 +117,7 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
         tv_category = (TextView) findViewById(R.id.tv_category);
         tv_count = (TextView) findViewById(R.id.tv_count);
         tv_averageWieght = (TextView) findViewById(R.id.tv_averageWieght);
-        tv_pizhong = (TextView) findViewById(R.id.tv_pizhong);
+        tv_pizhong = (EditText) findViewById(R.id.tv_pizhong);
         tv_averageAure = (TextView) findViewById(R.id.tv_averageAure);
         detail_num = (TextView) findViewById(R.id.detail_num);
         detail_maozhong = (TextView) findViewById(R.id.detail_maozhong);
@@ -139,7 +133,7 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
         btn_end.setOnClickListener(this);
         btn_detail.setOnClickListener(this);
         //后台轮询查询当前重量
-        tv_curr_Weight = (TextView) findViewById(R.id.tv_curr_Weight);
+        tv_curr_Weight = (EditText) findViewById(R.id.tv_curr_Weight);
     }
 
     @Override
@@ -162,12 +156,13 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
                 builder.show();
                 break;
             case R.id.btn_single:
-                if (item_list.size()==0){
-                    Toast.makeText(CYWeight.this,"当前卡号无效，请更换IC卡",Toast.LENGTH_SHORT).show();
-                    return;
-                }
+
                 if (rfidGuid==null){
                     Toast.makeText(CYWeight.this,"请先扫描IC卡", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (item_list.size()==0){
+                    Toast.makeText(CYWeight.this,"当前卡号无效，请更换IC卡",Toast.LENGTH_SHORT).show();
                     return;
                 }
                 progressDialog = new ProgressDialog(CYWeight.this);
@@ -177,6 +172,8 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
                 int count2 = Integer.parseInt(et_singlecount.getText().toString());
                 //int count =(Integer.parseInt(tv_count.getText().toString()))/(Integer.parseInt(et_singlecount.getText().toString()));
                     Log.d("huqiang",i+"");
+                //异步提交单次称重
+                data = tv_curr_Weight.getText().toString();
                     OkHttpUtils.get().url(Constant.WEIGHT_SINGLE+rfidCode+"/"+i+"/"+data+"/"+et_singlecount.getText().toString()).build().execute(new StringCallback() {
                         @Override
                         public void onError(Call call, Exception e) {
@@ -185,35 +182,37 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
 
                         @Override
                         public void onResponse(String response) {
-                            double averageWeight = 0;
-                            double averageWeightAure = 0;
                             progressDialog.dismiss();
                             String result = JsonUtil.parseResult_return(response);
                             if (TextUtils.equals("1",result)){
                                 Toast.makeText(CYWeight.this,"称重成功", Toast.LENGTH_SHORT).show();
+                                //由于设备未到位，先改成手工输入当前重量的值
+
+                                double pizhong = Double.parseDouble(tv_pizhong.getText().toString());
                                 //每次的操作记录存放到list中
                                 Detail detail = new Detail(i+"",et_singlecount.getText().toString(),data);
                                 list.add(detail);
-                                int baoshu = Integer.parseInt(et_singlecount.getText().toString())*list.size();
-                                detail_num.setText((Integer.parseInt(et_singlecount.getText().toString()))*list.size()+"");
+                                double singlecount = Double.parseDouble(et_singlecount.getText().toString());
+                                detail_baoshu = singlecount+detail_baoshu;
+                                detail_num.setText(detail_baoshu+"");
                                 tv_count.setText(list.size()+"");
                                 detail_maozhong.setText(data+"KG");
                                 double currentWeight = Double.parseDouble(data);
                                 averageWeight = currentWeight+averageWeight;
-                                BigDecimal b2 = new BigDecimal(averageWeight/baoshu);
+                                BigDecimal b2 = new BigDecimal(averageWeight/detail_baoshu);
                                 double f2 = b2.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
                                 tv_averageWieght.setText(f2+"KG");
-                                detail_chupi.setText(item_list.get(0).getItem_pizhong()+"KG");
-                                double jingzhong = currentWeight-(Double.parseDouble(item_list.get(0).getItem_pizhong())*baoshu);
+                                detail_chupi.setText(tv_pizhong.getText().toString()+"KG");
+                                double jingzhong = currentWeight-(pizhong*detail_baoshu);
                                 averageWeightAure = jingzhong+averageWeightAure;
-                                detail_jingzhong.setText((currentWeight-(Double.parseDouble(item_list.get(0).getItem_pizhong())*(Integer.parseInt(et_singlecount.getText().toString()))))+"");
-                                double averageAure = averageWeightAure/baoshu;
+                                detail_jingzhong.setText(parse2(currentWeight-(pizhong*(Integer.parseInt(et_singlecount.getText().toString()))))+"KG");
+                                double averageAure = averageWeightAure/detail_baoshu;
                                 BigDecimal b = new BigDecimal(averageAure);
                                 double f1 = b.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
                                 tv_averageAure.setText(f1+"KG");
                                 i++;
                             }else {
-                                Toast.makeText(CYWeight.this,"提交称重失败", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(CYWeight.this,result, Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
@@ -308,8 +307,8 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
                 Toast.makeText(CYWeight.this,"已刷卡", Toast.LENGTH_SHORT).show();
                 rfidCode= Nfcreceive.readSigOneBlock(Constants.PASSWORD, Constants.ADD);    //获取卡号
                 //拿到卡号开启后台轮询服务
-                openReceiver();
-                OpenService();
+//                openReceiver();
+//                OpenService();
                 Log.d("MainActivity",rfidCode);
                 getNetConn();
                 //txt_code.setText((String)msg.obj);
