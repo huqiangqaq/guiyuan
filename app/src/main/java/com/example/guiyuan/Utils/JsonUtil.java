@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.guiyuan.entity.Detail;
 import com.example.guiyuan.entity.Item;
 
 import org.json.JSONArray;
@@ -134,5 +135,29 @@ public class JsonUtil {
             e.printStackTrace();
         }
         return result;
+    }
+
+    //pc端的称重数据
+    public static List<Detail> parseResult_pc(String jsonStr){
+        List<Detail> list = new ArrayList<Detail>();
+        try {
+            JSONObject object = new JSONObject(jsonStr);
+            String data = object.getString("getAllWeightRecordResult");
+            JSONArray array = new JSONArray(data);
+            int j = array.length();
+            if (array.length()>0){
+                for (int i=0;i<array.length();i++){
+                    int id = Integer.parseInt(array.getJSONObject(i).getString("序号"));
+                    String single_count = array.getJSONObject(i).getString("单次包数");
+                    String weight = array.getJSONObject(i).getString("重量");
+                    Detail detail = new Detail(id,single_count,weight);
+                    list.add(detail);
+                }
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 }

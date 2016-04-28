@@ -25,4 +25,5 @@ public interface Constant {
 	String WEIGHT_URL = URL+"/PDA/getWeight/";
 	String WEIGHT_SINGLE = URL+"/PDA/postSingleWeightRecord/";
 	String WEIGHT_END = URL+"/PDA/postALLWeightRecord/";
+	String Weight_PC = URL+"/PDA/getAllWeightRecord/";
 }

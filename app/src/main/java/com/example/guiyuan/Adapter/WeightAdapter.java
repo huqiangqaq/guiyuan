@@ -14,6 +14,8 @@ import android.widget.TextView;
 import com.example.guiyuan.R;
 import com.example.guiyuan.entity.Detail;
 
+import org.litepal.crud.DataSupport;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,7 +69,7 @@ public class WeightAdapter extends BaseAdapter {
             holder = (viewHolder) convertView.getTag();
         }
         Detail detail = list.get(position);
-        holder.tv_num.setText(detail.getId());
+        holder.tv_num.setText(detail.getNum()+"");
         holder.tv_single.setText(detail.getSingle_count());
         holder.tv_weight.setText(detail.getWeight());
         holder.btn_del.setOnClickListener(new View.OnClickListener() {
@@ -80,6 +82,8 @@ public class WeightAdapter extends BaseAdapter {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 list.remove(position);
+                                int j = list.get(position).getNum();
+                                int i = DataSupport.delete(Detail.class,list.get(position).getNum()-1);
                                 dialog.dismiss();
                                 onListDel.OnDel(list.size());
                                 notifyDataSetChanged();

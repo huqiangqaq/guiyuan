@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -35,6 +36,9 @@ import com.ichoice.nfcHandler.Constants;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
+import org.litepal.crud.DataSupport;
+import org.litepal.tablemanager.Connector;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -61,6 +65,8 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
     double averageWeight = 0;
     double averageWeightAure = 0;
     double detail_baoshu = 0;
+    //数据库相关
+    private SQLiteDatabase db;
     // 定义接收的hander
     private Handler mnfcHandler = new MainNfcHandler();
 //    private PreferenceService preferenceService;
@@ -72,11 +78,35 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.cy_weight_update);
         Nfcreceive.m_handler = mnfcHandler;
+        //创建表
+        db = Connector.getDatabase();
+        //程序已进入先判断pc端是否有称重的数据
+        OkHttpUtils.get().url(Constant.Weight_PC+"20160401").build().execute(new StringCallback() {
+            @Override
+            public void onError(Call call, Exception e) {
+
+            }
+
+            @Override
+            public void onResponse(String response) {
+                list = JsonUtil.parseResult_pc(response);
+                if (list.size()>0){
+                    DataSupport.deleteAll(Detail.class);
+                    DataSupport.saveAll(list);
+                    list.clear();
+                    list = DataSupport.findAll(Detail.class);
+                    i = list.size();
+                }else {
+                    list = DataSupport.findAll(Detail.class);
+                }
+            }
+        });
         init();
-        if (null==rfidGuid){
-            Toast.makeText(CYWeight.this,"请放入IC卡", Toast.LENGTH_SHORT).show();
-            return;
-        }
+        getNetConn();
+//        if (null==rfidGuid){
+//            Toast.makeText(CYWeight.this,"请放入IC卡", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
 
     }
 
@@ -92,7 +122,7 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
         registerReceiver(myReceiver, filter);
     }
     private void getNetConn(){
-        OkHttpUtils.get().url(Constant.ITEM_URL+rfidCode).build().execute(new StringCallback() {
+        OkHttpUtils.get().url(Constant.ITEM_URL+"20160401").build().execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e) {
                 e.printStackTrace();
@@ -107,7 +137,6 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
                     et_singlecount.setText(item_list.get(0).getItem_singlecount());
                     tv_pizhong.setText(item_list.get(0).getItem_pizhong());
                 }
-
             }
         });
     }
@@ -157,14 +186,14 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
                 break;
             case R.id.btn_single:
 
-                if (rfidGuid==null){
-                    Toast.makeText(CYWeight.this,"请先扫描IC卡", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if (item_list.size()==0){
-                    Toast.makeText(CYWeight.this,"当前卡号无效，请更换IC卡",Toast.LENGTH_SHORT).show();
-                    return;
-                }
+//                if (rfidGuid==null){
+//                    Toast.makeText(CYWeight.this,"请先扫描IC卡", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+//                if (item_list.size()==0){
+//                    Toast.makeText(CYWeight.this,"当前卡号无效，请更换IC卡",Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
                 progressDialog = new ProgressDialog(CYWeight.this);
                 progressDialog.setMessage("提交称重结果....");
                 progressDialog.show();
@@ -174,7 +203,7 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
                     Log.d("huqiang",i+"");
                 //异步提交单次称重
                 data = tv_curr_Weight.getText().toString();
-                    OkHttpUtils.get().url(Constant.WEIGHT_SINGLE+rfidCode+"/"+i+"/"+data+"/"+et_singlecount.getText().toString()).build().execute(new StringCallback() {
+                    OkHttpUtils.get().url(Constant.WEIGHT_SINGLE+"20160401"+"/"+i+"/"+data+"/"+et_singlecount.getText().toString()).build().execute(new StringCallback() {
                         @Override
                         public void onError(Call call, Exception e) {
 
@@ -190,8 +219,15 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
 
                                 double pizhong = Double.parseDouble(tv_pizhong.getText().toString());
                                 //每次的操作记录存放到list中
-                                Detail detail = new Detail(i+"",et_singlecount.getText().toString(),data);
+                                Detail detail = new Detail(i,et_singlecount.getText().toString(),data);
                                 list.add(detail);
+                                //保存到本地数据库中
+                                detail.save();
+                                if (detail.save()){
+                                    Toast.makeText(CYWeight.this,"存储成功",Toast.LENGTH_SHORT).show();
+                                }else {
+                                    Toast.makeText(CYWeight.this,"存储失败",Toast.LENGTH_SHORT).show();
+                                }
                                 double singlecount = Double.parseDouble(et_singlecount.getText().toString());
                                 detail_baoshu = singlecount+detail_baoshu;
                                 detail_num.setText(detail_baoshu+"");
@@ -225,7 +261,7 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
                 }
                 for (int i=0;i<list.size();i++){
                     StringBuilder sb = new StringBuilder();
-                    String result=list.get(i).getId();
+                    int result=list.get(i).getNum();
                     sb.append(result);
                     sb.append(",");
                     end+=sb.toString();
@@ -233,7 +269,7 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
                 }
                 System.out.println(end);
                 end = end.substring(4,end.length()-1);
-                OkHttpUtils.get().url(Constant.WEIGHT_END+rfidCode+"/"+end).build().execute(new StringCallback() {
+                OkHttpUtils.get().url(Constant.WEIGHT_END+"20160401"+"/"+end).build().execute(new StringCallback() {
                     @Override
                     public void onError(Call call, Exception e) {
 
@@ -261,7 +297,7 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
                     }
                 });
                 break;
-            case R.id.iv_back:
+            case R.id.iv_cyWeight_back:
                 this.finish();
                 break;
         }
@@ -330,5 +366,10 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
         BigDecimal b = new BigDecimal(d);
         double f = b.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
         return f;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 }

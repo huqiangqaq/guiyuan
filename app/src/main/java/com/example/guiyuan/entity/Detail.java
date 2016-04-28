@@ -1,28 +1,30 @@
 package com.example.guiyuan.entity;
 
+import org.litepal.crud.DataSupport;
+
 /**
  * Created by huqiang on 2016/4/12 10:23.
  */
-public class Detail {
-    private String id;
+public class Detail extends DataSupport {
+    private int num;
     private String single_count;
     private String weight;
 
     public Detail() {
     }
 
-    public Detail(String id, String single_count, String weight) {
-        this.id = id;
+    public Detail(int num, String single_count, String weight) {
+        this.num = num;
         this.single_count = single_count;
         this.weight = weight;
     }
 
-    public String getId() {
-        return id;
+    public int getNum() {
+        return num;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setNum(int num) {
+        this.num = num;
     }
 
     public String getSingle_count() {
@@ -44,7 +46,7 @@ public class Detail {
     @Override
     public String toString() {
         return "Detail{" +
-                "id='" + id + '\'' +
+                "id='" + num + '\'' +
                 ", single_count='" + single_count + '\'' +
                 ", weight='" + weight + '\'' +
                 '}';

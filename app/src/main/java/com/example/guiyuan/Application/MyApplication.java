@@ -2,10 +2,12 @@ package com.example.guiyuan.Application;
 
 import android.app.Application;
 
+import org.litepal.LitePalApplication;
+
 /**
  * Created by huqiang on 2016/1/24 16:44.
  */
-public class MyApplication extends Application {
+public class MyApplication extends LitePalApplication {
     private String UserName;
     private String PassWord;
     private static MyApplication instance;
