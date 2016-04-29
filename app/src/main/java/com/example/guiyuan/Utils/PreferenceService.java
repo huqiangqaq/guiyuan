@@ -32,12 +32,17 @@ public class PreferenceService {
         editor.putString("PassWord",PassWord);
         editor.commit();
     }
+    public void save(String num){
+        editor.putString("num",num);
+        editor.commit();
+    }
 
     public Map<String,String> getPrefrences(){
         Map<String,String> map = new HashMap<String,String>();
         SharedPreferences preference = context.getSharedPreferences("LOGIN", Context.MODE_PRIVATE);
         map.put("UserName",preference.getString("UserName",""));
         map.put("PassWord",preference.getString("PassWord",""));
+        map.put("num",preference.getString("num","0"));
         return map;
     }
 }

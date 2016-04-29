@@ -81,9 +81,9 @@ public class WeightAdapter extends BaseAdapter {
                         .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+                                String j = list.get(position).getNum();
+                                int i = DataSupport.deleteAll(Detail.class,"num = ?",j);
                                 list.remove(position);
-                                int j = list.get(position).getNum();
-                                int i = DataSupport.delete(Detail.class,list.get(position).getNum()-1);
                                 dialog.dismiss();
                                 onListDel.OnDel(list.size());
                                 notifyDataSetChanged();

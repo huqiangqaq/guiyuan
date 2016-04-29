@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
@@ -30,6 +31,7 @@ import com.example.guiyuan.R;
 import com.example.guiyuan.Service.LongRunningService;
 import com.example.guiyuan.Utils.Constant;
 import com.example.guiyuan.Utils.JsonUtil;
+import com.example.guiyuan.Utils.PreferenceService;
 import com.example.guiyuan.entity.Detail;
 import com.example.guiyuan.entity.Item;
 import com.ichoice.nfcHandler.Constants;
@@ -41,7 +43,9 @@ import org.litepal.tablemanager.Connector;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import cilico.tools.Nfcreceive;
 import okhttp3.Call;
@@ -56,7 +60,7 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
     private List<Detail> list = new ArrayList<Detail>();
     private List<Item> item_list = new ArrayList<Item>();
     private Intent intent;
-    private int i = 1;
+    private int i = 0;
     String rfidGuid=null;//寻卡成功标志
     private String rfidCode = null;   //接受的卡号
     private String data = null;//后台轮询查到的重量
@@ -67,6 +71,8 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
     double detail_baoshu = 0;
     //数据库相关
     private SQLiteDatabase db;
+    private PreferenceService preferenceService;
+    private Map<String,String> map;
     // 定义接收的hander
     private Handler mnfcHandler = new MainNfcHandler();
 //    private PreferenceService preferenceService;
@@ -76,37 +82,20 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         setContentView(R.layout.cy_weight_update);
         Nfcreceive.m_handler = mnfcHandler;
+        preferenceService = new PreferenceService(getApplicationContext());
+        map = new HashMap<String, String>();
+        map = preferenceService.getPrefrences();
+        i = Integer.parseInt(map.get("num"));
         //创建表
         db = Connector.getDatabase();
-        //程序已进入先判断pc端是否有称重的数据
-        OkHttpUtils.get().url(Constant.Weight_PC+"20160401").build().execute(new StringCallback() {
-            @Override
-            public void onError(Call call, Exception e) {
-
-            }
-
-            @Override
-            public void onResponse(String response) {
-                list = JsonUtil.parseResult_pc(response);
-                if (list.size()>0){
-                    DataSupport.deleteAll(Detail.class);
-                    DataSupport.saveAll(list);
-                    list.clear();
-                    list = DataSupport.findAll(Detail.class);
-                    i = list.size();
-                }else {
-                    list = DataSupport.findAll(Detail.class);
-                }
-            }
-        });
         init();
-        getNetConn();
-//        if (null==rfidGuid){
-//            Toast.makeText(CYWeight.this,"请放入IC卡", Toast.LENGTH_SHORT).show();
-//            return;
-//        }
+        if (null==rfidGuid){
+            Toast.makeText(CYWeight.this,"请放入IC卡", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
     }
 
@@ -122,7 +111,7 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
         registerReceiver(myReceiver, filter);
     }
     private void getNetConn(){
-        OkHttpUtils.get().url(Constant.ITEM_URL+"20160401").build().execute(new StringCallback() {
+        OkHttpUtils.get().url(Constant.ITEM_URL+rfidCode).build().execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e) {
                 e.printStackTrace();
@@ -186,14 +175,14 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
                 break;
             case R.id.btn_single:
 
-//                if (rfidGuid==null){
-//                    Toast.makeText(CYWeight.this,"请先扫描IC卡", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//                if (item_list.size()==0){
-//                    Toast.makeText(CYWeight.this,"当前卡号无效，请更换IC卡",Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
+                if (rfidGuid==null){
+                    Toast.makeText(CYWeight.this,"请先扫描IC卡", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (item_list.size()==0){
+                    Toast.makeText(CYWeight.this,"当前卡号无效，请更换IC卡",Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 progressDialog = new ProgressDialog(CYWeight.this);
                 progressDialog.setMessage("提交称重结果....");
                 progressDialog.show();
@@ -203,7 +192,7 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
                     Log.d("huqiang",i+"");
                 //异步提交单次称重
                 data = tv_curr_Weight.getText().toString();
-                    OkHttpUtils.get().url(Constant.WEIGHT_SINGLE+"20160401"+"/"+i+"/"+data+"/"+et_singlecount.getText().toString()).build().execute(new StringCallback() {
+                    OkHttpUtils.get().url(Constant.WEIGHT_SINGLE+rfidCode+"/"+(i+1)+"/"+data+"/"+et_singlecount.getText().toString()).build().execute(new StringCallback() {
                         @Override
                         public void onError(Call call, Exception e) {
 
@@ -219,10 +208,12 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
 
                                 double pizhong = Double.parseDouble(tv_pizhong.getText().toString());
                                 //每次的操作记录存放到list中
-                                Detail detail = new Detail(i,et_singlecount.getText().toString(),data);
+                                Detail detail = new Detail(rfidCode,(i+1)+"",et_singlecount.getText().toString(),data);
                                 list.add(detail);
+
                                 //保存到本地数据库中
                                 detail.save();
+//                                DataSupport.saveAll(list);
                                 if (detail.save()){
                                     Toast.makeText(CYWeight.this,"存储成功",Toast.LENGTH_SHORT).show();
                                 }else {
@@ -247,6 +238,8 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
                                 double f1 = b.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
                                 tv_averageAure.setText(f1+"KG");
                                 i++;
+                                preferenceService.save(i+"");
+                                System.out.println(i);
                             }else {
                                 Toast.makeText(CYWeight.this,result, Toast.LENGTH_SHORT).show();
                             }
@@ -261,7 +254,7 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
                 }
                 for (int i=0;i<list.size();i++){
                     StringBuilder sb = new StringBuilder();
-                    int result=list.get(i).getNum();
+                    String result=list.get(i).getNum();
                     sb.append(result);
                     sb.append(",");
                     end+=sb.toString();
@@ -269,7 +262,7 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
                 }
                 System.out.println(end);
                 end = end.substring(4,end.length()-1);
-                OkHttpUtils.get().url(Constant.WEIGHT_END+"20160401"+"/"+end).build().execute(new StringCallback() {
+                OkHttpUtils.get().url(Constant.WEIGHT_END+rfidCode+"/"+end).build().execute(new StringCallback() {
                     @Override
                     public void onError(Call call, Exception e) {
 
@@ -290,9 +283,10 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
                                     }).create();
                             dialog.show();
                             list.clear();
-                            i = 1;
+                            DataSupport.deleteAll(Detail.class,"rfidcode = ?",rfidCode);
+                            i = 0;
                         }else {
-                            Toast.makeText(CYWeight.this,"提交结果失败，请重新提交", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CYWeight.this,"提交结果失败"+result, Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -346,6 +340,39 @@ public class CYWeight extends BaseActivity implements View.OnClickListener,Weigh
 //                openReceiver();
 //                OpenService();
                 Log.d("MainActivity",rfidCode);
+                list = DataSupport.where("rfidcode = ?",rfidCode).find(Detail.class);
+                if (!(list.size()>0)){//数据库已有此卡号的数据
+                    //程序已进入先判断pc端是否有称重的数据
+                    OkHttpUtils.get().url(Constant.Weight_PC+rfidCode).build().execute(new StringCallback() {
+                        @Override
+                        public void onError(Call call, Exception e) {
+
+                        }
+
+                        @Override
+                        public void onResponse(String response) {
+                            list = JsonUtil.parseResult_pc(response,rfidCode);
+                            DataSupport.saveAll(list);
+                            if (list.size()>0){
+                                i = list.size();
+                            }else {
+                                i = 0;
+                            }
+                            preferenceService.save(i+"");
+//                    DataSupport.deleteAll(Detail.class,"rfidcode = ?","20160401");
+//                    DataSupport.saveAll(list);
+//                if (list.size()>0){
+//                    DataSupport.deleteAll(Detail.class);
+//                    DataSupport.saveAll(list);
+//                    list.clear();
+//                    list = DataSupport.findAll(Detail.class);
+//                    i = list.size();
+//                }else {
+//                    list = DataSupport.findAll(Detail.class);
+//                }
+                        }
+                    });
+                }
                 getNetConn();
                 //txt_code.setText((String)msg.obj);
                 //m_nCount++;

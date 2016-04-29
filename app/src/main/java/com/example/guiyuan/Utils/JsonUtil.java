@@ -138,7 +138,7 @@ public class JsonUtil {
     }
 
     //pc端的称重数据
-    public static List<Detail> parseResult_pc(String jsonStr){
+    public static List<Detail> parseResult_pc(String jsonStr,String rfidcode){
         List<Detail> list = new ArrayList<Detail>();
         try {
             JSONObject object = new JSONObject(jsonStr);
@@ -147,10 +147,10 @@ public class JsonUtil {
             int j = array.length();
             if (array.length()>0){
                 for (int i=0;i<array.length();i++){
-                    int id = Integer.parseInt(array.getJSONObject(i).getString("序号"));
+                    String num = array.getJSONObject(i).getString("序号");
                     String single_count = array.getJSONObject(i).getString("单次包数");
                     String weight = array.getJSONObject(i).getString("重量");
-                    Detail detail = new Detail(id,single_count,weight);
+                    Detail detail = new Detail(rfidcode,num,single_count,weight);
                     list.add(detail);
                 }
             }

@@ -6,24 +6,26 @@ import org.litepal.crud.DataSupport;
  * Created by huqiang on 2016/4/12 10:23.
  */
 public class Detail extends DataSupport {
-    private int num;
+    private String rfidcode;
+    private String num;
     private String single_count;
     private String weight;
 
     public Detail() {
     }
 
-    public Detail(int num, String single_count, String weight) {
+    public Detail(String rfidcode, String num, String single_count, String weight) {
+        this.rfidcode = rfidcode;
         this.num = num;
         this.single_count = single_count;
         this.weight = weight;
     }
 
-    public int getNum() {
+    public String getNum() {
         return num;
     }
 
-    public void setNum(int num) {
+    public void setNum(String num) {
         this.num = num;
     }
 
@@ -41,6 +43,14 @@ public class Detail extends DataSupport {
 
     public void setWeight(String weight) {
         this.weight = weight;
+    }
+
+    public String getRfidcode() {
+        return rfidcode;
+    }
+
+    public void setRfidcode(String rfidcode) {
+        this.rfidcode = rfidcode;
     }
 
     @Override
