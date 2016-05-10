@@ -18,7 +18,7 @@ import java.util.List;
  * Created by 83916 on 2016/1/2.
  */
 public class JsonUtil {
-
+    //登陆返回信息
     public static String parseLoginResult(String json){
         String str = "";
         try {
@@ -58,8 +58,6 @@ public class JsonUtil {
                     Log.i("123++++++++----",now);
                     list.add(now);
                 }
-
-
             }
             } catch (JSONException e) {
             e.printStackTrace();
@@ -137,7 +135,7 @@ public class JsonUtil {
         return result;
     }
 
-    //pc端的称重数据
+    //pc端已有的称重数据
     public static List<Detail> parseResult_pc(String jsonStr,String rfidcode){
         List<Detail> list = new ArrayList<Detail>();
         try {
@@ -154,7 +152,6 @@ public class JsonUtil {
                     list.add(detail);
                 }
             }
-
         } catch (JSONException e) {
             e.printStackTrace();
         }

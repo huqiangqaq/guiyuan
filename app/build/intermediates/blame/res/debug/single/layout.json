@@ -24,6 +24,10 @@
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\activity_chuku.xml"
     },
     {
+        "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\time_dialog.xml",
+        "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\time_dialog.xml"
+    },
+    {
         "merged": "D:\\Android\\Android Projects\\guiyuan\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_selectstore.xml",
         "source": "D:\\Android\\Android Projects\\guiyuan\\app\\src\\main\\res\\layout\\item_selectstore.xml"
     },

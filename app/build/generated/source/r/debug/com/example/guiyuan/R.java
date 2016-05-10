@@ -232,7 +232,7 @@ public final class R {
         public static final int ItemImage=0x7f0b0063;
         public static final int ItemText=0x7f0b0064;
         public static final int LinearLayout1=0x7f0b0015;
-        public static final int action_settings=0x7f0b006d;
+        public static final int action_settings=0x7f0b006e;
         public static final int btn_Login=0x7f0b002a;
         public static final int btn_del=0x7f0b0054;
         public static final int btn_detail=0x7f0b0057;
@@ -241,6 +241,7 @@ public final class R {
         public static final int btn_single=0x7f0b0062;
         public static final int carno=0x7f0b003b;
         public static final int checkbox=0x7f0b0029;
+        public static final int date_picker=0x7f0b006d;
         public static final int detail_chupi=0x7f0b0060;
         public static final int detail_jingzhong=0x7f0b0061;
         public static final int detail_maozhong=0x7f0b005f;
@@ -360,6 +361,7 @@ public final class R {
         public static final int item_selectstore=0x7f030010;
         public static final int nfcreceive=0x7f030011;
         public static final int spinner_checked_text=0x7f030012;
+        public static final int time_dialog=0x7f030013;
     }
     public static final class menu {
         public static final int chuku=0x7f0a0000;
